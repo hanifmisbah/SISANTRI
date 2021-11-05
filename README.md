@@ -17,8 +17,8 @@ Peluang (Opportunities)
 -	Banyak bediri pondok bebasis tahfidz nadzom	
 
 Ancaman (Threat)
--	Listrik mati
--	Banyak developer lain yang membuat aplikasi serupa
+-	keterbatasan dalam penggunaan smartphone di lingkungan pesantren
+-	penolakan yang di lakukan oleh pihak pesantren dikarenakan ingin mempertahankan tradisi pesantren 
 -	
 
 
