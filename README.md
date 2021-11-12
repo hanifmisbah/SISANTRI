@@ -18,7 +18,13 @@ Peluang (Opportunities)
 
 Ancaman (Threat)
 -	keterbatasan dalam penggunaan smartphone di lingkungan pesantren
--	penolakan yang di lakukan oleh pihak pesantren dikarenakan ingin mempertahankan tradisi pesantren 
+-	penolakan yang di lakukan oleh pihak pesantren dikarenakan ingin mempertahankan tradisi pesantren
+
+
+
+misi :
+membuat sistem yang bisa di gunakan disegala kondisi lingkungan pondok yang memiliki sistem yang berbeda beda
+tujuan mempermudah pengajar untuk memonitoring juga memanajemen catatan hafalan santri untuk di sampaikan ke orangtua
 
 
 
