@@ -24,4 +24,8 @@ urlpatterns = [
     # path('ortu/', include('ortu.urls')),
     # path('pengasuh/', include('pengasuh.urls')),
     # path('pengajar/', include('pengajar.urls')),
+    
+    
+    #yuhuu
+
 ]
