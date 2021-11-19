@@ -6,4 +6,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('profil/', views.profil),
+    path('datasantri/', views.datasantri),
+    path('datapengajar/', views.datapengajar),
+    path('datakitab/', views.datakitab),
 ]

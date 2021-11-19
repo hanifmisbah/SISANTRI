@@ -20,16 +20,16 @@
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a href="/adminpondok/profil/">
+                <a href="/adminpondok/profil">
                     <button style="color:black" class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profil</button>
                 </a>
-                </li>
+            </li>
             <li class="nav-item" role="presentation">
                 <button style="color:black" class="nav-link dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Data</button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Data Santri</a></li>
-                        <li><a class="dropdown-item" href="#">Data Pengajar</a></li>
-                        <li><a class="dropdown-item" href="#">Data Kitab</a></li>
+                        <li><a class="dropdown-item" href="/adminpondok/datasantri">Data Santri</a></li>
+                        <li><a class="dropdown-item" href="/adminpondok/datapengajar">Data Pengajar</a></li>
+                        <li><a class="dropdown-item" href="/adminpondok/datakitab">Data Kitab</a></li>
                         <li><a class="dropdown-item" href="#">Data Al-Qur'an</a></li>
                         <li><a class="dropdown-item" href="#">Data Kitab Kuning</a></li>
                     </ul>
@@ -39,7 +39,7 @@
     <!-- <div class=" d-flex justify-content-center"> -->
         <main>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-panel fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     {% block content %}
                     {% endblock %}
                 </div>

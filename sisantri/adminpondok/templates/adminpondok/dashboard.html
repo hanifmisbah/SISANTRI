@@ -2,61 +2,97 @@
 {% block content %}
 
 <div class="content">
-<div class="container-fluid">
-<div class="row">
-    <h4 class="col-9">Dashboard</h4>
-    <div class="col-md-6">
-        <div class="card mb-3" style="max-width: 80rem;">
-            <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Data Santri</div>
-            <div class="card-body">
-                <!-- <hr style="width: 0.1rem; height: 10rem;"> -->
-                <div class="card-group">
-                    <div class="card text-center">
-                      <div class="card-body">
-                        <h6 class="card-title">Jumlah Santri</h6>
-                        <h1>1,330</h1>
-                        <p>15 santri merangkap menjadi pengajar</p>
-                      </div>
+    <div class="container-fluid">
+        <div class="row px-3 py-2 mb-0">
+            <h4 class="col-9">Dashboard</h4>
+            <div class="col-md-6">
+                <div class="card mb-3" style="max-width: 80rem;">
+                    <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Data Santri</div>
+                    <div class="card-body">
+                        <!-- <hr style="width: 0.1rem; height: 10rem;"> -->
+                        <div class="card-group">
+                            <div class="card text-center">
+                            <div class="card-body">
+                                <h6 class="card-title">Jumlah Santri</h6>
+                                <h1>1,330</h1>
+                                <p>15 santri merangkap menjadi pengajar</p>
+                            </div>
+                            </div>
+                            <div class="card text-center">
+                            <div class="card-body">
+                                <h6 class="card-title">Santri Laki-Laki</h6>
+                                <h1>630</h1>
+                                <p>5 santri merangkap menjadi pengajar</p>
+                            </div>
+                            </div>
+                            <div class="card text-center">
+                            <div class="card-body">
+                                <h6 class="card-title">Santri Perempuan</h6>
+                                <h1>700</h1>
+                                <p>10 santri merangkap menjadi pengajar</p>
+                            </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card text-center">
-                      <div class="card-body">
-                        <h6 class="card-title">Santri Laki-Laki</h6>
-                        <h1>630</h1>
-                        <p>5 santri merangkap menjadi pengajar</p>
-                      </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3" style="max-width: 30rem;">
+                    <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Daftar Kitab</div>
+                    <div class="card-body">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist" >
+                            <li class="nav-item" role="presentation">
+                                <!-- <a href=""> -->
+                                    <button style="color:black" class="nav-link active" id="quran-tab" data-bs-toggle="tab" data-bs-target="#quran" type="button" role="tab" aria-controls="quran" aria-selected="true">Al-Qur'an</button>
+                                    <!-- </a> -->
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                <!-- <a href=""> -->
+                                    <button style="color:black" class="nav-link active" id="nadhom-tab" data-bs-toggle="tab" data-bs-target="#nadhom" type="button" role="tab" aria-controls="nadhom" aria-selected="true">Nadhom</button>
+                                <!-- </a> -->
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <!-- <a href=""> -->
+                                    <button style="color:black" class="nav-link active" id="matan-tab" data-bs-toggle="tab" data-bs-target="#matan" type="button" role="tab" aria-controls="matan" aria-selected="true">Matan</button>
+                                <!-- </a> -->
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-panel fade show active" id="quran" role="tabpanel" aria-labelledby="quran-tab">
+                                {% block content1 %} {% endblock %}
+                            </div>
+                        </div>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-panel fade" id="nadhom" role="tabpanel" aria-labelledby="nadhom-tab">
+                                <h1>nadhom</h1>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-panel fade" id="matan" role="tabpanel" aria-labelledby="matan-tab">
+                                <h1>matan</h1>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card text-center">
-                      <div class="card-body">
-                        <h6 class="card-title">Santri Perempuan</h6>
-                        <h1>700</h1>
-                        <p>10 santri merangkap menjadi pengajar</p>
-                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="row px-3 py-2">
+            <div class="col-sm-6">
+                <div class="card mb-3" style="max-width: 21rem;">
+                    <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Daftar Pengajar</div>
+                    <div class="card-body">
+                        <div class="card text-center">
+                            <div class="card-body mb-5">
+                            <h6 class="card-title">Jumlah Pengajar</h6>
+                            <h1>67</h1>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="card mb-3" style="max-width: 30rem;">
-            <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Daftar Kitab</div>
-            <div class="card-body">
-                <h5 class="card-title">Light card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card mb-3" style="max-width: 21rem;">
-            <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Daftar Pengajar</div>
-            <div class="card-body">
-                <h5 class="card-title">Light card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
 </div>
 
-  
+
 {% endblock %}
