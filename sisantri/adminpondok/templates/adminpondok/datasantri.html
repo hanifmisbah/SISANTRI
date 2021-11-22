@@ -1,6 +1,89 @@
 {% extends "adminpondok/base.html" %}
 {% block content %}
 
-<h1>Data Santri</h1>
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="m-3">
+            {{forms}}
+        </div>
+        <div>
+            <h5>NIS</h5>
+            <input type="number" name="nis">
+        </div>
+        <div>
+            <h5>Nama Lengkap</h5>
+            <input type="text" name="nama_santri">
+        </div>
+        <div>
+            <h5>Tempat Lahir</h5>
+            <input type="text" name="tempat_lahir">
+        </div>
+        <div>
+            <h5>Tanggal Lahir</h5>
+            <input type="date" name="tanggal_lahir" id="">
+        </div>
+        <div>
+            <h5>Jenis Kelamin</h5>
+            <input type="radio" name="jk" id="">
+            <label for="">Laki-Laki</label>
+            <input type="radio" name="jk" id="">
+            <label for="">Perempuan</label>
+        </div>
+        <div>
+            <h5>Alamat</h5>
+            <input type="text" name="almt">
+        </div>
+        <div>
+            <h5>No.Telp</h5>
+            <input type="number" name="telp">
+        </div>
+        <div>
+            <h5>Email</h5>
+            <input type="email" name="email" id="">
+        </div>
+        <div>
+            <h5>Kategori</h5>
+            <input type="radio" name="ktgri">
+            
+        </div>
+        <div>
+            <input type="submit" value="submit">
+        </div>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">NIS</th>
+        <th scope="col">Nama Lengkap</th>
+        <th scope="col">Tempat Lahir</th>
+        <th scope="col">Tanggal Lahir</th>
+        <th scope="col">Jenis Kelamin</th>
+        <th scope="col">Alamat</th>
+        <th scope="col">Telp</th>
+        <th scope="col">Email</th>
+        <th scope="col">Kategori</th>
+      </tr>
+    </thead>
+    {% for d in data %}
+    <tbody>
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{d.nis}}</td>
+        <td>{{d.nama_santri}}</td>
+        <td>{{d.tempat_lahir}}</td>
+        <td>{{d.tanggal_lahir}}</td>
+        <td>{{d.jk}}</td>
+        <td>{{d.almt}}</td>
+        <td>{{d.telp}}</td>
+        <td>{{d.email}}</td>
+        <td>{{d.ktgri}}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
 
 {% endblock %}
