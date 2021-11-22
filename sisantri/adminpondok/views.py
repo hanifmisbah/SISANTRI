@@ -14,11 +14,11 @@ def profil(req):
 
 
 def datasantri(req):
-    # form = forms.Santri()
+    #form = forms.Santri()
     if req.POST:
-        # form = forms.Santri(req.POST)
+        #form = forms.Santri(req.POST)
         # if form.is_valid():
-        #     form.save()
+        #    form.save()
         models.Santri.objects.create(
             nis=req.POST['nis'],
             nama_santri=req.POST['nama_santri'],
@@ -31,7 +31,6 @@ def datasantri(req):
             ktgri=req.POST['ktgri'],
         )
         return redirect('/adminpondok/datasantri')
-
     santri = models.Santri.objects.all()
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri,
@@ -40,7 +39,29 @@ def datasantri(req):
 
 
 def datapengajar(req):
-    return render(req, 'adminpondok/datapengajar.html')
+    #form = forms.Santri()
+    if req.POST:
+        #form = forms.Santri(req.POST)
+        # if form.is_valid():
+        #    form.save()
+        models.Pengajar.objects.create(
+            nama_pengajar=req.POST['nama_pengajar'],
+            tempat_lahir=req.POST['tempat_lahir'],
+            tanggal_lahir=req.POST['tanggal_lahir'],
+            almt=req.POST['almt'],
+            jk=req.POST['jk'],
+            noind_pengajar=req.POST['noind_pengajar'],
+            telp=req.POST['telp'],
+            email=req.POST['email'],
+
+        )
+        return redirect('/adminpondok/datapengajar')
+
+    pengajar = models.Pengajar.objects.all()
+    return render(req, 'adminpondok/datapengajar.html', {
+        'data': pengajar,
+        # 'form' : form,
+    })
 
 
 def datakitab(req):
@@ -58,3 +79,27 @@ def kitabkuning(req):
 def delete(req, id):
     models.Santri.objects.filter(pk=id).delete()  # pk = primary key
     return redirect('/adminpondok/datasantri')
+
+
+def deletepengajar(request, id):
+    models.Pengajar.objects.filter(pk=id).delete()
+    return redirect('/adminpondok/datapengajar')
+
+
+def editpengajar(req, id):
+    if req.POST:
+        models.Pengajar.objects.filter(pk=id).update(
+            nama_pengajar=req.POST['nama_pengajar'],
+            tempat_lahir=req.POST['tempat_lahir'],
+            tanggal_lahir=req.POST['tanggal_lahir'],
+            almt=req.POST['almt'],
+            jk=req.POST['jk'],
+            noind_pengajar=req.POST['noind_pengajar'],
+            telp=req.POST['telp'],
+            email=req.POST['email'])
+        return redirect('/')
+
+    tasks = models.models.Pengajar.objects.all()
+    return render(req, 'edit.html', {
+        'data': tasks,
+    })
