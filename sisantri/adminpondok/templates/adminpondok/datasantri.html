@@ -5,7 +5,7 @@
     <form action="" method="post">
         {% csrf_token %}
         <div class="m-3">
-            {{forms}}
+            <!-- {{forms}} -->
         </div>
         <div>
             <h5>NIS</h5>
@@ -45,7 +45,7 @@
         <div>
             <h5>Kategori</h5>
             <input type="radio" name="ktgri">
-            
+
         </div>
         <div>
             <input type="submit" value="submit">
@@ -55,35 +55,78 @@
 
 <table class="table">
     <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">NIS</th>
-        <th scope="col">Nama Lengkap</th>
-        <th scope="col">Tempat Lahir</th>
-        <th scope="col">Tanggal Lahir</th>
-        <th scope="col">Jenis Kelamin</th>
-        <th scope="col">Alamat</th>
-        <th scope="col">Telp</th>
-        <th scope="col">Email</th>
-        <th scope="col">Kategori</th>
-      </tr>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">NIS</th>
+            <th scope="col">Nama Lengkap</th>
+            <th scope="col">Tempat Lahir</th>
+            <th scope="col">Tanggal Lahir</th>
+            <th scope="col">Jenis Kelamin</th>
+            <th scope="col">Alamat</th>
+            <th scope="col">Telp</th>
+            <th scope="col">Email</th>
+            <th scope="col">Kategori</th>
+        </tr>
     </thead>
     {% for d in data %}
     <tbody>
-      <tr>
-        <th scope="row">{{ forloop.counter }}</th>
-        <td>{{d.nis}}</td>
-        <td>{{d.nama_santri}}</td>
-        <td>{{d.tempat_lahir}}</td>
-        <td>{{d.tanggal_lahir}}</td>
-        <td>{{d.jk}}</td>
-        <td>{{d.almt}}</td>
-        <td>{{d.telp}}</td>
-        <td>{{d.email}}</td>
-        <td>{{d.ktgri}}</td>
-      </tr>
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{d.nis}}</td>
+            <td>{{d.nama_santri}}</td>
+            <td>{{d.tempat_lahir}}</td>
+            <td>{{d.tanggal_lahir}}</td>
+            <td>{{d.jk}}</td>
+            <td>{{d.almt}}</td>
+            <td>{{d.telp}}</td>
+            <td>{{d.email}}</td>
+            <td>{{d.ktgri}}</td>
+        </tr>
     </tbody>
     {% endfor %}
-  </table>
+</table>
+
+<table class="table table-bordered">
+    <thead class="">
+        <tr style="background-color: #138500; color: #FFFFFF;">
+            <th scope="col">Nomor Induk Santri</th>
+            <th scope="col">Nama Lengkap</th>
+            <th scope="col">Tempat Lahir</th>
+            <th scope="col">Tanggal Lahir</th>
+            <th scope="col">Jenis Kelamin</th>
+            <th scope="col">Alamat</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">No.Telp</th>
+            <th scope="col">Email</th>
+            <th scope="col">Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">102331</th>
+            <td>Samsul Hadi</td>
+            <td>SLEMAN</td>
+            <td>18 MEI 1999</td>
+            <td>LAKI-LAKI</td>
+            <td>Bantulan rt 4 rw 7
+                Kec.Sleman Kab.Sleman
+                Jogjakarta</td>
+            <td>Nadhom . Matan</td>
+            <td>089123456123</td>
+            <td>samsulhad12...</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+        </tr>
+    </tbody>
+</table>
 
 {% endblock %}

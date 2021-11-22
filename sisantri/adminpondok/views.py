@@ -10,6 +10,7 @@ def profil(req):
     return render(req, 'adminpondok/profil.html')
 
 def datasantri(req):
+#<<<<<<< HEAD
     #form = forms.Santri()
     if req.POST:
         #form = forms.Santri(req.POST)
@@ -27,6 +28,25 @@ def datasantri(req):
              ktgri=req.POST['ktgri'],
          )
         return redirect('/adminpondok/datasantri')
+#=======
+    # form = forms.Santri()
+    if req.POST:
+        # form = forms.Santri(req.POST)
+        # if form.is_valid():
+        #     form.save()
+        models.Santri.objects.create(
+            nis=req.POST['nis'],
+            nama_santri=req.POST['nama_santri'],
+            tempat_lahir=req.POST['tempat_lahir'],
+            tanggal_lahir=req.POST['tanggal_lahir'],
+            jk=req.POST['jk'],
+            almt=req.POST['almt'],
+            telp=req.POST['telp'],
+            email=req.POST['email'],
+            ktgri=req.POST['ktgri'],
+        )
+        return redirect('/adminpondok')
+#>>>>>>> 5bb15c1d1b643226947612b8912a23478ce131cf
 
     santri = models.Santri.objects.all()
     return render(req, 'adminpondok/datasantri.html', {
