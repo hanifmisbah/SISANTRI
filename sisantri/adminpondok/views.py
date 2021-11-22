@@ -93,7 +93,7 @@ def deletepengajar(request, id):
     return redirect('/adminpondok/datapengajar')
 
 def editpengajar(req, id):
-    if request.POST:
+    if req.POST:
         models.Pengajar.objects.filter(pk=id).update(
             nama_pengajar=req.POST['nama_pengajar'],
             tempat_lahir=req.POST['tempat_lahir'],
@@ -106,6 +106,6 @@ def editpengajar(req, id):
         return redirect('/')
 
     tasks = models.models.Pengajar.objects.all()
-    return render(request, 'edit.html', {
+    return render(req, 'edit.html', {
     'data': tasks,
     })
