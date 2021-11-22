@@ -2,5 +2,89 @@
 {% block content %}
 
 <h1>Data Pengajar</h1>
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="m-3">
+            {{forms}}
+        </div>
+        <div>
+            <h5>Nama Lengkap</h5>
+            <input type="text" name="nama_pengajar">
+        </div>
+        <div>
+            <h5>Tempat Lahir</h5>
+            <input type="text" name="tempat_lahir">
+        </div>
+        <div>
+            <h5>Tanggal Lahir</h5>
+            <input type="date" name="tanggal_lahir" id="">
+        </div>
+        <div>
+            <h5>Jenis Kelamin</h5>
+            <input type="radio" name="jk" id="">
+            <label for="">Laki-Laki</label>
+            <input type="radio" name="jk" id="">
+            <label for="">Perempuan</label>
+        </div>
+        <div>
+            <h5>Alamat</h5>
+            <input type="text" name="almt">
+        </div>
+        <div>
+            <h5>No. Induk Pengajar</h5>
+            <input type="number" name="noindpengajar"
+        </div>
+        <div>
+            <h5>No.Telp</h5>
+            <input type="number" name="telp">
+        </div>
+        <div>
+            <h5>Email</h5>
+            <input type="email" name="email" id="">
+        </div>
+        
+        <div>
+            <input type="submit" value="submit">
+        </div>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Nama Lengkap</th>
+        <th scope="col">Tempat Lahir</th>
+        <th scope="col">Tanggal Lahir</th>
+        <th scope="col">Jenis Kelamin</th>
+        <th scope="col">Alamat</th>
+        <th scope="col">No. Induk Pengajar</th>
+        <th scope="col">Telp</th>
+        <th scope="col">Email</th>
+        
+      </tr>
+    </thead>
+    {% for d in data %}
+    <tbody>
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{d.nama_pengajar}}</td>
+        <td>{{d.tempat_lahir}}</td>
+        <td>{{d.tanggal_lahir}}</td>
+        <td>{{d.jk}}</td>
+        <td>{{d.almt}}</td>
+        <td>{{d.noind_pengajar}}</td>
+        <td>{{d.telp}}</td>
+        <td>{{d.email}}</td>
+        
+        <td>
+            <a type="button"class="btn btn-warning" href="/datapengajar/{{d.id}}/editpengajar">Edit</a>
+            <a type="button"class="btn btn-danger" href="/{{d.id}}/deletepengajar">Hapus</a>
+        </td>
+    </tr>
+    </tbody>
+    {% endfor %}
+  </table>
 
 {% endblock %}
