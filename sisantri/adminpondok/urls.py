@@ -9,4 +9,6 @@ urlpatterns = [
     path('datasantri/', views.datasantri),
     path('datapengajar/', views.datapengajar),
     path('datakitab/', views.datakitab),
+    path('quran/', views.quran),
+    path('kitabkuning/', views.kitabkuning),
 ]
