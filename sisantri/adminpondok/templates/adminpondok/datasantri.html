@@ -5,7 +5,7 @@
     <form action="" method="post">
         {% csrf_token %}
         <div class="m-3">
-            {{forms}}
+            <!-- {{forms}} -->
         </div>
         <div>
             <h5>NIS</h5>
@@ -45,7 +45,7 @@
         <div>
             <h5>Kategori</h5>
             <input type="radio" name="ktgri">
-            
+
         </div>
         <div>
             <input type="submit" value="submit">
@@ -55,36 +55,36 @@
 
 <table class="table">
     <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">NIS</th>
-        <th scope="col">Nama Lengkap</th>
-        <th scope="col">Tempat Lahir</th>
-        <th scope="col">Tanggal Lahir</th>
-        <th scope="col">Jenis Kelamin</th>
-        <th scope="col">Alamat</th>
-        <th scope="col">Telp</th>
-        <th scope="col">Email</th>
-        <th scope="col">Kategori</th>
-      </tr>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">NIS</th>
+            <th scope="col">Nama Lengkap</th>
+            <th scope="col">Tempat Lahir</th>
+            <th scope="col">Tanggal Lahir</th>
+            <th scope="col">Jenis Kelamin</th>
+            <th scope="col">Alamat</th>
+            <th scope="col">Telp</th>
+            <th scope="col">Email</th>
+            <th scope="col">Kategori</th>
+        </tr>
     </thead>
     {% for d in data %}
     <tbody>
-      <tr>
-        <th scope="row">{{ forloop.counter }}</th>
-        <td>{{d.nis}}</td>
-        <td>{{d.nama_santri}}</td>
-        <td>{{d.tempat_lahir}}</td>
-        <td>{{d.tanggal_lahir}}</td>
-        <td>{{d.jk}}</td>
-        <td>{{d.almt}}</td>
-        <td>{{d.telp}}</td>
-        <td>{{d.email}}</td>
-        <td>{{d.ktgri}}</td>
-      </tr>
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{d.nis}}</td>
+            <td>{{d.nama_santri}}</td>
+            <td>{{d.tempat_lahir}}</td>
+            <td>{{d.tanggal_lahir}}</td>
+            <td>{{d.jk}}</td>
+            <td>{{d.almt}}</td>
+            <td>{{d.telp}}</td>
+            <td>{{d.email}}</td>
+            <td>{{d.ktgri}}</td>
+        </tr>
     </tbody>
     {% endfor %}
-  </table>
+</table>
 
 <table class="table table-bordered">
     <thead class="">
