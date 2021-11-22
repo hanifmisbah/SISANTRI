@@ -3,11 +3,15 @@ from django.shortcuts import redirect, render
 from . import models, forms
 
 # Create your views here.
+
+
 def index(req):
     return render(req, 'adminpondok/dashboard.html')
 
+
 def profil(req):
     return render(req, 'adminpondok/profil.html')
+
 
 def datasantri(req):
     # form = forms.Santri()
@@ -26,22 +30,31 @@ def datasantri(req):
             email=req.POST['email'],
             ktgri=req.POST['ktgri'],
         )
-        return redirect('/adminpondok')
+        return redirect('/adminpondok/datasantri')
 
     santri = models.Santri.objects.all()
     return render(req, 'adminpondok/datasantri.html', {
-        'data' : santri,
+        'data': santri,
         # 'form' : form,
     })
+
 
 def datapengajar(req):
     return render(req, 'adminpondok/datapengajar.html')
 
+
 def datakitab(req):
     return render(req, 'adminpondok/datakitab.html')
+
 
 def quran(req):
     return render(req, 'adminpondok/quran.html')
 
+
 def kitabkuning(req):
     return render(req, 'adminpondok/kitabkuning.html')
+
+
+def delete(req, id):
+    models.Santri.objects.filter(pk=id).delete()  # pk = primary key
+    return redirect('/adminpondok/datasantri')

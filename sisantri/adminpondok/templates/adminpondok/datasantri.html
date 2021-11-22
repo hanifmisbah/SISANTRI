@@ -1,12 +1,122 @@
 {% extends "adminpondok/base.html" %}
 {% block content %}
 
-<div class="container">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+    style="background-color: #138500;">
+    Input
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <form action="" method="post">
+                {% csrf_token %}
+
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Input Data Santri</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
+                        <input type="text" class="form-control" name="nis" id="floatingInput"
+                            placeholder="NomorIndukSantri">
+                        <label for="floatingInput">Nomor Induk Santri </label>
+                    </div>
+                    <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+                        <input type="text" class="form-control" name="telp" id="floatingInput" placeholder="NoTelp">
+                        <label for="floatingInput"> No.Telp </label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-9" style="display: inline-block ; width: 50%;">
+                        <input type="text" class="form-control" name="nama_santri" id="floatingPassword"
+                            placeholder="NamaLengkap">
+                        <label for="floatingPassword">Nama Lengkap</label>
+                    </div>
+
+                    <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+                        <input type="text" class="form-control" name="email" id="floatingInput" placeholder="NoTelp">
+                        <label for="floatingInput"> Email </label>
+                    </div>
+                    <h></h>
+                    <div class="form-floating mb-3 " style="display: inline-block;">
+                        <input type="text" class="form-control" name="tempat_lahir" id="floatingInput"
+                            placeholder="TempatLahir">
+                        <label for="floatingInput">Tempat Lahir</label>
+                    </div>
+
+                    <div class="form-floating mb-3" style="display: inline-block;">
+                        <input type="date" name="tanggal_lahir">
+                    </div>
+                    <div class="row-4">
+                        <label>Jenis Kelamin</label>
+                        <div class="" style="margin-left: 2rem;">
+                            <div class=" mb-10 form-check">
+                                <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Laki-Laki
+                                </label>
+                            </div>
+                            <div class="form-check ml-2">
+                                <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Perempuan
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-4" style="display: inline-block;">
+                        <Label>Kategori</Label>
+                        <div class="form-check">
+                            <input class="form-check-input" name="ktgri" type="checkbox" value="" id="Al-Quran">
+                            <label class="form-check-label" for="Al-Quran">
+                                Al-Quran
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="ktgri" type="checkbox" value="" id="Nadzom">
+                            <label class="form-check-label" for="Nadzom">
+                                Nadzom
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="ktgri" type="checkbox" value="" id="Matan">
+                            <label class="form-check-label" for="Matan">
+                                Matan
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" name="almt" placeholder="Leave a comment here" id="Alamat"
+                            style="height: 100px"></textarea>
+                        <label for="Alamat">Alamat Santri</label>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<!-- <div class="container">
     <form action="" method="post">
         {% csrf_token %}
-        <div class="m-3">
-            <!-- {{forms}} -->
-        </div>
+        <div class="m-3"> -->
+<!-- {{forms}} -->
+<!-- </div>
         <div>
             <h5>NIS</h5>
             <input type="number" name="nis">
@@ -51,21 +161,22 @@
             <input type="submit" value="submit">
         </div>
     </form>
-</div>
+</div> -->
 
-<table class="table">
+<table class="table table-bordered">
     <thead>
-        <tr>
-            <th scope="col">#</th>
+        <tr style="background-color: #138500; color: #FFFFFF ;">
+            <th scope="col">No</th>
             <th scope="col">NIS</th>
             <th scope="col">Nama Lengkap</th>
-            <th scope="col">Tempat Lahir</th>
-            <th scope="col">Tanggal Lahir</th>
+            <th scope="col">Tempat, Tanggal Lahir</th>
             <th scope="col">Jenis Kelamin</th>
             <th scope="col">Alamat</th>
             <th scope="col">Telp</th>
             <th scope="col">Email</th>
             <th scope="col">Kategori</th>
+            <th scope="col">Action</th>
+
         </tr>
     </thead>
     {% for d in data %}
@@ -74,59 +185,20 @@
             <th scope="row">{{ forloop.counter }}</th>
             <td>{{d.nis}}</td>
             <td>{{d.nama_santri}}</td>
-            <td>{{d.tempat_lahir}}</td>
-            <td>{{d.tanggal_lahir}}</td>
+            <td>{{d.tempat_lahir}}, {{d.tanggal_lahir}}</td>
             <td>{{d.jk}}</td>
             <td>{{d.almt}}</td>
             <td>{{d.telp}}</td>
             <td>{{d.email}}</td>
             <td>{{d.ktgri}}</td>
+            <td>
+                <a class="btn btn-sm btn-success" href="/{{d.id}}/detail">Detail</a>
+                <a class="btn btn-sm btn-warning" href="/{{d.id}}/update">Update</a>
+                <a class="btn btn-sm btn-danger" href="/{{d.id}}/delete/">Delete</a>
+            </td>
         </tr>
     </tbody>
     {% endfor %}
-</table>
-
-<table class="table table-bordered">
-    <thead class="">
-        <tr style="background-color: #138500; color: #FFFFFF;">
-            <th scope="col">Nomor Induk Santri</th>
-            <th scope="col">Nama Lengkap</th>
-            <th scope="col">Tempat Lahir</th>
-            <th scope="col">Tanggal Lahir</th>
-            <th scope="col">Jenis Kelamin</th>
-            <th scope="col">Alamat</th>
-            <th scope="col">Kategori</th>
-            <th scope="col">No.Telp</th>
-            <th scope="col">Email</th>
-            <th scope="col">Aksi</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">102331</th>
-            <td>Samsul Hadi</td>
-            <td>SLEMAN</td>
-            <td>18 MEI 1999</td>
-            <td>LAKI-LAKI</td>
-            <td>Bantulan rt 4 rw 7
-                Kec.Sleman Kab.Sleman
-                Jogjakarta</td>
-            <td>Nadhom . Matan</td>
-            <td>089123456123</td>
-            <td>samsulhad12...</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-        </tr>
-    </tbody>
 </table>
 
 {% endblock %}
