@@ -104,10 +104,6 @@ def editpengajar(req, id):
         'data': tasks,
     })
 
-
-# SANTRI======================================================================
-
-
 def deletesantri(req, id):
     models.Santri.objects.filter(pk=id).delete()
     return redirect('/adminpondok/datasantri')
