@@ -45,12 +45,12 @@ def datapengajar(req):
         # if form.is_valid():
         #    form.save()
         models.Pengajar.objects.create(
+            NIP=req.POST['NIP'],
             nama_pengajar=req.POST['nama_pengajar'],
             tempat_lahir=req.POST['tempat_lahir'],
             tanggal_lahir=req.POST['tanggal_lahir'],
             almt=req.POST['almt'],
             jk=req.POST['jk'],
-            noind_pengajar=req.POST['noind_pengajar'],
             telp=req.POST['telp'],
             email=req.POST['email'],
 
@@ -89,12 +89,12 @@ def deletepengajar(req, id):
 def editpengajar(req, id):
     if req.POST:
         models.Pengajar.objects.filter(pk=id).update(
+            NIP=req.POST['NIP'],
             nama_pengajar=req.POST['nama_pengajar'],
             tempat_lahir=req.POST['tempat_lahir'],
             tanggal_lahir=req.POST['tanggal_lahir'],
             almt=req.POST['almt'],
             jk=req.POST['jk'],
-            noind_pengajar=req.POST['noind_pengajar'],
             telp=req.POST['telp'],
             email=req.POST['email'])
         return redirect('/')
