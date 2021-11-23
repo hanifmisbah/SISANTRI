@@ -75,14 +75,10 @@ def quran(req):
 def kitabkuning(req):
     return render(req, 'adminpondok/kitabkuning.html')
 
-<<<<<<< HEAD
-# PENGAJAR======================================================================
-=======
 
 def deletesantri(req, id):
     models.Santri.objects.filter(pk=id).delete()  # pk = primary key
     return redirect('/adminpondok/datasantri')
->>>>>>> e588cbc8343ee373a921fbbdf7ba00935e2af48f
 
 
 def deletepengajar(req, id):
