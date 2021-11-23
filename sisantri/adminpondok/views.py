@@ -57,9 +57,9 @@ def datapengajar(req):
         )
         return redirect('/adminpondok/datapengajar')
 
-    pengajar = models.Pengajar.objects.all()
+    datapengajar = models.Pengajar.objects.all()
     return render(req, 'adminpondok/datapengajar.html', {
-        'data': pengajar,
+        'data': datapengajar,
         # 'form' : form,
     })
 
@@ -75,10 +75,17 @@ def quran(req):
 def kitabkuning(req):
     return render(req, 'adminpondok/kitabkuning.html')
 
+<<<<<<< HEAD
 # PENGAJAR======================================================================
+=======
+
+def deletesantri(req, id):
+    models.Santri.objects.filter(pk=id).delete()  # pk = primary key
+    return redirect('/adminpondok/datasantri')
+>>>>>>> e588cbc8343ee373a921fbbdf7ba00935e2af48f
 
 
-def deletepengajar(request, id):
+def deletepengajar(req, id):
     models.Pengajar.objects.filter(pk=id).delete()
     return redirect('/adminpondok/datapengajar')
 
@@ -96,7 +103,7 @@ def editpengajar(req, id):
             email=req.POST['email'])
         return redirect('/')
 
-    tasks = models.models.Pengajar.objects.all()
+    tasks = models.Pengajar.objects.all()
     return render(req, 'edit.html', {
         'data': tasks,
     })
