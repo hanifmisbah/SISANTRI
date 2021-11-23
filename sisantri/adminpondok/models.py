@@ -27,13 +27,12 @@ class Pengajar(models.Model):
         ('Laki-Laki', 'Laki-Laki'),
         ('Perempuan', 'Perempuan'),
     ]
-
+    NIP = models.IntegerField()
     nama_pengajar = models.CharField(max_length=30)
     tempat_lahir = models.CharField(max_length=20)
     tanggal_lahir = models.DateField()
     jk = models.CharField(max_length=9, choices=kelamin, default='')
     almt = models.TextField(default='')
-    noind_pengajar = models.IntegerField()
     telp = models.IntegerField(default=0)
     email = models.CharField(default='', max_length=20)
 
