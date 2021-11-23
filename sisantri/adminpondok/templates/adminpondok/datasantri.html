@@ -1,6 +1,7 @@
 {% extends "adminpondok/base.html" %}
 {% block content %}
 
+<h2> </h2>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
     style="background-color: #138500;">
@@ -33,7 +34,11 @@
                         <label for="floatingInput"> No.Telp </label>
                     </div>
 
+<<<<<<< HEAD
                     <div class="form-floating mb-3" style="display: inline-block ; width: 50%;">
+=======
+                    <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
+>>>>>>> ebf20e7ebc37099372c2f59349cea9f7dfe70489
                         <input type="text" class="form-control" name="nama_santri" id="floatingPassword"
                             placeholder="NamaLengkap">
                         <label for="floatingPassword">Nama Lengkap</label>
@@ -62,7 +67,7 @@
                                     Laki-Laki
                                 </label>
                             </div>
-                            <div class="form-check ml-2">
+                            <div class=" mb-10 form-check">
                                 <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Perempuan
@@ -73,13 +78,13 @@
 
                     <div class="row-4" style="display: inline-block;">
                         <Label>Kategori</Label>
-                        <div class="form-check">
-                            <input class="form-check-input" name="ktgri" type="checkbox" value="" id="Al-Quran">
+                        <div class=" mb-10 form-check">
+                            <input class=" form-check-input" name="ktgri" type="checkbox" value="" id="Al-Quran">
                             <label class="form-check-label" for="Al-Quran">
                                 Al-Quran
                             </label>
                         </div>
-                        <div class="form-check">
+                        <div class=" mb-10 form-check">
                             <input class="form-check-input" name="ktgri" type="checkbox" value="" id="Nadzom">
                             <label class="form-check-label" for="Nadzom">
                                 Nadzom
@@ -111,62 +116,26 @@
 </div>
 </div>
 
-<!-- <div class="container">
-    <form action="" method="post">
-        {% csrf_token %}
-        <div class="m-3"> -->
-<!-- {{forms}} -->
-<!-- </div>
-        <div>
-            <h5>NIS</h5>
-            <input type="number" name="nis">
-        </div>
-        <div>
-            <h5>Nama Lengkap</h5>
-            <input type="text" name="nama_santri">
-        </div>
-        <div>
-            <h5>Tempat Lahir</h5>
-            <input type="text" name="tempat_lahir">
-        </div>
-        <div>
-            <h5>Tanggal Lahir</h5>
-            <input type="date" name="tanggal_lahir" id="">
-        </div>
-        <div>
-            <h5>Jenis Kelamin</h5>
-            <input type="radio" name="jk" id="">
-            <label for="">Laki-Laki</label>
-            <input type="radio" name="jk" id="">
-            <label for="">Perempuan</label>
-        </div>
-        <div>
-            <h5>Alamat</h5>
-            <input type="text" name="almt">
-        </div>
-        <div>
-            <h5>No.Telp</h5>
-            <input type="number" name="telp">
-        </div>
-        <div>
-            <h5>Email</h5>
-            <input type="email" name="email" id="">
-        </div>
-        <div>
-            <h5>Kategori</h5>
-            <input type="radio" name="ktgri">
 
-        </div>
-        <div>
-            <input type="submit" value="submit">
-        </div>
-    </form>
-</div> -->
+<div class="min-h-screen bg-white py-5">
+    <div class="container-fluid">
 
-<table class="table table-bordered">
-    <thead>
-        <tr style="background-color: #138500; color: #FFFFFF ;">
-            <th scope="col">No</th>
+        <table class=' bg-white divide-y divide-gray-300' style="border: green;">
+            <thead class="" style="background-color: #138500; color: #FFFFFF;">
+                <!-- <tr class="text-white text-left" style="background-color: #138500; color: #FFFFFF ;"> -->
+                <tr>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> NIS </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Nama Lengkap</th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Tempat, Tanggal Lahir</th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Jenis Kelamin</th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Alamat</th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Telp</th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Email</th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Kategori</th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Action</th>
+
+                    <!-- <th scope="col">No</th>
             <th scope="col">NIS</th>
             <th scope="col">Nama Lengkap</th>
             <th scope="col">Tempat, Tanggal Lahir</th>
@@ -175,30 +144,32 @@
             <th scope="col">Telp</th>
             <th scope="col">Email</th>
             <th scope="col">Kategori</th>
-            <th scope="col">Action</th>
+            <th scope="col">Action</th> -->
 
-        </tr>
-    </thead>
-    {% for d in data %}
-    <tbody>
-        <tr>
-            <th scope="row">{{ forloop.counter }}</th>
-            <td>{{d.nis}}</td>
-            <td>{{d.nama_santri}}</td>
-            <td>{{d.tempat_lahir}}, {{d.tanggal_lahir}}</td>
-            <td>{{d.jk}}</td>
-            <td>{{d.almt}}</td>
-            <td>{{d.telp}}</td>
-            <td>{{d.email}}</td>
-            <td>{{d.ktgri}}</td>
-            <td>
-                <a class="btn btn-sm btn-success" href="/{{d.id}}/detail">Detail</a>
-                <a class="btn btn-sm btn-warning" href="/{{d.id}}/update">Update</a>
-                <a class="btn btn-sm btn-danger" href="/{{d.id}}/delete/">Delete</a>
-            </td>
-        </tr>
-    </tbody>
-    {% endfor %}
-</table>
+                </tr>
+            </thead>
+            {% for d in data %}
+            <tbody class="divide-y divide-gray-200">
+                <tr>
+                    <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                    <td class="text-center">{{d.nis}}</td>
+                    <td>{{d.nama_santri}}</td>
+                    <td>{{d.tempat_lahir}}, {{d.tanggal_lahir}}</td>
+                    <td>{{d.jk}}</td>
+                    <td>{{d.almt}}</td>
+                    <td>{{d.telp}}</td>
+                    <td>{{d.email}}</td>
+                    <td>{{d.ktgri}}</td>
+                    <td>
+                        <a class="btn btn-sm btn-success" href="/{{d.id}}/detail">Detail</a>
+                        <a class="btn btn-sm btn-warning" href="/{{d.id}}/update">Update</a>
+                        <a class="btn btn-sm btn-danger" href="{{d.id}}/delete">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
 
 {% endblock %}
