@@ -6,7 +6,7 @@ urlpatterns = [
     path('', views.index),
     path('profil/', views.profil),
     path('datapengajar/', views.datapengajar),
-    path('datapengajar/<id>/delete', views.deletepengajar),
+    path('datapengajar/<id>/deletepengajar', views.deletepengajar),
     path('datapengajar/<id>/editpengajar', views.editpengajar),
     path('datasantri/', views.datasantri),
     path('datasantri/<id>/delete', views.deletesantri),

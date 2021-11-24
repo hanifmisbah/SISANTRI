@@ -57,9 +57,9 @@ def datapengajar(req):
         )
         return redirect('/adminpondok/datapengajar')
 
-    datapengajar = models.Pengajar.objects.all()
+    pengajar = models.Pengajar.objects.all()
     return render(req, 'adminpondok/datapengajar.html', {
-        'data': datapengajar,
+        'data': pengajar,
         # 'form' : form,
     })
 
@@ -81,7 +81,7 @@ def deletesantri(req, id):
     return redirect('/adminpondok/datasantri')
 
 
-def deletepengajar(req, id):
+def deletepengajar(request, id):
     models.Pengajar.objects.filter(pk=id).delete()
     return redirect('/adminpondok/datapengajar')
 
