@@ -57,9 +57,9 @@ def datapengajar(req):
         )
         return redirect('/adminpondok/datapengajar')
 
-    datapengajar = models.Pengajar.objects.all()
+    Pengajar = models.Pengajar.objects.all()
     return render(req, 'adminpondok/datapengajar.html', {
-        'data': datapengajar,
+        'data': Pengajar,
         # 'form' : form,
     })
 
