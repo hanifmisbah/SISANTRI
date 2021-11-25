@@ -112,13 +112,21 @@ def alquran(req):
         return redirect('/adminpondok/quran')
 
     quran = models.Alquran.objects.all()
+    # det_surah = models.Alquran.objects.filter(pk=id).first()
     return render(req, 'adminpondok/quran.html', {
         'data' : quran,
+        # 'datasurah' : det_surah,
     })
 
 def deletequran(req, id):
     models.Alquran.objects.filter(pk=id).delete()
     return redirect('/adminpondok/quran')
+
+def detailquran(req, id):
+    detail = models.Alquran.objects.filter(pk=id).first()
+    return render(req, 'adminpondok/quran.html', {
+        'datasurah' : detail,
+    })
 
 def kitabkuning(req):
     return render(req, 'adminpondok/kitabkuning.html')
