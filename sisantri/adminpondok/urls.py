@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 
 from . import views
@@ -11,7 +10,8 @@ urlpatterns = [
     path('datasantri/', views.datasantri),
     path('datasantri/<id>/delete', views.deletesantri),
     path('datakitab/', views.datakitab),
-    path('quran/', views.quran),
+    path('quran/', views.alquran),
+    path('quran/<id>/delete', views.deletequran),
     path('kitabkuning/', views.kitabkuning),
     # path('<id>/update/', views.update),
     # path('<id>/detail/', views.detail),
