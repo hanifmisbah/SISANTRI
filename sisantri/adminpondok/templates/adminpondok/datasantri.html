@@ -1,14 +1,25 @@
 {% extends "adminpondok/base.html" %}
 {% block content %}
 
-<h2> </h2>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-    style="background-color: #138500;">
-    Input
-</button>
-
-<i class="fa-regular fa-user"></i>
+<h2>S A N T R I</h2>
+<nav class="navbar navbar-light bg-white">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                style="background-color: #138500; display: inline-block;">
+                Input
+            </button>
+            <button type="button" class="btn btn-success" style="background-color: #138500;">
+                import
+            </button>
+        </a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" style="background-color:#138500 ;" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -35,7 +46,6 @@
                         <input type="text" class="form-control" name="telp" id="floatingInput" placeholder="NoTelp">
                         <label for="floatingInput"> No.Telp </label>
                     </div>
-
                     <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
                         <input type="text" class="form-control" name="nama_santri" id="floatingPassword"
                             placeholder="NamaLengkap">
@@ -115,9 +125,8 @@
 </div>
 
 
-<div class="min-h-screen bg-white py-5">
+<div class="min-h-screen bg-white py-2">
     <div class="container-fluid">
-
         <table class=' bg-white divide-y divide-gray-300' style="border: green;">
             <thead class="" style="background-color: #138500; color: #FFFFFF;">
                 <!-- <tr class="text-white text-left" style="background-color: #138500; color: #FFFFFF ;"> -->

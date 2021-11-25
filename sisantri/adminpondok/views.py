@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import redirect, render
 
 from . import models, forms
@@ -103,7 +104,15 @@ def editpengajar(req, id):
     return render(req, 'edit.html', {
         'data': tasks,
     })
+#def updatepengajar(req, id):
+    #tasks = models.Pengajar.objects.filter(pk=id).first()
+    #return render(request, 'update.html', {
+   #     'data' : tasks, 
+    #})
+        
 
 def deletesantri(req, id):
     models.Santri.objects.filter(pk=id).delete()
     return redirect('/adminpondok/datasantri')
+
+
