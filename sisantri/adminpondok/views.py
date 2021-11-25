@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import redirect, render
 
 from . import models, forms
@@ -70,11 +71,29 @@ def datapengajar(req):
         )
         return redirect('/adminpondok/datapengajar')
 
-    datapengajar = models.Pengajar.objects.all()
+    pengajar = models.Pengajar.objects.all()
     return render(req, 'adminpondok/datapengajar.html', {
-        'data': datapengajar,
+        'data': pengajar,
         # 'form' : form,
     })
+
+
+def datakitab(req):
+    return render(req, 'adminpondok/datakitab.html')
+
+
+def quran(req):
+    return render(req, 'adminpondok/quran.html')
+
+
+def kitabkuning(req):
+    return render(req, 'adminpondok/kitabkuning.html')
+
+
+def deletesantri(req, id):
+    models.Santri.objects.filter(pk=id).delete()  # pk = primary key
+    return redirect('/adminpondok/datasantri')
+
 
 def deletepengajar(req, id):
     models.Pengajar.objects.filter(pk=id).delete()
@@ -98,7 +117,18 @@ def editpengajar(req, id):
     return render(req, 'edit.html', {
         'data': tasks,
     })
+#def updatepengajar(req, id):
+    #tasks = models.Pengajar.objects.filter(pk=id).first()
+    #return render(request, 'update.html', {
+   #     'data' : tasks, 
+    #})
+        
 
+<<<<<<< HEAD
+def deletesantri(req, id):
+    models.Santri.objects.filter(pk=id).delete()
+    return redirect('/adminpondok/datasantri')
+=======
 def datakitab(req):
     return render(req, 'adminpondok/datakitab.html')
 
@@ -133,5 +163,6 @@ def kitabkuning(req):
 
 
 
+>>>>>>> a572bb9d02f7970bab96cdc51e1f75ff2e6a5e15
 
 
