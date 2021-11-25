@@ -1,4 +1,4 @@
-<!-- {% load static %} -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,35 +19,40 @@
 
 <body>
     <div class="">
-        <!-- <img src="{% static 'img/ponpes.png' %}" class="logo" alt="Pondok Pesantren"> -->
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <h1>SiSantri</h1>
-            <li class="nav-item" role="presentation">
-                <a href="/adminpondok">
-                    <button style="color:black" class="nav-link active" id="home-tab" data-bs-toggle="tab"
+        <div class="container-fluid">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <img src="{% static 'img/ponpes.png' %}" class="logo mr-3" width="55px" alt="Pondok Pesantren">
+                <!-- <h1>SiSantri</h1> -->
+                <li class="nav-item" role="presentation">
+                    <a href="/adminpondok">
+                        <button style="color:black" class="nav-link active" id="home-tab" data-bs-toggle="tab"
                         data-bs-target="#home" type="button" role="tab" aria-controls="home"
                         aria-selected="true">Dashboard</button>
-                </a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a href="/adminpondok/profil">
-                    <button style="color:black" class="nav-link" id="home-tab" data-bs-toggle="tab"
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a href="/adminpondok/profil">
+                        <button style="color:black" class="nav-link" id="home-tab" data-bs-toggle="tab"
                         data-bs-target="#home" type="button" role="tab" aria-controls="home"
                         aria-selected="false">Profil</button>
-                </a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button style="color:black" class="nav-link dropdown-toggle" id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown" aria-expanded="false">Data</button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="/adminpondok/datasantri">Data Santri</a></li>
-                    <li><a class="dropdown-item" href="/adminpondok/datapengajar">Data Pengajar</a></li>
-                    <li><a class="dropdown-item" href="/adminpondok/quran">Data Al-Qur'an</a></li>
-                    <li><a class="dropdown-item" href="/adminpondok/kitabkuning">Data Kitab Kuning</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button style="color:black" class="nav-link dropdown-toggle" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">Data</button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="/adminpondok/datasantri">Data Santri</a></li>
+                        <li><a class="dropdown-item" href="/adminpondok/datapengajar">Data Pengajar</a></li>
+                        <li><a class="dropdown-item" href="/adminpondok/quran">Data Al-Qur'an</a></li>
+                        <li><a class="dropdown-item" href="/adminpondok/kitabkuning">Data Kitab Kuning</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a type="button" style="width: 50px " href=""><i class="fas fa-cog"></i></a>
+                </li>
+            </ul>
+        </div>
+</div>
     <main>
         <div class="tab-content" id="myTabContent">
             <div class="tab-panel fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
