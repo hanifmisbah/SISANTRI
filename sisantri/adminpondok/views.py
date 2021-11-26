@@ -9,15 +9,32 @@ def index(req):
     santri = models.Santri.objects.all()
     pengajar = models.Pengajar.objects.all()
     quran = models.Alquran.objects.all()
+    pngmn = models.Pengumuman.objects.all()
     return render(req, 'adminpondok/dashboard.html', {
         'santri' : santri,
         'pengajar' : pengajar,
         'quran' : quran,
+        'data' : pngmn,
     })
 
 
 def profil(req):
     return render(req, 'adminpondok/profil.html')
+
+
+
+#==========P E N G U M U M A N==========
+def pengumuman(req):
+    if req.POST:
+        models.Pengumuman.objects.create(
+            tgl=req.POST['tgl'],
+            pngmn=req.POST['pngmn'], 
+        )
+        return redirect('/')
+    pengumuman = models.Pengumuman.objects.all()
+    return render(req, 'adminpondok/dashboard.html', {
+        'data1': pengumuman,
+    })
 
 
 
@@ -72,6 +89,7 @@ def datapengajar(req):
             jk=req.POST['jk'],
             telp=req.POST['telp'],
             email=req.POST['email'],
+            pngjr=req.POST['pngjr'],
 
         )
         return redirect('/adminpondok/datapengajar')
