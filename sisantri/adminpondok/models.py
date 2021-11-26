@@ -2,6 +2,8 @@ from django.db import models
 from django.db.models.fields import CharField
 
 # Create your models here.
+
+
 class Santri(models.Model):
     kelamin = [
         ('Laki-Laki', 'Laki-Laki'),
@@ -22,6 +24,7 @@ class Santri(models.Model):
     telp = models.IntegerField(default=0)
     email = models.CharField(default='', max_length=20)
     ktgri = models.CharField(default='', choices=kategori, max_length=8)
+
 
 class Pengajar(models.Model):
     kelamin = [
