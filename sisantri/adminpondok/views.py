@@ -82,14 +82,6 @@ def datapengajar(req):
         # 'form' : form,
     })
 
-<<<<<<< HEAD
-def deletepengajar(req, id):
-    models.Pengajar.objects.filter(pk=id).delete()
-    return redirect('/adminpondok/datapengajar')
-
-
-=======
->>>>>>> 5f4531ebed50dceddca2668f95dd4a191578bd15
 def editpengajar(req, id):
     if req.POST:
         models.Pengajar.objects.filter(pk=id).update(
@@ -107,22 +99,10 @@ def editpengajar(req, id):
     return render(req, 'edit.html', {
         'data': tasks,
     })
-<<<<<<< HEAD
-#def updatepengajar(req, id):
-    #tasks = models.Pengajar.objects.filter(pk=id).first()
-    #return render(request, 'update.html', {
-   #     'data' : tasks, 
-    #})
-        
-
-def datakitab(req):
-    return render(req, 'adminpondok/datakitab.html')
-=======
 
 def deletepengajar(req, id):
     models.Pengajar.objects.filter(pk=id).delete()
     return redirect('/adminpondok/datapengajar')
->>>>>>> 5f4531ebed50dceddca2668f95dd4a191578bd15
 
 
 
