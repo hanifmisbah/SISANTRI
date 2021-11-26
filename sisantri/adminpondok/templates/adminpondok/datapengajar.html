@@ -2,11 +2,23 @@
 {% block content %}
 
 <h1>Data Pengajar</h1>
+<nav class="navbar navbar-light bg-white">
+    <div class="container-fluid">
+        <a class="navbar-brand">
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-    style="background-color: #138500;">
-    Input
-</button>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="background-color: #138500;">
+                Input
+            </button>
+            <button type="button" class="btn btn-success" style="background-color: #138500;">
+                import
+            </button>
+            </a>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success" style="background-color:#138500 ;" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -131,6 +143,7 @@
     </thead>
     {% for d in data %}
     <tbody>
+
         <tr>
             <th scope="row">{{ forloop.counter }}</th>
             <td>{{d.NIP}}</td>
@@ -149,6 +162,7 @@
                     href="/adminpondok/datapengajar/{{d.id}}/deletepengajar">Hapus</a>
             </td>
         </tr>
+
     </tbody>
     {% endfor %}
 </table>

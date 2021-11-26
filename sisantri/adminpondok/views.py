@@ -1,13 +1,19 @@
+from django.http import request
 from django.shortcuts import redirect, render
 
 from . import models, forms
-import adminpondok
 
-# Create your views here.
-
+# ============D A S H B O A R D=================
 
 def index(req):
-    return render(req, 'adminpondok/dashboard.html')
+    santri = models.Santri.objects.all()
+    pengajar = models.Pengajar.objects.all()
+    quran = models.Alquran.objects.all()
+    return render(req, 'adminpondok/dashboard.html', {
+        'santri' : santri,
+        'pengajar' : pengajar,
+        'quran' : quran,
+    })
 
 
 def profil(req):
@@ -70,16 +76,11 @@ def datapengajar(req):
         )
         return redirect('/adminpondok/datapengajar')
 
-    datapengajar = models.Pengajar.objects.all()
+    pengajar = models.Pengajar.objects.all()
     return render(req, 'adminpondok/datapengajar.html', {
-        'data': datapengajar,
+        'data': pengajar,
         # 'form' : form,
     })
-
-def deletepengajar(req, id):
-    models.Pengajar.objects.filter(pk=id).delete()
-    return redirect('/adminpondok/datapengajar')
-
 
 def editpengajar(req, id):
     if req.POST:
@@ -99,9 +100,13 @@ def editpengajar(req, id):
         'data': tasks,
     })
 
-def datakitab(req):
-    return render(req, 'adminpondok/datakitab.html')
+def deletepengajar(req, id):
+    models.Pengajar.objects.filter(pk=id).delete()
+    return redirect('/adminpondok/datapengajar')
 
+
+
+# ============K I T A B  A L - Q U R ' A N=================
 
 def alquran(req):
     if req.POST:
@@ -112,13 +117,26 @@ def alquran(req):
         return redirect('/adminpondok/quran')
 
     quran = models.Alquran.objects.all()
+    # det_surah = models.Alquran.objects.filter(pk=id).first()
     return render(req, 'adminpondok/quran.html', {
         'data' : quran,
+        # 'datasurah' : det_surah,
     })
 
 def deletequran(req, id):
     models.Alquran.objects.filter(pk=id).delete()
     return redirect('/adminpondok/quran')
+
+def detailquran(req, id):
+    detail = models.Alquran.objects.filter(pk=id).first()
+    return render(req, 'adminpondok/quran.html', {
+        'data' : detail,
+    })
+
+
+
+
+# ============K I T A B  K U N I N G=================
 
 def kitabkuning(req):
     return render(req, 'adminpondok/kitabkuning.html')
