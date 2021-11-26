@@ -14,49 +14,49 @@
                 import
             </button>
         </a>
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-success" style="background-color:#138500 ;" type="submit">Search</button>
-        </form>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success" style="background-color:#138500 ;" type="submit">Search</button>
+            </form>
     </div>
 </nav>
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+<!-- Modal Input -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
 
-            <form action="" method="post">
-                {% csrf_token %}
+                <form action="" method="post">
+                    {% csrf_token %}
 
 
-                <div class="modal-header">
-                    <h5 class="modal-title">Input Data Santri</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
-                        <input type="text" class="form-control" name="surah" id="floatingInput"
-                            placeholder="NomorIndukSantri">
-                        <label for="floatingInput">Nama Surah</label>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Input Data Santri</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
-                        <input type="text" class="form-control" name="ayat" id="floatingInput"
-                            placeholder="NomorIndukSantri">
-                        <label for="floatingInput">Jumlah Ayat</label>
-                    </div>
+                    <div class="modal-body">
 
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan</button>
+                        <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
+                            <input type="text" class="form-control" name="surah" id="floatingInput"
+                                placeholder="NomorIndukSantri">
+                            <label for="floatingInput">Nama Surah</label>
+                        </div>
+                        <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
+                            <input type="text" class="form-control" name="ayat" id="floatingInput"
+                                placeholder="NomorIndukSantri">
+                            <label for="floatingInput">Jumlah Ayat</label>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan</button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
+
         </div>
-
-    </div>
-</div>
+    </div>  
 </div>
 
 
@@ -79,9 +79,9 @@
                     <td class="text-center">{{d.surah}}</td>
                     <td class="text-center">{{d.ayat}}</td>
                     <td>
-                        <a class="btn btn-sm btn-success" href="/{{d.id}}/detail">Detail</a>
-                        <a class="btn btn-sm btn-warning" href="/{{d.id}}/update">Update</a>
-                        <a class="btn btn-sm btn-danger" href="/adminpondok/quran/{{d.id}}/delete">Delete</a>
+
+                        <a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#detail" href="/adminpondok/quran/{{d.id}}/detail"><i class="fas fa-info-circle"></i></a>
+                        <a class="btn btn-sm btn-danger" href="/adminpondok/quran/{{d.id}}/delete"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
             </tbody>
@@ -90,4 +90,17 @@
     </div>
 </div>
 
+<!-- Modal Detail -->
+    <div class="modal" id="detail" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
+        aria-labelledby="detailLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- {% for s in datasurah %} -->
+                    <h2>{{datasurah.surah}}</h2>
+                    <h2>{{satasurah.ayat}}</h2>
+                <!-- {% endfor %} -->
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

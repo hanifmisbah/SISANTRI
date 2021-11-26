@@ -14,7 +14,9 @@
                             <div class="card text-center">
                             <div class="card-body">
                                 <h6 class="card-title">Jumlah Santri</h6>
-                                <h1>1,330</h1>
+                                {% for s in santri %}
+                                <h1>{{ forloop.last}}</h1>
+                                {% endfor %}
                                 <p>15 santri merangkap menjadi pengajar</p>
                             </div>
                             </div>
@@ -39,74 +41,81 @@
             <div class="col-md-6">
                 <div class="card mb-3" style="max-width: 700px;">
                     <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Daftar Kitab</div>
-                    <div class="card-body" style="height: 20px;">
+                    <div class="card-body" style="height: 214px;">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                              <button style="color:black" class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Al-Qur'an</button>
+                              <button style="color:black" class="nav-link" id="quran-tab" data-bs-toggle="tab" data-bs-target="#quran" type="button" role="tab" aria-controls="quran" aria-selected="true">Al-Qur'an</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                              <button style="color:black" class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Nadhom</button>
+                              <button style="color:black" class="nav-link" id="nadhom-tab" data-bs-toggle="tab" data-bs-target="#nadhom" type="button" role="tab" aria-controls="nadhom" aria-selected="true">Nadhom</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                              <button style="color:black" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Matan</button>
+                              <button style="color:black" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="true">Matan</button>
                             </li>
                           </ul>
                           <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-pane fade show active" id="quran" role="tabpanel" aria-labelledby="quran-tab">
                                 <table class="table">
-                                    <thead>
-                                      <tr>
-                                        <th scope="row">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Nama Surah</th>
+                                      <th scope="col">Jumlah Ayat</th>
+                                    </tr>
+                                  </thead>
+                                  {% for q in quran %}
+                                  <tbody>
+                                    <tr>
+                                        <td>{{q.surah}}</td>
+                                        <td>{{q.ayat}}</td>
+                                      </tr>
+                                    </tbody>
+                                  {% endfor %}
+                                </table>
+                              </div>
+                            <div class="tab-pane" id="nadhom" role="tabpanel" aria-labelledby="nadhom-tab">
+                                <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Nama Kitab</th>
+                                        <th scope="col">Jumlah Bab</th>
+                                        <th scope="col">Jumlah Baris</th>
+                                        <th scope="col">Pengarang</th>
                                       </tr>
                                     </thead>
+                                    {% for n in nadhom %}
                                     <tbody>
                                       <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
+                                        <td>{{ n.nama_kitab }}</td>
+                                        <td>{{ n.jmlh_bab }}</td>
+                                        <td>{{ n.jmlh_baris }}</td>
+                                        <td>{{ n.pengarang }}</td>
                                       </tr>
                                     </tbody>
+                                    {% endfor %}
                                   </table>
                             </div>
-                            <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <table class="table">
-                                    <tbody>
-                                      <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
+                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Nama Kitab</th>
+                                      <th scope="col">Jumlah Fashol</th>
+                                      <th scope="col">Jumlah Paragraf</th>
+                                      <th scope="col">Pengarang</th>
+                                    </tr>
+                                  </thead>
+                                  {% for m in matan %}
+                                  <tbody>
+                                    <tr>
+                                      <td>{{ n.nama_kitab }}</td>
+                                      <td>{{ n.fashol }}</td>
+                                      <td>{{ n.paragraf }}</td>
+                                      <td>{{ n.pengarang }}</td>
+                                    </tr>
+                                  </tbody>
+                                  {% endfor %}
+                                </table>
                             </div>
-                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
                           </div>
                     </div>
                 </div>
@@ -127,54 +136,51 @@
                 </div>
             </div>
             <div class="col-md-6">
-              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                style="background-color: #138500; display: inline-block;">
-                Input
-              </button>
-              <div class="card mb-3" style="max-width: 150px; background: #ffffff; background-color: #138500;">
-              <select class="form-select" aria-label="Default select example" style="background-color: #ffffff;">
-                <option selected>TAHUN</option>
-                <option value="1">2015</option>
-                <option value="2">2016</option>
-                <option value="3">2017</option>
-                <option value="3">2018</option>
-                <option value="3">2019</option>
-                <option value="3">2020</option>
-                <option value="3">2021</option>
-              </select>
-              </div>
-              <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                    <table class="table table-bordered table-striped mb-0">
-                      <thead style="color: #ffffff;">
-                        <tr> 
-                          <th scope="col" style="background-color: rgba(19, 133, 0, 1);">Tanggal</th>
-                          <th scope="col" style="background-color: rgba(19, 133, 0, 1);">Pengumuman</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>21 Oktober</td>
-                          <td>Imtihan Semester Gasal</td>
-                        </tr>
-                        <tr>
-                          <td>21 Desember</td>
-                          <td>Haul Pengasuh</td>
-                        </tr>
-                        <tr>
-                          <td>30 Desember</td>
-                          <td>Haflah Akhirussanah</td>
-                        </tr>
-                        <tr>
-                          <td>31 Desember</td>
-                          <td>Sarasehan Pondok</td>
-                        </tr>
-                        </tbody>
-                      
-                        </table>
-                      </thead>
-                    
-                  
+              <div class="row">
+                <div class="d-flex">
+                  <button type="button" class="btn btn-success" style="background-color: rgba(19, 133, 0, 1);">Input</button>
+                  <div class="card mb-3" style="max-width: 150px; background: #ffffff; background-color: #138500;">
+                    <select class="form-select" style="background-color: #ffffff;">
+                      <option selected>TAHUN</option>
+                      <option value="1">2015</option>
+                      <option value="2">2016</option>
+                      <option value="3">2017</option>
+                      <option value="3">2018</option>
+                      <option value="3">2019</option>
+                      <option value="3">2020</option>
+                      <option value="3">2021</option>
+                    </select>
                   </div>
+                </div>
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                  <table class="table table-bordered table-striped mb-0">
+                    <thead style="color: #ffffff;">
+                      <tr> 
+                        <th scope="col" style="background-color: rgba(19, 133, 0, 1);">Tanggal</th>
+                        <th scope="col" style="background-color: rgba(19, 133, 0, 1);">Pengumuman</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>21 Oktober</td>
+                        <td>Imtihan Semester Gasal</td>
+                      </tr>
+                      <tr>
+                        <td>21 Desember</td>
+                      <td>Haul Pengasuh</td>
+                    </tr>
+                    <tr>
+                      <td>30 Desember</td>
+                      <td>Haflah Akhirussanah</td>
+                    </tr>
+                    <tr>
+                      <td>31 Desember</td>
+                      <td>Sarasehan Pondok</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
         </div>
     </div>
