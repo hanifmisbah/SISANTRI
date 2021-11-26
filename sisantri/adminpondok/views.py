@@ -25,9 +25,9 @@ def profil(req):
 # ============S A N T R I=================
 
 def datasantri(req):
-    #form = forms.Santri()
+    # form = forms.Santri()
     if req.POST:
-        #form = forms.Santri(req.POST)
+        # form = forms.Santri(req.POST)
         # if form.is_valid():
         #    form.save()
         models.Santri.objects.create(

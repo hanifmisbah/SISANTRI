@@ -21,6 +21,7 @@ class Santri(models.Model):
     telp = models.IntegerField(default=0)
     email = models.CharField(default='', max_length=20)
     ktgri = models.CharField(default='', choices=kategori, max_length=8)
+    
 
 class Pengajar(models.Model):
     kelamin = [
