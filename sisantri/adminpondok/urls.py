@@ -12,7 +12,7 @@ urlpatterns = [
     path('quran/', views.alquran),
     path('quran/<id>/delete', views.deletequran),
     path('quran/<id>/detail', views.detailquran),
-    path('kitabkuning/', views.kitabkuning),
+    path('datakitab/', views.datakitab),
     # path('<id>/update/', views.update),
     # path('<id>/detail/', views.detail),
 ]

@@ -158,5 +158,5 @@ def detailquran(req, id):
 
 # ============K I T A B  K U N I N G=================
 
-def kitabkuning(req):
-    return render(req, 'adminpondok/kitabkuning.html')
+def datakitab(req):
+    return render(req, 'adminpondok/datakitab.html')
