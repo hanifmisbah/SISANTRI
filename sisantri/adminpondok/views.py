@@ -77,29 +77,7 @@ def datapengajar(req):
         # 'form' : form,
     })
 
-<<<<<<< HEAD
-
-def datakitab(req):
-    return render(req, 'adminpondok/datakitab.html')
-
-
-def quran(req):
-    return render(req, 'adminpondok/quran.html')
-
-
-def kitabkuning(req):
-    return render(req, 'adminpondok/kitabkuning.html')
-
-
-def deletesantri(req, id):
-    models.Santri.objects.filter(pk=id).delete()  # pk = primary key
-    return redirect('/adminpondok/datasantri')
-
-
-def deletepengajar(request, id):
-=======
 def deletepengajar(req, id):
->>>>>>> a572bb9d02f7970bab96cdc51e1f75ff2e6a5e15
     models.Pengajar.objects.filter(pk=id).delete()
     return redirect('/adminpondok/datapengajar')
 
@@ -128,11 +106,6 @@ def editpengajar(req, id):
     #})
         
 
-<<<<<<< HEAD
-def deletesantri(req, id):
-    models.Santri.objects.filter(pk=id).delete()
-    return redirect('/adminpondok/datasantri')
-=======
 def datakitab(req):
     return render(req, 'adminpondok/datakitab.html')
 
@@ -159,6 +132,5 @@ def kitabkuning(req):
 
 
 
->>>>>>> a572bb9d02f7970bab96cdc51e1f75ff2e6a5e15
 
 
