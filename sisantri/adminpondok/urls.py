@@ -8,7 +8,6 @@ urlpatterns = [
     path('datapengajar/', views.datapengajar),
     path('datapengajar/<id>/deletepengajar', views.deletepengajar),
     path('datapengajar/<id>/editpengajar', views.editpengajar),
-    path('datapengajar/<id>/updatepengajar', views.updatepengajar),
     path('datasantri/', views.datasantri),
     path('datasantri/<id>/delete', views.deletesantri),
     path('quran/', views.alquran),
