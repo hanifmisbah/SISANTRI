@@ -16,7 +16,7 @@ def index(req):
         'santri': santri,
         'pengajar': pengajar,
         'quran': quran,
-        'kitab': kitab,
+        # 'kitab': kitab,
     })
 
 
@@ -183,6 +183,6 @@ def datakitab(req):
     })
 
 
-def deletekitab(req, id):
-    models.Kitab.object.filter.(pk=id).delete()
-    return redirect('/adminpondok/kitab')
+# def deletekitab(req, id):
+#     models.Kitab.object.filter.(pk=id).delete()
+#     return redirect('/adminpondok/kitab')
