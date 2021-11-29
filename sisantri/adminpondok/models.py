@@ -24,7 +24,6 @@ class Santri(models.Model):
     telp = models.IntegerField(default=0)
     email = models.CharField(default='', max_length=20)
     ktgri = models.CharField(default='', choices=kategori, max_length=8)
-    
 
 
 class Pengajar(models.Model):
@@ -40,36 +39,16 @@ class Pengajar(models.Model):
     almt = models.TextField(default='')
     telp = models.IntegerField(default=0)
     email = models.CharField(default='', max_length=20)
-    pngjr = models.CharField(max_length= 10, default='')
+    pngjr = models.CharField(max_length=10, default='')
 
 
 class Alquran(models.Model):
     surah = models.CharField(default='', max_length=12)
     ayat = models.IntegerField(default=0)
 
-<<<<<<< HEAD
 
-class Kitab(models.Model):
-    kode_kitab = models.IntegerField()
-    nama_kitab = models.CharField(default='', max_length=30)
-    kategori_kitab = [
-        ('Dasar', 'Dasar'),
-        ('Menengah', 'Menengah'),
-        ('Atas', 'Atas'),
-    ]
-    jenis_kitab = [
-        ('Matan', 'Matan'),
-        ('Nadhom', 'Nadhom'),
-    ]
-    kategori_kitab = models.CharField(
-        max_length=9, choices=kategori_kitab, default='')
-    jenis_kitab = models.CharField(
-        max_length=9, choices=jenis_kitab, default='')
-    nama_pengarang = models.CharField(default='', max_length=30)
-=======
 class Pengumuman(models.Model):
     tgl = models.DateField(blank=False, null=False)
     pngmn = models.CharField(max_length=30, default='')
-    
->>>>>>> f7d0e53b03540170e72c48f453ce7c7a009bb9e7
+
 # class Matan(models.Model):
