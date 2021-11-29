@@ -11,7 +11,11 @@ def index(req):
     santri = models.Santri.objects.all()
     pengajar = models.Pengajar.objects.all()
     quran = models.Alquran.objects.all()
+<<<<<<< HEAD
     kitab = models.Kitab.objects.all()
+=======
+    pngmn = models.Pengumuman.objects.all()
+>>>>>>> f7d0e53b03540170e72c48f453ce7c7a009bb9e7
     return render(req, 'adminpondok/dashboard.html', {
         'santri': santri,
         'pengajar': pengajar,
@@ -94,6 +98,7 @@ def datapengajar(req):
             jk=req.POST['jk'],
             telp=req.POST['telp'],
             email=req.POST['email'],
+            pngjr=req.POST['pngjr'],
 
         )
         return redirect('/adminpondok/datapengajar')

@@ -28,8 +28,8 @@
 </head>
 
 <body>
-    <div class="">
-        <div class="container-fluid">
+    <div class="container-fluid">
+        <div class="col">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <img src="{% static 'img/ponpes.png' %}" class="logo mr-3" width="55px" alt="Pondok Pesantren">
                 <!-- <h1>SiSantri</h1> -->
@@ -57,11 +57,16 @@
                         <li><a class="dropdown-item" href="/adminpondok/datakitab">Data Kitab</a></li>
                     </ul>
                 </li>
-                <li class="nav-item" role="presentation">
-                    <a type="button" style="width: 50px " href=""><i class="fas fa-cog"></i></a>
-                </li>
             </ul>
         </div>
+<<<<<<< HEAD
+        <div class="social-part" style="float: right;">
+            <ul class="justify-content-end">
+                <button class="btn"><i class="fas fa-cog"></i></button>
+            </ul>
+        </div>
+=======
+>>>>>>> fe1f3efedafa41c5883506897bf8220607911dec
     </div>
     <main>
         <div class="tab-content" id="myTabContent">
@@ -71,6 +76,10 @@
             </div>
         </div>
     </main>
+
+
+    <!-- FOOTER -->
+
     <footer class="-flex flex-wrap text-center text-light py-2 my-4 border-top"
         style="background-color: rgba(19, 133, 0, 1); position:relative fixed ">
         <h6>Pondok Pesantren</h6>
@@ -89,5 +98,4 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/f45fe3726b.js" crossorigin="anonymous"></script>
-
 </html>
