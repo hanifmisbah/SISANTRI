@@ -45,4 +45,21 @@ class Alquran(models.Model):
     ayat = models.IntegerField(default=0)
 
 
+class Kitab(models.Model):
+    kode_kitab = models.IntegerField()
+    nama_kitab = models.CharField(default='', max_length=30)
+    kategori_kitab = [
+        ('Dasar', 'Dasar'),
+        ('Menengah', 'Menengah'),
+        ('Atas', 'Atas'),
+    ]
+    jenis_kitab = [
+        ('Matan', 'Matan'),
+        ('Nadhom', 'Nadhom'),
+    ]
+    kategori_kitab = models.CharField(
+        max_length=9, choices=kategori_kitab, default='')
+    jenis_kitab = models.CharField(
+        max_length=9, choices=jenis_kitab, default='')
+    nama_pengarang = models.CharField(default='', max_length=30)
 # class Matan(models.Model):
