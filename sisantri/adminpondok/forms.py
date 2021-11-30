@@ -2,7 +2,6 @@ from django.forms import ModelForm, widgets
 from . import models
 
 class Santri(ModelForm):
-
     class Meta:
         model=models.Santri
         fields=['jk', 'ktgri']

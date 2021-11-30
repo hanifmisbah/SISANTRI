@@ -2,17 +2,9 @@
 {% block content %}
 
 <div class="m-5">
-  <h3>Edit Data Santri</h3>
-
-  <form action="" method="post">
+  <form action="" method="POST">
     {% csrf_token %}
-
-    <div class="modal-header">
-        <h5 class="modal-title">Edit Data Santri</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-
+        <h5 class="modal-title mb-3">Edit Data Santri</h5>
         <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
             <input type="text" class="form-control" name="nis" value="{{data1.nis}}" id="floatingInput"
                 placeholder="NomorIndukSantri">
@@ -66,7 +58,7 @@
         <div class="row-4" style="display: inline-block;">
             <Label>Kategori</Label>
             <div class=" mb-10 form-check">
-                <input class=" form-check-input" name="ktgri" type="checkbox" value="{{data1.ktgri.Al-Quran}}"
+                <input class=" form-check-input" name="ktgri" type="checkbox" value="{{data1.ktgri.AlQuran}}"
                     id="Al-Quran">
                 <label class="form-check-label" for="Al-Quran">
                     Al-Quran

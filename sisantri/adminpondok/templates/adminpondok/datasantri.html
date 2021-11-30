@@ -1,5 +1,6 @@
 {% extends "adminpondok/base.html" %}
 {% block content %}
+<!-- {% load crispy_forms_tags %} -->
 
 <h2>Data Santri</h2>
 <nav class="navbar navbar-light bg-white">
@@ -69,8 +70,8 @@
                     </div>
                     <div class="row-4">
                         <label>Jenis Kelamin</label>
-                        {{ form.jk }}
-                        <!-- <div class="" style="margin-left: 2rem;">
+                        <!-- {{ form.jk|crispy }} -->
+                        <div class="" style="margin-left: 2rem;">
                             <div class=" mb-10 form-check">
                                 <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault1"
                                     value="Laki-Laki">
@@ -85,13 +86,13 @@
                                     Perempuan
                                 </label>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
 
                     <div class="container">
                         <Label>Kategori</Label>
-                        {{form.ktgri}}
-                        <!-- <div class=" group">
+                        <!-- {{form.ktgri|crispy}} -->
+                        <div class=" group">
                             <label>
                                 <input type="checkbox" name="ktgri" value="Al-Quran" />Al-Quran
                             </label>
@@ -101,13 +102,12 @@
                             <label>
                                 <input type="checkbox" name="ktgri" value="Matan" />Matan
                             </label>
-                        </div> -->
+                        </div>
 
                     </div>
 
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" name="almt" placeholder="Leave a comment here" id="Alamat"
-                            style="height: 100px"></textarea>
+                        <textarea class="form-control" name="almt" placeholder="Leave a comment here" id="Alamat" style="height: 100px"></textarea>
                         <label for="Alamat">Alamat Santri</label>
                     </div>
 
@@ -214,8 +214,8 @@
                             </div>
                             <div class="row-4">
                                 <label>Jenis Kelamin</label>
-                                {{ form.jk }}
-                                <!-- <div class="" style="margin-left: 2rem;">
+                                <!-- {{ form.jk }} -->
+                                <div class="" style="margin-left: 2rem;">
                                     <div class=" mb-10 form-check">
                                         <input class="form-check-input" type="radio" name="jk" value="Laki-laki"
                                             id="flexRadioDefault1">
@@ -230,13 +230,13 @@
                                             Perempuan
                                         </label>
                                     </div>
-                                </div> -->
+                                </div>
                             </div>
 
                             <div class="row-4" style="display: inline-block;">
                                 <Label>Kategori</Label>
-                                {{form.ktgri}}
-                                <!-- <div class=" mb-10 form-check">
+                                <!-- {{form.ktgri}} -->
+                                <div class=" mb-10 form-check">
                                     <input class=" form-check-input" name="ktgri" type="checkbox" value="Al-Quran"
                                         id="Al-Quran">
                                     <label class="form-check-label" for="Al-Quran">
@@ -254,7 +254,7 @@
                                     <label class="form-check-label" for="Matan">
                                         Matan
                                     </label>
-                                </div> -->
+                                </div>
                             </div>
 
                             <div class="form-floating mb-3">
