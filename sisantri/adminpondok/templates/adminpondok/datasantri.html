@@ -69,7 +69,8 @@
                     </div>
                     <div class="row-4">
                         <label>Jenis Kelamin</label>
-                        <div class="" style="margin-left: 2rem;">
+                        {{ form.jk }}
+                        <!-- <div class="" style="margin-left: 2rem;">
                             <div class=" mb-10 form-check">
                                 <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault1"
                                     value="Laki-Laki">
@@ -84,12 +85,13 @@
                                     Perempuan
                                 </label>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="container">
                         <Label>Kategori</Label>
-                        <div class=" group">
+                        {{form.ktgri}}
+                        <!-- <div class=" group">
                             <label>
                                 <input type="checkbox" name="ktgri" value="Al-Quran" />Al-Quran
                             </label>
@@ -99,7 +101,7 @@
                             <label>
                                 <input type="checkbox" name="ktgri" value="Matan" />Matan
                             </label>
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -155,8 +157,7 @@
                     <td>{{d.ktgri}}</td>
                     <td>
                         <a class="btn btn-sm btn-success" href="/{{d.id}}/detail"><i class="fas fa-info-circle"></i></a>
-                        <a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modaldetail"
-                            href="/{{d.id}}/update"><i class="fas fa-pen"></i></a>
+                        <a class="btn btn-sm btn-warning" href="/adminpondok/datasantri/{{d.id}}/update"><i class="fas fa-pen"></i></a>
                         <a class="btn btn-sm btn-danger" href="{{d.id}}/delete"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
@@ -165,8 +166,8 @@
         </table>
 
         <!-- Modal -->
-        <div class="modal fade" id="modaldetail" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="modaledit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="modaleditLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
@@ -175,45 +176,46 @@
 
 
                         <div class="modal-header">
-                            <h5 class="modal-title">Input Data Santri</h5>
+                            <h5 class="modal-title">Edit Data Santri</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
 
                             <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
-                                <input type="text" class="form-control" name="nis" id="floatingInput"
+                                <input type="text" class="form-control" name="nis" value="{{data.nis}}" id="floatingInput"
                                     placeholder="NomorIndukSantri">
                                 <label for="floatingInput">Nomor Induk Santri </label>
                             </div>
                             <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
-                                <input type="text" class="form-control" name="telp" id="floatingInput"
+                                <input type="text" class="form-control" name="telp" value="{{data.telp}}" id="floatingInput"
                                     placeholder="NoTelp">
                                 <label for="floatingInput"> No.Telp </label>
                             </div>
                             <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
-                                <input type="text" class="form-control" name="nama_santri" id="floatingPassword"
+                                <input type="text" class="form-control" name="nama_santri" value="nama_santri" id="floatingPassword"
                                     placeholder="NamaLengkap">
                                 <label for="floatingPassword">Nama Lengkap</label>
                             </div>
 
                             <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
-                                <input type="text" class="form-control" name="email" id="floatingInput"
+                                <input type="text" class="form-control" name="email" value="email" id="floatingInput"
                                     placeholder="NoTelp">
                                 <label for="floatingInput"> Email </label>
                             </div>
                             <h></h>
                             <div class="form-floating mb-3 " style="display: inline-block;">
-                                <input type="text" class="form-control" name="tempat_lahir" id="floatingInput"
+                                <input type="text" class="form-control" name="tempat_lahir" value="tempat_lahir" id="floatingInput"
                                     placeholder="TempatLahir">
                                 <label for="floatingInput">Tempat Lahir</label>
                             </div>
 
                             <div class="form-floating mb-3" style="display: inline-block;">
-                                <input type="date" name="tanggal_lahir">
+                                <input type="date" name="tanggal_lahir" value="tanggal_lahir">
                             </div>
                             <div class="row-4">
                                 <label>Jenis Kelamin</label>
-                                <div class="" style="margin-left: 2rem;">
+                                {{ form.jk }}
+                                <!-- <div class="" style="margin-left: 2rem;">
                                     <div class=" mb-10 form-check">
                                         <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault1">
                                         <label class="form-check-label" for="flexRadioDefault1">
@@ -227,30 +229,31 @@
                                             Perempuan
                                         </label>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="row-4" style="display: inline-block;">
                                 <Label>Kategori</Label>
-                                <div class=" mb-10 form-check">
-                                    <input class=" form-check-input" name="ktgri" type="checkbox" value=""
+                                {{form.ktgri}}
+                                <!-- <div class=" mb-10 form-check">
+                                    <input class=" form-check-input" name="ktgri" type="checkbox" value="Al-Quran"
                                         id="Al-Quran">
                                     <label class="form-check-label" for="Al-Quran">
                                         Al-Quran
                                     </label>
                                 </div>
                                 <div class=" mb-10 form-check">
-                                    <input class="form-check-input" name="ktgri" type="checkbox" value="" id="Nadzom">
+                                    <input class="form-check-input" name="ktgri" type="checkbox" value="Nadzom" id="Nadzom">
                                     <label class="form-check-label" for="Nadzom">
                                         Nadzom
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" name="ktgri" type="checkbox" value="" id="Matan">
+                                    <input class="form-check-input" name="ktgri" type="checkbox" value="Matan" id="Matan">
                                     <label class="form-check-label" for="Matan">
                                         Matan
                                     </label>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="form-floating mb-3">
