@@ -2,6 +2,7 @@ from django.http import request
 from django.shortcuts import redirect, render
 
 from . import models, forms
+from sisantri import adminpondok
 
 # ============D A S H B O A R D=================
 
@@ -15,6 +16,7 @@ def index(req):
         'santri': santri,
         'pengajar': pengajar,
         'quran': quran,
+        'kitab': kitab,
     })
 
 
@@ -158,7 +160,29 @@ def detailquran(req, id):
     })
 
 
-# ============K I T A B  K U N I N G=================
+# ============D A T A  K I T A B=================
 
 def datakitab(req):
-    return render(req, 'adminpondok/datakitab.html')
+    # form = forms.Santri()
+    if req.POST:
+        # form = forms.Santri(req.POST)
+        # if form.is_valid():
+        #    form.save()
+        models.Kitab.objects.create(
+            kode_kitab=req.POST['kode_kitab'],
+            nama_kitab=req.POST['nama_kitab'],
+            kategori_kitab=req.POST['kategori_kitab'],
+            jenis_kitab=req.POST['jenis_kitab'],
+            nama_pengarang=req.POST['nama_pengarang'],
+        )
+        return redirect('/adminpondok/datakitab')
+    kitab = models.Kitab.objects.all()
+    return render(req, 'adminpondok/datakitab.html', {
+        'data': kitab,
+        # 'form' : form,
+    })
+
+
+def deletekitab(req, id):
+    models.Kitab.object.filter.(pk=id).delete()
+    return redirect('/adminpondok/kitab')
