@@ -19,7 +19,7 @@ urlpatterns = [
     path('quran/<id>/detail', views.detailquran),
     # =============== kitab ====================
     path('datakitab/', views.datakitab),
-    # path('datakitab/<id>/delete', views.deletekitab)
+    path('datakitab/<id>/delete', views.deletekitab)
     # path('<id>/update/', views.update),
     # path('<id>/detail/', views.detail),
 ]

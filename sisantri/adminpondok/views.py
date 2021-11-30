@@ -184,5 +184,5 @@ def datakitab(req):
 
 
 def deletekitab(req, id):
-    models.Kitab.object.filter(pk=id).delete()
-    return redirect('/adminpondok/kitab')
+    models.Kitab.objects.filter(pk=id).delete()
+    return redirect('/adminpondok/datakitab')
