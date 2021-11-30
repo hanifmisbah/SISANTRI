@@ -16,7 +16,7 @@ def index(req):
         'santri': santri,
         'pengajar': pengajar,
         'quran': quran,
-        'kitab': kitab,
+        # 'kitab': kitab,
     })
 
 
