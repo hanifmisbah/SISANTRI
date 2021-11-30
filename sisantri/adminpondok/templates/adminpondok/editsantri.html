@@ -8,97 +8,94 @@
     {% csrf_token %}
 
     <div class="modal-header">
-        <h5 class="modal-title">Edit Data Santri</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <h5 class="modal-title">Edit Data Santri</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
 
-        <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
-            <input type="text" class="form-control" name="nis" value="{{data1.nis}}" id="floatingInput"
-                placeholder="NomorIndukSantri">
-            <label for="floatingInput">Nomor Induk Santri </label>
-        </div>
-        <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
-            <input type="text" class="form-control" name="telp" value="{{data1.telp}}" id="floatingInput"
-                placeholder="NoTelp">
-            <label for="floatingInput"> No.Telp </label>
-        </div>
-        <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
-            <input type="text" class="form-control" name="nama_santri" value="{{data1.nama_santri}}" id="floatingPassword"
-                placeholder="NamaLengkap">
-            <label for="floatingPassword">Nama Lengkap</label>
-        </div>
+      <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
+        <input type="text" class="form-control" name="nis" value="{{data1.nis}}" id="floatingInput"
+          placeholder="NomorIndukSantri">
+        <label for="floatingInput">Nomor Induk Santri </label>
+      </div>
+      <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+        <input type="text" class="form-control" name="telp" value="{{data1.telp}}" id="floatingInput"
+          placeholder="NoTelp">
+        <label for="floatingInput"> No.Telp </label>
+      </div>
+      <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
+        <input type="text" class="form-control" name="nama_santri" value="{{data1.nama_santri}}" id="floatingPassword"
+          placeholder="NamaLengkap">
+        <label for="floatingPassword">Nama Lengkap</label>
+      </div>
 
-        <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
-            <input type="text" class="form-control" name="email" value="{{data1.email}}" id="floatingInput"
-                placeholder="NoTelp">
-            <label for="floatingInput"> Email </label>
-        </div>
-        <h></h>
-        <div class="form-floating mb-3 " style="display: inline-block;">
-            <input type="text" class="form-control" name="tempat_lahir" value="{{data1.tempat_lahir}}" id="floatingInput"
-                placeholder="TempatLahir">
-            <label for="floatingInput">Tempat Lahir</label>
-        </div>
+      <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+        <input type="text" class="form-control" name="email" value="{{data1.email}}" id="floatingInput"
+          placeholder="NoTelp">
+        <label for="floatingInput"> Email </label>
+      </div>
+      <h></h>
+      <div class="form-floating mb-3 " style="display: inline-block;">
+        <input type="text" class="form-control" name="tempat_lahir" value="{{data1.tempat_lahir}}" id="floatingInput"
+          placeholder="TempatLahir">
+        <label for="floatingInput">Tempat Lahir</label>
+      </div>
 
-        <div class="form-floating mb-3" style="display: inline-block;">
-            <input type="date" name="tanggal_lahir" value="{{data1.tanggal_lahir}}">
+      <div class="form-floating mb-3" style="display: inline-block;">
+        <input type="date" name="tanggal_lahir" value="{{data1.tanggal_lahir}}">
+      </div>
+      <div class="row-4">
+        <label>Jenis Kelamin</label>
+        <div class="" style="margin-left: 2rem;">
+          <div class=" mb-10 form-check">
+            <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Laki-Laki
+            </label>
+          </div>
+          <div class=" mb-10 form-check">
+            <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              Perempuan
+            </label>
+          </div>
         </div>
-        <div class="row-4">
-            <label>Jenis Kelamin</label>
-            <div class="" style="margin-left: 2rem;">
-                <div class=" mb-10 form-check">
-                    <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Laki-Laki
-                    </label>
-                </div>
-                <div class=" mb-10 form-check">
-                    <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault2"
-                        checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Perempuan
-                    </label>
-                </div>
-            </div>
-        </div>
+      </div>
 
-        <div class="row-4" style="display: inline-block;">
-            <Label>Kategori</Label>
-            <div class=" mb-10 form-check">
-                <input class=" form-check-input" name="ktgri" type="checkbox" value="{{data1.ktgri.Al-Quran}}"
-                    id="Al-Quran">
-                <label class="form-check-label" for="Al-Quran">
-                    Al-Quran
-                </label>
-            </div>
-            <div class=" mb-10 form-check">
-                <input class="form-check-input" name="ktgri" type="checkbox" value="{{data1.ktgri.Nadzom}}" id="Nadzom">
-                <label class="form-check-label" for="Nadzom">
-                    Nadzom
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" name="ktgri" type="checkbox" value="{{data1.ktgri.Matan}}" id="Matan">
-                <label class="form-check-label" for="Matan">
-                    Matan
-                </label>
-            </div>
+      <div class="row-4" style="display: inline-block;">
+        <Label>Kategori</Label>
+        <div class=" mb-10 form-check">
+          <input class=" form-check-input" name="ktgri" type="checkbox" value="{{data1.ktgri.AlQuran}}" id="Al-Quran">
+          <label class="form-check-label" for="Al-Quran">
+            Al-Quran
+          </label>
         </div>
+        <div class=" mb-10 form-check">
+          <input class="form-check-input" name="ktgri" type="checkbox" value="{{data1.ktgri.Nadzom}}" id="Nadzom">
+          <label class="form-check-label" for="Nadzom">
+            Nadzom
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" name="ktgri" type="checkbox" value="{{data1.ktgri.Matan}}" id="Matan">
+          <label class="form-check-label" for="Matan">
+            Matan
+          </label>
+        </div>
+      </div>
 
-        <div class="form-floating mb-3">
-            <textarea class="form-control" name="almt" placeholder="Alamat Lengkap"
-                id="Alamat" style="height: 100px"></textarea>
-            <label for="Alamat">Alamat Santri</label>
-        </div>
+      <div class="form-floating mb-3">
+        <textarea class="form-control" name="almt" placeholder="Alamat Lengkap" id="Alamat"
+          style="height: 100px"></textarea>
+        <label for="Alamat">Alamat Santri</label>
+      </div>
 
 
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-success"
-                style="background-color: #138500;">Simpan</button>
-        </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan</button>
+      </div>
     </div>
-</form>
+  </form>
 
   <!-- <form method="POST">
     {% csrf_token %}
@@ -147,4 +144,4 @@
   </form>
 </div> -->
 
-{% endblock %}
+  {% endblock %}

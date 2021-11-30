@@ -11,11 +11,12 @@ def index(req):
     santri = models.Santri.objects.all()
     pengajar = models.Pengajar.objects.all()
     quran = models.Alquran.objects.all()
-    pngmn = models.Pengumuman.objects.all()
+    pengum = models.Pengumuman.objects.all()
     return render(req, 'adminpondok/dashboard.html', {
         'santri': santri,
         'pengajar': pengajar,
         'quran': quran,
+        'pengum': pengum,
     })
 
 
@@ -30,7 +31,7 @@ def datasantri(req):
     if req.POST:
         form = forms.Santri(req.POST)
         if form.is_valid():
-           form.save()
+            form.save()
         models.Santri.objects.create(
             nis=req.POST['nis'],
             nama_santri=req.POST['nama_santri'],
@@ -46,7 +47,7 @@ def datasantri(req):
     santri = models.Santri.objects.all()
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri,
-        'form' : form,
+        'form': form,
     })
 
 
@@ -185,3 +186,17 @@ def datakitab(req):
 def deletekitab(req, id):
     models.Kitab.objects.filter(pk=id).delete()
     return redirect('/adminpondok/datakitab')
+
+
+def pengumuman(req):
+    if req.POST:
+        models.Pengumuman.objects.create(
+            # tgl=req.POST['tgl'],
+            judul=req.POST['judul'],
+            pengumuman=req.POST['pengumuman'],
+        )
+        return redirect('/adminpondok/dashboard')
+    pengumuman = models.Pengumuman.objects.all()
+    return render(req, 'adminpondok/pengumuman.html', {
+        'data': pengumuman,
+    })

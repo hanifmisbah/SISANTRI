@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     path('', views.index),
     path('profil/', views.profil),
+    path('pengumuman/', views.pengumuman),
     # =========== pengajar ===================
     path('datapengajar/', views.datapengajar),
     path('datapengajar/<id>/deletepengajar', views.deletepengajar),
