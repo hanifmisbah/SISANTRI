@@ -51,4 +51,24 @@ class Pengumuman(models.Model):
     tgl = models.DateField(blank=False, null=False)
     pngmn = models.CharField(max_length=30, default='')
 
+
+class Kitab(models.Model):
+    kategori_kitab = [
+        ('Dasar', 'Dasar'),
+        ('Menengah', 'Menengah'),
+        ('Atas', 'Atas'),
+    ]
+    jenis = [
+        ('Al-Quran', 'Al-Quran'),
+        ('Matan', 'Matan'),
+        ('Nadhom', 'Nadhom'),
+    ]
+    kode_kitab = models.IntegerField(default=0)
+    nama_kitab = models.CharField(max_length=30)
+    kategori_kitab = CharField(
+        max_length=9, choices=kategori_kitab, default='')
+    jenis_kitab = CharField(max_length=9, choices=jenis, default='')
+    nama_pengarang = models.CharField(max_length=30)
+
+
 # class Matan(models.Model):

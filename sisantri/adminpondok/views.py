@@ -2,7 +2,7 @@ from django.http import request
 from django.shortcuts import redirect, render
 
 from . import models, forms
-from sisantri import adminpondok
+# from sisantri import adminpondok
 
 # ============D A S H B O A R D=================
 
@@ -16,7 +16,6 @@ def index(req):
         'santri': santri,
         'pengajar': pengajar,
         'quran': quran,
-        # 'kitab': kitab,
     })
 
 
@@ -184,5 +183,5 @@ def datakitab(req):
 
 
 def deletekitab(req, id):
-    models.Kitab.object.filter.(pk=id).delete()
+    models.Kitab.object.filter(pk=id).delete()
     return redirect('/adminpondok/kitab')
