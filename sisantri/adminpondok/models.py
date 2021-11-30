@@ -47,8 +47,9 @@ class Alquran(models.Model):
 
 
 class Pengumuman(models.Model):
-    tgl = models.DateField(blank=False, null=False)
-    pngmn = models.CharField(max_length=30, default='')
+    tgl = models.DateField(auto_now=True, blank=False, null=False)
+    judul = models.CharField(max_length=30, default='')
+    pengumuman = models.TextField(default='')
 
 
 class Kitab(models.Model):
@@ -64,7 +65,8 @@ class Kitab(models.Model):
     ]
     kode_kitab = models.IntegerField(default=0)
     nama_kitab = models.CharField(max_length=30)
-    kategori_kitab = models.CharField(max_length=9, choices=kategori_kitab, default='')
+    kategori_kitab = models.CharField(
+        max_length=9, choices=kategori_kitab, default='')
     jenis_kitab = models.CharField(max_length=9, choices=jenis, default='')
     nama_pengarang = models.CharField(max_length=30)
 
