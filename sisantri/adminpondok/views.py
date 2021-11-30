@@ -16,7 +16,6 @@ def index(req):
         'santri': santri,
         'pengajar': pengajar,
         'quran': quran,
-
     })
 
 
@@ -27,27 +26,27 @@ def profil(req):
 # ============S A N T R I=================
 
 def datasantri(req):
-    # form = forms.Santri()
+    form = forms.Santri()
     if req.POST:
-        # form = forms.Santri(req.POST)
-        # if form.is_valid():
-        #    form.save()
+        form = forms.Santri(req.POST)
+        if form.is_valid():
+           form.save()
         models.Santri.objects.create(
             nis=req.POST['nis'],
             nama_santri=req.POST['nama_santri'],
             tempat_lahir=req.POST['tempat_lahir'],
             tanggal_lahir=req.POST['tanggal_lahir'],
-            jk=req.POST['jk'],
+            # jk=req.POST['jk'],
             almt=req.POST['almt'],
             telp=req.POST['telp'],
             email=req.POST['email'],
-            ktgri=req.POST['ktgri'],
+            # ktgri=req.POST['ktgri'],
         )
         return redirect('/adminpondok/datasantri')
     santri = models.Santri.objects.all()
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri,
-        # 'form' : form,
+        'form' : form,
     })
 
 
@@ -69,12 +68,12 @@ def editsantri(req, id):
             email=req.POST['email'],
             ktgri=req.POST['ktgri'],
         )
-        return redirect('/')
+        return redirect('/adminpondok/datasantri')
 
-    # tasks = models.Pengajar.objects.filter(pk=id).first()
-    # return render(req, 'edit.html', {
-    #     'data': tasks,
-    # })
+    tasks = models.Pengajar.objects.filter(pk=id).first()
+    return render(req, 'adminpondok/editsantri.html', {
+        'data1': tasks,
+    })
 
 
 # ============P E N G A J A R=================

@@ -10,7 +10,7 @@ class Santri(models.Model):
         ('Perempuan', 'Perempuan'),
     ]
     kategori = [
-        ('Al-Quran', 'Al-Quran'),
+        ('Quran', 'Al-Quran'),
         ('Matan', 'Matan'),
         ('Nadhom', 'Nadhom'),
     ]
