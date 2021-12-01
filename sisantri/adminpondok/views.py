@@ -37,17 +37,17 @@ def datasantri(req):
             nama_santri=req.POST['nama_santri'],
             tempat_lahir=req.POST['tempat_lahir'],
             tanggal_lahir=req.POST['tanggal_lahir'],
-            # jk=req.POST['jk'],
+            jk=req.POST['jk'],
             almt=req.POST['almt'],
             telp=req.POST['telp'],
             email=req.POST['email'],
-            # ktgri=req.POST['ktgri'],
+            ktgri=req.POST['ktgri'],
         )
         return redirect('/adminpondok/datasantri')
     santri = models.Santri.objects.all()
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri,
-        'form': form,
+        # 'form': form,
     })
 
 
@@ -183,9 +183,27 @@ def datakitab(req):
     })
 
 
+# def editkitab(req, id):
+#     if req.POST:
+#      models.Kitab.objects.filter(pk=id).update(
+#         kode_kitab=req.POST['kode_kitab'],
+#             nama_kitab=req.POST['nama_kitab'],
+#             kategori_kitab=req.POST['kategori_kitab'],
+#             jenis_kitab=req.POST['jenis_kitab'],
+#             nama_pengarang=req.POST['nama_pengarang'],
+#     return redirect('/')
+
+# tasks=models.Pengajar.objects.all()
+# return render(req, 'editkitab.html', {
+#     'data': task,
+#     })
+
+
 def deletekitab(req, id):
     models.Kitab.objects.filter(pk=id).delete()
     return redirect('/adminpondok/datakitab')
+
+# ================ P E N G U M U M A N ===========
 
 
 def pengumuman(req):
