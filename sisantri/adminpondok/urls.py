@@ -21,6 +21,6 @@ urlpatterns = [
     # =============== kitab ====================
     path('datakitab/', views.datakitab),
     path('datakitab/<id>/delete', views.deletekitab)
-    # path('<id>/update/', views.update),
+    # path('datakitab/<id>/editkitab/', views.editkitab),
     # path('<id>/detail/', views.detail),
 ]
