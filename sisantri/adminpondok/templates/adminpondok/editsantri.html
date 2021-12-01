@@ -2,32 +2,24 @@
 {% block content %}
 
 <div class="m-5">
-  <h3>Edit Data Santri</h3>
-
-  <form action="" method="post">
+  <form action="" method="POST">
     {% csrf_token %}
-
-    <div class="modal-header">
-      <h5 class="modal-title">Edit Data Santri</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-
-      <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
-        <input type="text" class="form-control" name="nis" value="{{data1.nis}}" id="floatingInput"
-          placeholder="NomorIndukSantri">
-        <label for="floatingInput">Nomor Induk Santri </label>
-      </div>
-      <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
-        <input type="text" class="form-control" name="telp" value="{{data1.telp}}" id="floatingInput"
-          placeholder="NoTelp">
-        <label for="floatingInput"> No.Telp </label>
-      </div>
-      <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
-        <input type="text" class="form-control" name="nama_santri" value="{{data1.nama_santri}}" id="floatingPassword"
-          placeholder="NamaLengkap">
-        <label for="floatingPassword">Nama Lengkap</label>
-      </div>
+        <h5 class="modal-title mb-3">Edit Data Santri</h5>
+        <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
+            <input type="text" class="form-control" name="nis" value="{{data1.nis}}" id="floatingInput"
+                placeholder="NomorIndukSantri">
+            <label for="floatingInput">Nomor Induk Santri </label>
+        </div>
+        <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+            <input type="text" class="form-control" name="telp" value="{{data1.telp}}" id="floatingInput"
+                placeholder="NoTelp">
+            <label for="floatingInput"> No.Telp </label>
+        </div>
+        <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
+            <input type="text" class="form-control" name="nama_santri" value="{{data1.nama_santri}}" id="floatingPassword"
+                placeholder="NamaLengkap">
+            <label for="floatingPassword">Nama Lengkap</label>
+        </div>
 
       <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
         <input type="text" class="form-control" name="email" value="{{data1.email}}" id="floatingInput"

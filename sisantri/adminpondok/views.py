@@ -29,9 +29,6 @@ def profil(req):
 def datasantri(req):
     form = forms.Santri()
     if req.POST:
-        form = forms.Santri(req.POST)
-        if form.is_valid():
-            form.save()
         models.Santri.objects.create(
             nis=req.POST['nis'],
             nama_santri=req.POST['nama_santri'],
@@ -43,6 +40,9 @@ def datasantri(req):
             email=req.POST['email'],
             ktgri=req.POST['ktgri'],
         )
+        form = forms.Santri(req.POST)
+        if form.is_valid():
+           form.save()
         return redirect('/adminpondok/datasantri')
     santri = models.Santri.objects.all()
     return render(req, 'adminpondok/datasantri.html', {
@@ -75,6 +75,7 @@ def editsantri(req, id):
     return render(req, 'adminpondok/editsantri.html', {
         'data1': tasks,
     })
+
 
 
 # ============P E N G A J A R=================

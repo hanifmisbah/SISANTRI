@@ -15,14 +15,14 @@ class Santri(models.Model):
     ]
 
     nis = models.IntegerField()
-    nama_santri = models.CharField(max_length=30)
-    tempat_lahir = models.CharField(max_length=20)
+    nama_santri = models.CharField(max_length=30, null=False, blank=False)
+    tempat_lahir = models.CharField(max_length=20, null=False, blank=False)
     tanggal_lahir = models.DateField()
-    jk = models.CharField(max_length=9, choices=kelamin, default='')
-    almt = models.TextField(default='')
-    telp = models.IntegerField(default=0)
-    email = models.CharField(default='', max_length=20)
-    ktgri = models.CharField(default='', choices=kategori, max_length=8)
+    jk = models.CharField(max_length=9, choices=kelamin, default='', null=False, blank=False)
+    almt = models.TextField(default='', null=False, blank=False)
+    telp = models.IntegerField(default=0, null=False, blank=False)
+    email = models.CharField(default='', max_length=20, null=False, blank=False)
+    ktgri = models.CharField(default='', choices=kategori, max_length=8, null=False, blank=False)
 
 
 class Pengajar(models.Model):
