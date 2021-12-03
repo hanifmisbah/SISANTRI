@@ -23,4 +23,5 @@ urlpatterns = [
     path('datakitab/<id>/delete', views.deletekitab)
     # path('datakitab/<id>/editkitab/', views.editkitab),
     # path('<id>/detail/', views.detail),
+
 ]
