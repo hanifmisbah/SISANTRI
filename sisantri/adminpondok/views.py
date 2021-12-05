@@ -1,4 +1,3 @@
-from django.http import request
 from django.shortcuts import redirect, render
 
 from . import models, forms
@@ -27,27 +26,28 @@ def profil(req):
 # ============S A N T R I=================
 
 def datasantri(req):
-    # form = forms.Santri()
+    add_data = forms.SantriForm()
     if req.POST:
-        models.Santri.objects.create(
-            nis=req.POST['nis'],
-            nama_santri=req.POST['nama_santri'],
-            tempat_lahir=req.POST['tempat_lahir'],
-            tanggal_lahir=req.POST['tanggal_lahir'],
-            jk=req.POST['jk'],
-            almt=req.POST['almt'],
-            telp=req.POST['telp'],
-            email=req.POST['email'],
-            ktgri=req.POST['ktgri'],
-        )
-        # form = forms.Santri(req.POST)
-        # if form.is_valid():
-        #    form.save()
+        add_data = forms.SantriForm(req.POST)
+        if add_data.is_valid():
+            add_data.save()
+        # models.Santri.objects.create(
+        #         nis=req.POST['nis'],
+        #         nama_santri=req.POST['nama_santri'],
+        #         tempat_lahir=req.POST['tempat_lahir'],
+        #         tanggal_lahir=req.POST['tanggal_lahir'],
+        #         jk=req.POST['jk'],
+        #         almt=req.POST['almt'],
+        #         telp=req.POST['telp'],
+        #         email=req.POST['email'],
+        #         ktgri=req.POST['ktgri'],
+        #     )
         return redirect('/adminpondok/datasantri')
+    
     santri = models.Santri.objects.all()
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri,
-        # 'form': form,
+        'form': add_data,
     })
 
 
