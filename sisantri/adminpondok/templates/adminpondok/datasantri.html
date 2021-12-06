@@ -3,27 +3,7 @@
 {% load crispy_forms_tags %}
 
             <!-- CONTENT AREA -->
-            <div class="container">
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col-6">
-                            {{form.nis|as_crispy_field}}
-                        </div>
-                        <div class="col-6">
-                            {{form.nama_santri|as_crispy_field}}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            {{form.tempat_lahir|as_crispy_field}}
-                        </div>
-                        <div class="col-6">
-                            {{form.tanggal_lahir|as_crispy_field}}
-                        </div>
-                    </div>
-                </form>
-            </div>
+
 <h2>Data Santri</h2>
 <div class="m-4">    
     <nav class="navbar navbar-light bg-white">
@@ -72,11 +52,9 @@
                         <td>{{d.tempat_lahir}}, {{d.tanggal_lahir}}</td>
                         <td>{{d.jk}}</td>
                         <td>{{d.almt}}</td>
-                        <td>{{d.telp}}</td>
+                        <td>+62{{d.telp}}</td>
                         <td>{{d.email}}</td>
-                        <!-- {% for d1 in data1 %} -->
-                        <td>{{kategori.ktgri}}</td>
-                        <!-- {% endfor %} -->
+                        <td>{{d.ktgri}}</td>
                         <td>
                             <a class="btn btn-sm btn-success" href="/{{d.id}}/detail"><i class="fas fa-info-circle"></i></a>
                             <a class="btn btn-sm btn-warning" href="/adminpondok/datasantri/{{d.id}}/update"><i class="fas fa-pen"></i></a>
@@ -93,11 +71,11 @@
 
 
        <!-- Modal Input-->
-       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
            <div class="modal-dialog modal-lg">
                <div class="modal-content">
                    
-                    <form action="" method="post">
+                    <form action="" method="POST">
                         {% csrf_token %}
                         
                         
@@ -106,72 +84,45 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-    
-                            <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
-                                <input type="text" class="form-control" name="nis" id="floatingInput" placeholder="NomorIndukSantri">
-                                    <label for="floatingInput">Nomor Induk Santri </label>
-                                </div>
-                            <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
-                                <input type="text" class="form-control" name="telp" id="floatingInput" placeholder="NoTelp">
-                                <label for="floatingInput"> No.Telp </label>
-                            </div>
-                            <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
-                                <input type="text" class="form-control" name="nama_santri" id="floatingPassword"
-                                placeholder="NamaLengkap">
-                                <label for="floatingPassword">Nama Lengkap</label>
-                            </div>
                             
-                            <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
-                                <input type="text" class="form-control" name="email" id="floatingInput" placeholder="NoTelp">
-                                <label for="floatingInput"> Email </label>
-                            </div>
-                            <h></h>
-                            <div class="form-floating mb-3 " style="display: inline-block;">
-                                <input type="text" class="form-control" name="tempat_lahir" id="floatingInput"
-                                placeholder="TempatLahir">
-                                <label for="floatingInput">Tempat Lahir</label>
-                            </div>
-    
-                            <div class="form-floating mb-3" style="display: inline-block;">
-                                <input type="date" name="tanggal_lahir">
-                            </div>
-                            <div class="row-4">
-                                <label>Jenis Kelamin</label>
-                                <!-- {{ form.jk }} -->
-                                <div class="" style="margin-left: 2rem;">
-                                    <div class=" mb-10 form-check">
-                                        <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault1"
-                                        value="Laki-Laki">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            Laki-Laki
-                                        </label>
-                                    </div>
-                                    <div class=" mb-10 form-check">
-                                        <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault2"
-                                        value="Perempuan">
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            Perempuan
-                                        </label>
-                                    </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    {{form.nis|as_crispy_field}}
+                                </div>
+                                <div class="col-6">
+                                    {{form.nama_santri|as_crispy_field}}
                                 </div>
                             </div>
-                            
-                            <div class="container">
-                                <Label>Kategori</Label>
-                                <!-- {{form.ktgri}} -->
-                                <div class=" group">
-                                    <label><input type="checkbox" class="chkbox" value="Al-Quran" />Al-Quran</label>
-                                    <label><input type="checkbox" class="chkbox" value="Nadzom" />Nadzom</label>
-                                    <label><input type="checkbox" class="chkbox" value="Matan" />Matan</label>
-                                    <br>
-                                    <input type="text" name="ktgri" id="chktext">
+                            <div class="row">
+                                <div class="col-6">
+                                    {{form.tempat_lahir|as_crispy_field}}
                                 </div>
-                                
+                                <div class="col-6">
+                                    {{form.tanggal_lahir|as_crispy_field}}
+                                </div>
                             </div>
-    
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" name="almt" placeholder="Leave a comment here" id="Alamat" style="height: 100px"></textarea>
-                                <label for="Alamat">Alamat Santri</label>
+                            <div class="row">
+                                <div class="col-6">
+                                    {{form.telp|as_crispy_field}}
+                                </div>
+                                <div class="col-6">
+                                    {{form.email|as_crispy_field}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>Jenis Kelamin</label>
+                                    {{form.jk|as_crispy_field}}
+                                </div>
+                                <div class="col-3">
+                                    <label for="">Kategori</label>
+                                    {{form.ktgri|as_crispy_field}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-7">
+                                    {{form.almt|as_crispy_field}}
+                                </div>
                             </div>
     
                             
@@ -185,7 +136,7 @@
         </div>
                 
         <!-- Modal Edit-->
-        <div class="modal fade" id="modaledit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        <div class="modal fade" id="modaledit" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
             aria-labelledby="modaleditLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">

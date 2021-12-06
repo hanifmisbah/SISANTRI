@@ -27,22 +27,13 @@ def profil(req):
 
 def datasantri(req):
     add_data = forms.SantriForm()
+
     if req.POST:
         add_data = forms.SantriForm(req.POST)
+
         if add_data.is_valid():
             add_data.save()
-        # models.Santri.objects.create(
-        #         nis=req.POST['nis'],
-        #         nama_santri=req.POST['nama_santri'],
-        #         tempat_lahir=req.POST['tempat_lahir'],
-        #         tanggal_lahir=req.POST['tanggal_lahir'],
-        #         jk=req.POST['jk'],
-        #         almt=req.POST['almt'],
-        #         telp=req.POST['telp'],
-        #         email=req.POST['email'],
-        #         ktgri=req.POST['ktgri'],
-        #     )
-        return redirect('/adminpondok/datasantri')
+            return redirect('/adminpondok/datasantri')
     
     santri = models.Santri.objects.all()
     return render(req, 'adminpondok/datasantri.html', {
