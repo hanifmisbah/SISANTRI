@@ -20,12 +20,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('akun.urls')),
     path('adminpondok/', include('adminpondok.urls')),
-    # path('santri/', include('santri.urls')),
-    # path('ortu/', include('ortu.urls')),
-    # path('pengasuh/', include('pengasuh.urls')),
-    # path('pengajar/', include('pengajar.urls')),
-    
-    
-    #yuhuu
+    path('santri/', include('santri.urls')),
+    path('ortu/', include('ortu.urls')),
+    path('pengasuh/', include('pengasuh.urls')),
+    path('pengajar/', include('pengajar.urls')),
+
+
+    # yuhuu
 
 ]
