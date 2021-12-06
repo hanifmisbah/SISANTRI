@@ -77,7 +77,6 @@ def editsantri(req, id):
     })
 
 
-
 # ============P E N G A J A R=================
 
 def datapengajar(req):
@@ -214,7 +213,7 @@ def pengumuman(req):
             judul=req.POST['judul'],
             pengumuman=req.POST['pengumuman'],
         )
-        return redirect('/adminpondok/dashboard')
+        return redirect('/adminpondok')
     pengumuman = models.Pengumuman.objects.all()
     return render(req, 'adminpondok/pengumuman.html', {
         'data': pengumuman,
