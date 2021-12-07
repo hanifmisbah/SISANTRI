@@ -118,7 +118,8 @@
         line-height: 50px;
         background: #138500;
         color: #fff;
-        position: absolute;
+        position: relative;
+        clear: both;
         bottom: 0px;
     }
 </style>
@@ -207,7 +208,7 @@
             </div>
         </div>
     </div>
-    <main>
+    <main class="container-fluid">
         <div class="tab-content" id="myTabContent">
             <div class="tab-panel fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 {% block content %}

@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from django.contrib import messages
 
 from . import models, forms
 # from sisantri import adminpondok
@@ -199,12 +200,13 @@ def deletekitab(req, id):
 
 def pengumuman(req):
     if req.POST:
-        models.Pengumuman.objects.create(
+        pngm = models.Pengumuman.objects.create(
             # tgl=req.POST['tgl'],
             judul=req.POST['judul'],
             pengumuman=req.POST['pengumuman'],
         )
         return redirect('/adminpondok')
+    messages.info(req, f'Pengumuman baru berhasil ditambahkan')
     pengumuman = models.Pengumuman.objects.all()
     return render(req, 'adminpondok/pengumuman.html', {
         'data': pengumuman,
