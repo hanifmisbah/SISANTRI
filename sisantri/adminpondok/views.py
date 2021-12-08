@@ -205,9 +205,14 @@ def pengumuman(req):
             judul=req.POST['judul'],
             pengumuman=req.POST['pengumuman'],
         )
+        messages.info(req, f'{pngm.judul} Pengumuman baru berhasil ditambahkan')
         return redirect('/adminpondok')
-    messages.info(req, f'Pengumuman baru berhasil ditambahkan')
     pengumuman = models.Pengumuman.objects.all()
     return render(req, 'adminpondok/pengumuman.html', {
         'data': pengumuman,
     })
+
+def deletepngm(req, id):
+    pngm = models.Pengumuman.objects.filter(pk=id).delete()
+    messages.info(req, f'Pengumuman berhasil dihapus')
+    return redirect('/adminpondok')

@@ -134,25 +134,29 @@
   <div class="col-md-4">
     <div class="card mb-3" style="max-width: 21rem;">
       <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Daftar Pengajar</div>
-      <div class="card-body">
-        <div class="card text-center">
-          <div class="card-body mb-5">
-            <h6 class="card-title">Jumlah Pengajar</h6>
-            <h1>67</h1>
+        <div class="card-body">
+          <div class="card text-center">
+            <div class="card-body mb-5">
+              <h6 class="card-title">Jumlah Pengajar</h6>
+              <h1>67</h1>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-md-6">
-    <div class="row d-flex">
-      <div class="d-flex">
-        <a class="btn btn-success mb-2" href="/adminpondok/pengumuman"
-          style="background-color: rgba(19, 133, 0, 1);">Input</a>
-      </div>
-      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+    <div class="col-md-6">
+      <div class="row d-flex">
+        <div class="d-flex row">
+          <a class="btn btn-success mb-2 col-2" href="/adminpondok/pengumuman" style="background-color: rgba(19, 133, 0, 1);">Input</a>
+          {% if messages %}
+          {% for message in messages %}
+              <div {% if message.tags %} class="alert alert-{{ message.tags }} col-9"{% endif %}>{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        </div>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class='table table-bordered table-striped mb-0 bg-white divide-y justify-content-center'
-          style="border: 1px;">
+            style="border: 1px;">
           <thead class="" style="background-color: #138500; color: #FFFFFF;">
             <tr>
               <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No </th>
@@ -162,13 +166,14 @@
             </tr>
           </thead>
           {% for d in pengum %}
-          <tbody class="">
+          <tbody class="overflow-auto">
             <tr>
               <th scope="row" class="text-center">{{ forloop.counter }}</th>
               <td class="text-center">{{d.tgl}}</td>
               <td class="text-center">{{d.judul}}</td>
               <td class="text-center">
-                <a class="btn btn-sm btn-success" href="{{d.id}}/delete"><i class="fas fa-info-circle"></i></a>
+                <a class="btn btn-sm btn-success" href="{{d.id}}/detail"><i class="fas fa-info-circle"></i></a>
+                <a class="btn btn-sm btn-danger" href="{{d.id}}/delete"><i class="fas fa-trash-alt"></i></a>
               </td>
             </tr>
           </tbody>
