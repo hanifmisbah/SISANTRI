@@ -1,0 +1,106 @@
+{% extends "adminpondok/base.html" %}
+{% block content %}
+
+<h1>Al-Qur'an</h1>
+<nav class="navbar navbar-light bg-white">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                style="background-color: #138500; display: inline-block;">
+                Input
+            </button>
+            <button type="button" class="btn btn-success" style="background-color: #138500;">
+                import
+            </button>
+        </a>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success" style="background-color:#138500 ;" type="submit">Search</button>
+            </form>
+    </div>
+</nav>
+
+<!-- Modal Input -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <form action="" method="post">
+                    {% csrf_token %}
+
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Input Data Santri</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
+                            <input type="text" class="form-control" name="surah" id="floatingInput"
+                                placeholder="NomorIndukSantri">
+                            <label for="floatingInput">Nama Surah</label>
+                        </div>
+                        <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
+                            <input type="text" class="form-control" name="ayat" id="floatingInput"
+                                placeholder="NomorIndukSantri">
+                            <label for="floatingInput">Jumlah Ayat</label>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>  
+</div>
+
+
+<div class="min-h-screen bg-white py-2">
+    <div class="container-fluid">
+        <table class=' bg-white divide-y divide-gray-300' style="border: green;">
+            <thead class="" style="background-color: #138500; color: #FFFFFF;">
+                <!-- <tr class="text-white text-left" style="background-color: #138500; color: #FFFFFF ;"> -->
+                <tr>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No </th>
+                    <th class="font-semibold text-sm-capitalize uppercase px-4 py-2 text-center"> Nama Surah </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Jumlah Ayat </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">  </th>
+                </tr>
+            </thead>
+            {% for d in data %}
+            <tbody class="divide-y divide-gray-200">
+                <tr>
+                    <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                    <td class="text-center">{{d.surah}}</td>
+                    <td class="text-center">{{d.ayat}}</td>
+                    <td>
+
+                        <a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#detail" href="/adminpondok/quran/{{d.id}}/detail"><i class="fas fa-info-circle"></i></a>
+                        <a class="btn btn-sm btn-danger" href="/adminpondok/quran/{{d.id}}/delete"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<!-- Modal Detail -->
+    <div class="modal" id="detail" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
+        aria-labelledby="detailLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- {% for s in datasurah %} -->
+                    <h2>{{datasurah.surah}}</h2>
+                    <h2>{{satasurah.ayat}}</h2>
+                <!-- {% endfor %} -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
