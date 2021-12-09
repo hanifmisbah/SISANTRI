@@ -5,6 +5,11 @@
             <!-- CONTENT AREA -->
 
 <h2>Data Santri</h2>
+{% if messages %}
+          {% for message in messages %}
+              <div {% if message.tags %} class="alert alert-{{ message.tags }} py-2 col-9"{% endif %}>{{ message }}</div>
+            {% endfor %}
+          {% endif %}
 <div class="m-4">    
     <nav class="navbar navbar-light bg-white">
         <div class="container-fluid">
