@@ -1,0 +1,33 @@
+{% extends "adminpondok/base.html" %}
+{% block content %}
+
+<div class="m-5">
+    <h3>PENGUMUMAN</h3>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
+            <input disabled type="text" id="disabledTextInput" class="form-control" name="tgl" value="{{data.tgl}}">
+            <label for="floatingPassword"> Tanggal </label>
+        </div>
+
+        <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
+            <input type="text" class="form-control" name="judul" id="floatingPassword" placeholder="NamaLengkap">
+            <label for="floatingPassword"> Judul </label>
+        </div>
+
+
+        <div class="form-floating mb-3">
+            <textarea class="form-control" name="pengumuman" placeholder="Alamat Lengkap"
+                style="height: 100px"></textarea>
+            <label for="Alamat">Pengumuman</label>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan</button>
+
+</div>
+</form>
+
+{% endblock %}

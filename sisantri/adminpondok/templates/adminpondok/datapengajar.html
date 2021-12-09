@@ -1,0 +1,273 @@
+{% extends "adminpondok/base.html" %}
+{% block content %}
+
+<h1>Data Pengajar</h1>
+<nav class="navbar navbar-light bg-white">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+<!-- Button trigger modal -->
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="background-color: #138500;">
+                Input
+            </button>
+            <button type="button" class="btn btn-success" style="background-color: #138500;">
+                import
+            </button>
+            </a>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success" style="background-color:#138500 ;" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <form action="" method="post">
+                {% csrf_token %}
+
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Input Data Pengajar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
+                        <input type="text" class="form-control" name="NIP" id="floatingInput"
+                            placeholder="NomorIndukPengajar">
+                        <label for="floatingInput">Nomor Induk Pengajar </label>
+                    </div>
+                    <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+                        <input type="text" class="form-control" name="telp" id="floatingInput" placeholder="NoTelp">
+                        <label for="floatingInput"> No.Telp </label>
+                    </div>
+
+                    <div class="form-floating mb-3" style="display: inline-block ; width: 50%;">
+                        <input type="text" class="form-control" name="nama_pengajar" id="floatingPassword"
+                            placeholder="NamaLengkap">
+                        <label for="floatingPassword">Nama Lengkap</label>
+                    </div>
+
+                    <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+                        <input type="text" class="form-control" name="email" id="floatingInput" placeholder="NoTelp">
+                        <label for="floatingInput"> Email </label>
+                    </div>
+                    <h></h>
+                    <div class="form-floating mb-3 " style="display: inline-block;">
+                        <input type="text" class="form-control" name="tempat_lahir" id="floatingInput"
+                            placeholder="TempatLahir">
+                        <label for="floatingInput">Tempat Lahir</label>
+                    </div>
+
+                    <div class="form-floating mb-3" style="display: inline-block;">
+                        <input type="date" name="tanggal_lahir">
+                    </div>
+                    <div class="row-4">
+                        <label>Jenis Kelamin</label>
+                        <div class="" style="margin-left: 2rem;">
+                            <div class=" mb-10 form-check">
+                                <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault1" value="Laki-Laki">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Laki-Laki
+                                </label>
+                            </div>
+                            <div class="form-check ml-2">
+                                <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault2" checked value="Perempuan">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Perempuan
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-4" style="display: inline-block;">
+                        <Label>Pengajar</Label>
+                        <div class="form-check">
+                            <input class="form-check-input" name="pngjr" type="checkbox" value="Al-Quran" id="Al-Quran" >
+                            <label class="form-check-label" for="Al-Quran">
+                                Al-Quran
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="pngjr" type="checkbox" value="Nadzom" id="Nadzom" >
+                            <label class="form-check-label" for="Nadzom">
+                                Nadzom
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="pngjr" type="checkbox" value="Matan" id="Matan" >
+                            <label class="form-check-label" for="Matan">
+                                Matan
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" name="almt" placeholder="Leave a comment here" id="Alamat"
+                            style="height: 100px"></textarea>
+                        <label for="Alamat">Alamat Pengajar</label>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr style="background-color: #138500; color: #FFFFFF ;">
+            <th scope="col">NO</th>
+            <th scope="col">NIP</th>
+            <th scope="col">Nama Lengkap</th>
+            <th scope="col">Tempat Lahir</th>
+            <th scope="col">Tanggal Lahir</th>
+            <th scope="col">Jenis Kelamin</th>
+            <th scope="col">Alamat</th>
+            <th scope="col">Telp</th>
+            <th scope="col">Email</th>
+            <th scope="col">Pengajar</th>
+            <th scope="col">action</th>
+
+
+        </tr>
+    </thead>
+    {% for d in data %}
+    <tbody>
+
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{d.NIP}}</td>
+            <td>{{d.nama_pengajar}}</td>
+            <td>{{d.tempat_lahir}}</td>
+            <td>{{d.tanggal_lahir}}</td>
+            <td>{{d.jk}}</td>
+            <td>{{d.almt}}</td>
+            <td>{{d.telp}}</td>
+            <td>{{d.email}}</td>
+            <td>{{d.pngjr}}</td>
+            
+
+            <td>
+                <a class="btn btn-sm btn-success" href="/{{d.id}}/detail"><i class="fas fa-info-circle"></i></a>
+                <a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#update"
+                    href="/adminpondok/dataapengajar/{{d.id}}/updatepengajar"><i class="fas fa-pen"></i></a>
+                <a class="btn btn-sm btn-danger" href="/adminpondok/datapengajar/{{d.id}}/deletepengajar"><i class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+
+    </tbody>
+    {% endfor %}
+</table>
+<div class="modal fade" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <form action="" method="post">
+                {% csrf_token %}
+
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Input Data Pengajar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
+                        <input type="text" class="form-control" name="NIP" id="floatingInput"
+                            placeholder="NomorIndukPengajar">
+                        <label for="floatingInput">Nomor Induk Pengajar </label>
+                    </div>
+                    <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+                        <input type="text" class="form-control" name="telp" id="floatingInput" placeholder="NoTelp">
+                        <label for="floatingInput"> No.Telp </label>
+                    </div>
+
+                    <div class="form-floating mb-3" style="display: inline-block ; width: 50%;">
+                        <input type="text" class="form-control" name="nama_pengajar" id="floatingPassword"
+                            placeholder="NamaLengkap">
+                        <label for="floatingPassword">Nama Lengkap</label>
+                    </div>
+
+                    <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+                        <input type="text" class="form-control" name="email" id="floatingInput" placeholder="NoTelp">
+                        <label for="floatingInput"> Email </label>
+                    </div>
+                    <h></h>
+                    <div class="form-floating mb-3 " style="display: inline-block;">
+                        <input type="text" class="form-control" name="tempat_lahir" id="floatingInput"
+                            placeholder="TempatLahir">
+                        <label for="floatingInput">Tempat Lahir</label>
+                    </div>
+
+                    <div class="form-floating mb-3" style="display: inline-block;">
+                        <input type="date" name="tanggal_lahir">
+                    </div>
+                    <div class="row-4">
+                        <label>Jenis Kelamin</label>
+                        <div class="" style="margin-left: 2rem;">
+                            <div class=" mb-10 form-check">
+                                <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Laki-Laki
+                                </label>
+                            </div>
+                            <div class="form-check ml-2">
+                                <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Perempuan
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-4" style="display: inline-block;">
+                        <Label>Pengajar</Label>
+                        <div class="form-check">
+                            <input class="form-check-input" name="pngjr" type="checkbox" value="" id="Al-Quran">
+                            <label class="form-check-label" for="Al-Quran">
+                                Al-Quran
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="pngjr" type="checkbox" value="" id="Nadzom">
+                            <label class="form-check-label" for="Nadzom">
+                                Nadzom
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="pngjr" type="checkbox" value="" id="Matan">
+                            <label class="form-check-label" for="Matan">
+                                Matan
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" name="almt" placeholder="Leave a comment here" id="Alamat"
+                            style="height: 100px"></textarea>
+                        <label for="Alamat">Alamat Pengajar</label>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+</div>
+
+{% endblock %}

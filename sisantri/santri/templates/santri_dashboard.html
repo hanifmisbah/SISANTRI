@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Pengaturan Akun</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Username</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="alamat email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Password</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="password lama">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Ganti Password</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="password baru">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <!-- saget -->
+            <nav class="navbar navbar-light bg-white">
+                <div class="container-fluid">
+                    <a class="navbar-brand">
+                        <h2>Dasboard wali santri</h2>
+                    </a>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-success" style="background-color:#138500 ;" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+
+            <div class="col-md-6">
+                <div class="card mb-3" style="width: 1007px;">
+                    <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Pencapaian
+                        santri</div>
+                    <div class="card-body">
+
+
+                        <div class="card text-black mb-3"
+                            style="width: 20rem; display: inline-block ; background-color: #138500;">
+                            <div class="card-header text-white">Al-quran</div>
+                            <div class="card-body" style="background-color: #C4EEC8; height: 5rem;">
+                                <h6 class="card-title">surah yusuf</h6>
+                                <p class="card-text">ayat 31.</p>
+                                <a href="quran/" class="btn stretched-link "></a>
+                            </div>
+                        </div>
+                        <div class="card text-black mb-3"
+                            style="width: 20rem; display: inline-block ; background-color: #138500;">
+                            <div class="card-header text-white">Nadzom</div>
+                            <div class="card-body" style="background-color: #C4EEC8; height: 5rem;">
+                                <h6 class="card-title">Secondary card title</h6>
+                                <p class="card-text">ini nadzom snaksa.</p>
+                                <a href="#" class="btn stretched-link "></a>
+                            </div>
+                        </div>
+                        <div class="card text-black mb-3"
+                            style="width: 20rem; display: inline-block ; background-color: #138500;">
+                            <div class="card-header text-white">Matan</div>
+                            <div class="card-body" style="background-color: #C4EEC8; height: 5rem;">
+                                <h6 class="card-title"> jurumiyyah</h6>
+                                <p class="card-text">hal 12</p>
+                                <a href="#" class="btn stretched-link "></a>
+                            </div>
+                        </div>
+                        <div class="card text-black mb-3 ml-2"
+                            style="width: 20rem; display: inline-block ; background-color: #138500;">
+                            <div class="card-header text-white">Sorogan</div>
+                            <div class="card-body" style="background-color: #C4EEC8; height: 5rem;">
+                                <h6 class="card-title">Secondary card title</h6>
+                                <p class="card-text">ini nadzom snaksa.</p>
+                                <a href="#" class="btn stretched-link "></a>
+                            </div>
+                        </div>
+                        <div class="card text-black mb-3"
+                            style="width: 20rem; display: inline-block ; background-color: #138500;">
+                            <div class="card-header text-white">Bandongan</div>
+                            <div class="card-body" style="background-color: #C4EEC8; height: 5rem;">
+                                <h6 class="card-title">ta'lim mutaallim</h6>
+                                <p class="card-text">hal 7</p>
+                                <a href="#" class="btn stretched-link "></a>
+                            </div>
+                        </div>
+                        <!-- <div class="card text-black mb-3"
+                            style="width: 20rem; display: inline-block ; background-color: #138500;">
+                            <div class="card-header text-white">Nadzom</div>
+                            <div class="card-body" style="background-color: #C4EEC8; height: 5rem;">
+                                <h6 class="card-title">Secondary card title</h6>
+                                <p class="card-text">ini nadzom snaksa.</p>
+                                <a href="#" class="btn stretched-link "></a>
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- tab pengumuman -->
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <h3></h3>
+            <div class="col-md-6">
+                <div class="container-fluid">
+                    <div class="card mb-2" style="width: 1325px;">
+                        <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Pengumuman
+                            Pondok Pesantren</div>
+                        <div class="card-body">
+                            <div class="container-fluid">
+                                <div class="min-h-screen bg-white py-2">
+                                    <div class=" row d-flex">
+                                        <table class=' bg-white divide-y divide-gray-300 justify-content-center'
+                                            style="border: green;">
+                                            <thead class="" style="background-color: #FFFFFF ; color: black;">
+                                                <tr>
+                                                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
+                                                        No </th>
+                                                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
+                                                        Tanggal </th>
+                                                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
+                                                        Pengumuman
+                                                    </th>
+                                                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
+                                                        Selengkapnya
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            {%for p in pngm%}
+                                            <tbody class="divide-y divide-gray-200">
+                                                <tr>
+                                                    <td scope="row" class="text-center">{{ forloop.counter }}</td>
+                                                    <td class="text-center">{{ p.tgl }}</td>
+                                                    <td class="text-center">{{ p.judul }}</td>
+
+                                                    <td class="text-center">
+                                                        <a class="nav-link active" aria-current="page"
+                                                            href="#">Lihat</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            {%endfor%}
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+{% endblock %}
