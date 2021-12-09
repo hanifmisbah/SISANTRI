@@ -1,0 +1,182 @@
+{% extends "adminpondok/base.html" %}
+{% block content %}
+
+<div class="content">
+  <div class="container-fluid justify-content-center">
+    <div class="row px-3 py-2">
+      <h4 class="col-9">Dashboard</h4>
+      <div class="col-md-6">
+        <div class="card mb-3" style="max-width: 1100px;">
+          <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Data Santri</div>
+          <div class="card-body">
+            <!-- <hr style="width: 0.1rem; height: 10rem;"> -->
+            <div class="card-group">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h6 class="card-title">Jumlah Santri</h6>
+                  <h1>1330</h1>
+                  <p>15 santri merangkap menjadi pengajar</p>
+                </div>
+              </div>
+              <div class="card text-center">
+                <div class="card-body">
+                  <h6 class="card-title">Santri Laki-Laki</h6>
+                  <h1>630</h1>
+                  <p>5 santri merangkap menjadi pengajar</p>
+                </div>
+              </div>
+              <div class="card text-center">
+                <div class="card-body">
+                  <h6 class="card-title">Santri Perempuan</h6>
+                  <h1>700</h1>
+                  <p>10 santri merangkap menjadi pengajar</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-6">
+        <div class="card mb-3" style="max-width: 700px;">
+          <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Daftar Kitab</div>
+          <div class="card-body" style="height: 214px;">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button style="color:black" class="nav-link" id="quran-tab" data-bs-toggle="tab" data-bs-target="#quran"
+                  type="button" role="tab" aria-controls="quran" aria-selected="true">Al-Qur'an</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button style="color:black" class="nav-link" id="nadhom-tab" data-bs-toggle="tab"
+                  data-bs-target="#nadhom" type="button" role="tab" aria-controls="nadhom"
+                  aria-selected="true">Nadhom</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button style="color:black" class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                  data-bs-target="#contact" type="button" role="tab" aria-controls="contact"
+                  aria-selected="true">Matan</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="quran" role="tabpanel" aria-labelledby="quran-tab">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nama Surah</th>
+                      <th scope="col">Jumlah Ayat</th>
+                    </tr>
+                  </thead>
+                  {% for q in quran %}
+                  <tbody>
+                    <tr>
+                      <td>{{q.surah}}</td>
+                      <td>{{q.ayat}}</td>
+                    </tr>
+                  </tbody>
+                  {% endfor %}
+                </table>
+              </div>
+              <div class="tab-pane" id="nadhom" role="tabpanel" aria-labelledby="nadhom-tab">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nama Kitab</th>
+                      <th scope="col">Jumlah Bab</th>
+                      <th scope="col">Jumlah Baris</th>
+                      <th scope="col">Pengarang</th>
+                    </tr>
+                  </thead>
+                  {% for n in nadhom %}
+                  <tbody>
+                    <tr>
+                      <td>{{ n.nama_kitab }}</td>
+                      <td>{{ n.jmlh_bab }}</td>
+                      <td>{{ n.jmlh_baris }}</td>
+                      <td>{{ n.pengarang }}</td>
+                    </tr>
+                  </tbody>
+                  {% endfor %}
+                </table>
+              </div>
+              <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nama Kitab</th>
+                      <th scope="col">Jumlah Fashol</th>
+                      <th scope="col">Jumlah Paragraf</th>
+                      <th scope="col">Pengarang</th>
+                    </tr>
+                  </thead>
+                  {% for m in matan %}
+                  <tbody>
+                    <tr>
+                      <td>{{ n.nama_kitab }}</td>
+                      <td>{{ n.fashol }}</td>
+                      <td>{{ n.paragraf }}</td>
+                      <td>{{ n.pengarang }}</td>
+                    </tr>
+                  </tbody>
+                  {% endfor %}
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row px-5 py-2">
+  <div class="col-md-4">
+    <div class="card mb-3" style="max-width: 21rem;">
+      <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Daftar Pengajar</div>
+      <div class="card-body">
+        <div class="card text-center">
+          <div class="card-body mb-5">
+            <h6 class="card-title">Jumlah Pengajar</h6>
+            <h1>67</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row d-flex">
+      <div class="d-flex">
+        <a class="btn btn-success mb-2" href="/adminpondok/pengumuman"
+          style="background-color: rgba(19, 133, 0, 1);">Input</a>
+      </div>
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class='table table-bordered table-striped mb-0 bg-white divide-y justify-content-center'
+          style="border: 1px;">
+          <thead class="" style="background-color: #138500; color: #FFFFFF;">
+            <tr>
+              <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No </th>
+              <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
+              <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Judul </th>
+              <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Action</th>
+            </tr>
+          </thead>
+          {% for d in pengum %}
+          <tbody class="">
+            <tr>
+              <th scope="row" class="text-center">{{ forloop.counter }}</th>
+              <td class="text-center">{{d.tgl}}</td>
+              <td class="text-center">{{d.judul}}</td>
+              <td class="text-center">
+                <a class="btn btn-sm btn-success" href="{{d.id}}/delete"><i class="fas fa-info-circle"></i></a>
+              </td>
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
