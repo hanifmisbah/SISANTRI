@@ -2,27 +2,30 @@ from django.db import models
 
 # Create your models here.
 
-
 class Santri(models.Model):
     kelamin = [
         ('Laki-Laki', 'Laki-Laki'),
         ('Perempuan', 'Perempuan'),
     ]
     kategori = [
-        ('Quran', 'Al-Quran'),
+        ('Al-Quran', 'Al-Quran'),
         ('Matan', 'Matan'),
         ('Nadhom', 'Nadhom'),
     ]
 
-    nis = models.IntegerField()
+
+    nis = models.IntegerField(null=False)
     nama_santri = models.CharField(max_length=30, null=False, blank=False)
     tempat_lahir = models.CharField(max_length=20, null=False, blank=False)
     tanggal_lahir = models.DateField()
     jk = models.CharField(max_length=9, choices=kelamin, default='', null=False, blank=False)
     almt = models.TextField(default='', null=False, blank=False)
-    telp = models.IntegerField(default=0, null=False, blank=False)
+    telp = models.IntegerField(null=False, blank=False)
     email = models.CharField(default='', max_length=20, null=False, blank=False)
-    ktgri = models.CharField(default='', choices=kategori, max_length=8, null=False, blank=False)
+    ktgri = models.CharField(default='', choices=kategori, unique=True, max_length=8)
+
+    # def __str__(self):
+    #     return self.ktgri
 
 
 class Pengajar(models.Model):
@@ -65,8 +68,7 @@ class Kitab(models.Model):
     ]
     kode_kitab = models.IntegerField(default=0)
     nama_kitab = models.CharField(max_length=30)
-    kategori_kitab = models.CharField(
-        max_length=9, choices=kategori_kitab, default='')
+    kategori_kitab = models.CharField(max_length=9, choices=kategori_kitab, default='')
     jenis_kitab = models.CharField(max_length=9, choices=jenis, default='')
     nama_pengarang = models.CharField(max_length=30)
 

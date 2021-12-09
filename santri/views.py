@@ -10,3 +10,6 @@ def index(req):
     return render(req, 'santri_dashboard.html', {
         'pngm': pngm
     })
+
+def quran(req):
+    return render(req, 'quran.html')
