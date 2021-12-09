@@ -1,0 +1,162 @@
+{% extends "adminpondok/base.html" %}
+{% block content %}
+
+<h1>Data Kitab</h1>
+<nav class="navbar navbar-light bg-white mb">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                style="background-color: #138500; display: inline-block;">
+                Input
+            </button>
+            <button type="button" class="btn btn-success" style="background-color: #138500;">
+                import
+            </button>
+        </a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" style="background-color:#138500 ;" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<!-- =================================== table data kitab ======================================== -->
+<div class="card-body">
+    <div class="min-h-screen bg-white py-2">
+        <div class="container-fluid">
+            <div class=" row d-flex">
+                <table class="bg-white divide-y divide-gray-300' style=" border: green;">
+                    <thead class="" style="background-color: #138500; color: #FFFFFF;">
+                        <!-- <tr class="text-white text-left" style="background-color: #138500; color: #FFFFFF ;"> -->
+                        <tr>
+                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No </th>
+                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Kode Kitab </th>
+                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Nama Kitab</th>
+                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Katagori</th>
+                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Jenis Kitab</th>
+                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Nama Pengarang</th>
+                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Action</th>
+                        </tr>
+                    </thead>
+                    {% for d in data %}
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                            <td class="text-center">{{d.kode_kitab}}</td>
+                            <td class="text-center">{{d.nama_kitab}}</td>
+                            <td class="text-center">{{d.kategori_kitab}}</td>
+                            <td class="text-center">{{d.jenis_kitab}}</td>
+                            <td class="text-center">{{d.nama_pengarang}}</td>
+                            <td>
+                                <a class="btn btn-sm btn-success" href="/{{d.id}}/detail"><i
+                                        class="fas fa-info-circle"></i></a>
+                                <a class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                                    data-bs-target="#modaleditkitab" href="datasantri/{{d.id}}/update"><i
+                                        class="fas fa-pen"></i></a>
+                                <a class="btn btn-sm btn-danger" href="{{d.id}}/delete"><i
+                                        class="fas fa-trash-alt"></i></a>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ========================================Modal input data kitab=============================================-->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <form action="" method="post">
+                {% csrf_token %}
+
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Input Data Kitab</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
+                        <input type="text" class="form-control" name="kode_kitab" id="floatingInput"
+                            placeholder="NomorIndukSantri">
+                        <label for="floatingInput">Kode Kitab </label>
+                    </div>
+                    <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+                        <input type="text" class="form-control" name="nama_kitab" id="floatingInput"
+                            placeholder="NoTelp">
+                        <label for="floatingInput"> Nama Kitab </label>
+                    </div>
+
+                    <div class="row-4">
+                        <label>Kategori</label>
+                        <div class="" style="margin-left: 2rem;">
+                            <div class=" mb-10 form-check">
+                                <input class="form-check-input" type="radio" name="kategori_kitab"
+                                    id="flexRadioDefault1" value="Dasar">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Dasar
+                                </label>
+                            </div>
+                            <div class=" mb-10 form-check">
+                                <input class="form-check-input" type="radio" name="kategori_kitab"
+                                    id="flexRadioDefault2" value="Menengah">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Menengah
+                                </label>
+                            </div>
+                            <div class=" mb-10 form-check">
+                                <input class="form-check-input" type="radio" name="kategori_kitab"
+                                    id="flexRadioDefault2" value="Atas">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Atas
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-4">
+                        <label>Jenis</label>
+                        <div class="" style="margin-left: 2rem;">
+                            <div class=" mb-10 form-check">
+                                <input class="form-check-input" type="radio" name="jenis_kitab" id="flexRadioDefault1"
+                                    value="Matan">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Matan
+                                </label>
+                            </div>
+                            <div class=" mb-10 form-check">
+                                <input class="form-check-input" type="radio" name="jenis_kitab" id="flexRadioDefault2"
+                                    value="Nadhom">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Nadhom
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+                        <input type="text" class="form-control" name="nama_pengarang" id="floatingInput"
+                            placeholder="NoTelp">
+                        <label for="floatingInput"> Nama Pengarang </label>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
