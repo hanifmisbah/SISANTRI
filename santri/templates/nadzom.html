@@ -15,32 +15,37 @@
     <h2> </h2>
     <h3>Pencapaian Nadzhom Santri</h3>
 
-    <div class="min-h-screen bg-white py-2">
-        <div class=" row d-flex">
-            <table class=' bg-white divide-y divide-gray-300 justify-content-center' style="border: green;">
-                <thead class="" style="background-color: #138500; color: #FFFFFF;">
-                    <tr>
-                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
-                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Kitab </th>
-                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Bab </th>
-                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Bait </th>
-                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Kelancaran </th>
-                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Keterangan </th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-200">
-                    <tr>
-                        <th scope="row" class="text-center">{{ data.tanggal }}</th>
-                        <td>{{d.kitab}}</td>
-                        <td>{{d.bab}}</td>
-                        <td>{{d.bait}}</td>
-                        <td>{{d.kelancaran}}</td>
-                        <td>{{d.keterangan}}</td>
+    <div class="card-body">
+        <div class="min-h-screen bg-white py-2">
+            <div class="container-fluid">
+                <div class=" row d-flex">
+                    <table class="bg-white divide-y divide-gray-300' style=" border: green;">
+                        <thead class="" style="background-color: #138500; color: #FFFFFF;">
+                            <tr>
+                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
+                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Kitab </th>
+                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Bab </th>
+                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Bait </th>
+                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Kelancaran </th>
+                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Keterangan </th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <th scope="row" class="text-center">{{ data.tanggal }}</th>
+                                <td>{{d.kitab}}</td>
+                                <td>{{d.bab}}</td>
+                                <td>{{d.bait}}</td>
+                                <td>{{d.kelancaran}}</td>
+                                <td>{{d.keterangan}}</td>
 
-                    </tr>
-                </tbody>
-            </table>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+    </div>
 
 </body>
 
