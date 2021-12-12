@@ -143,6 +143,7 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
   </div>
   <!-- ======= button input pengumuman ======= -->
   <div class="col-md-6">
@@ -157,6 +158,19 @@
         {% endif %}
       </div>
       <div class="table-wrapper-scroll-y my-custom-scrollbar">
+=======
+    <div class="col-md-6">
+      <div class="row d-flex">
+        <div class="d-flex row">
+          <a class="btn btn-success mb-2 col-2" href="/adminpondok/pengumuman" style="background-color: rgba(19, 133, 0, 1);">Input</a>
+          {% if messages %}
+          {% for message in messages %}
+              <div {% if message.tags %} class="alert alert-{{ message.tags }} col-9 absolute"{% endif %}>{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        </div>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+>>>>>>> f62d0974ca0a3641a39d700f8a08927e8912b0dc
         <table class='table table-bordered table-striped mb-0 bg-white divide-y justify-content-center'
           style="border: 1px;">
           <thead class="" style="background-color: #138500; color: #FFFFFF;">
