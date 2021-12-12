@@ -11,13 +11,14 @@ urlpatterns = [
     path('datapengajar/', views.datapengajar),
     path('datapengajar/<id>/deletepengajar', views.deletepengajar),
     path('datapengajar/<id>/editpengajar', views.editpengajar),
+    path('datapengajar/<id>/update', views.editpengajar),
     # ============= santri ====================
     path('datasantri<id>/editsantri', views.editsantri),
     path('datasantri/', views.datasantri),
     path('datasantri/<id>/delete', views.deletesantri),
     path('datasantri/<id>/update', views.editsantri),
     path('datasantri/<id>/detail', views.detailsantri),
-    # ============= santri ====================
+    # ============= Quran ====================
     path('quran/', views.alquran),
     path('quran/<id>/delete', views.deletequran),
     path('quran/<id>/detail', views.detailquran),

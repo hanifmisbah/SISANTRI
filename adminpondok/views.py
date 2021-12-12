@@ -4,6 +4,7 @@ from django.contrib import messages
 from . import models, forms
 # from sisantri import adminpondok
 
+
 def coba(req):
     return render(req, 'coba.html')
 # ============D A S H B O A R D=================
@@ -43,7 +44,7 @@ def datasantri(req):
         )
         messages.info(req, f'Santri {sntr.nama_santri} Berhasil Di Tambah')
         return redirect('/adminpondok/datasantri')
-        
+
     # add_data = forms.SantriForm()
 
     # if req.POST:
@@ -52,7 +53,7 @@ def datasantri(req):
     #     if add_data.is_valid():
     #         add_data.save()
     #         return redirect('/adminpondok/datasantri')
-    
+
     santri = models.Santri.objects.all()
     # santri_det = models.Santri.objects.filter(pk=id).first()
     return render(req, 'adminpondok/datasantri.html', {
@@ -61,12 +62,14 @@ def datasantri(req):
         # 'form': add_data,
     })
 
+
 def detailsantri(req, id):
     santri_det = models.Santri.objects.filter(pk=id).first()
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri_det,
     })
-    
+
+
 def deletesantri(req, id):
     sntr = models.Santri.objects.filter(pk=id).delete()  # pk = primary key
     messages.info(req, f'Santri Berhasil Di Hapus')
@@ -91,7 +94,7 @@ def editsantri(req, id):
 
     tasks = models.Pengajar.objects.filter(pk=id).first()
     return render(req, 'adminpondok/editsantri.html', {
-        'data1': tasks,
+        'data': tasks,
     })
 
 
@@ -126,7 +129,7 @@ def datapengajar(req):
 
 def editpengajar(req, id):
     if req.POST:
-        models.Pengajar.objects.filter(pk=id).update(
+        pngjr = models.Pengajar.objects.filter(pk=id).update(
             NIP=req.POST['NIP'],
             nama_pengajar=req.POST['nama_pengajar'],
             tempat_lahir=req.POST['tempat_lahir'],
@@ -134,12 +137,16 @@ def editpengajar(req, id):
             almt=req.POST['almt'],
             jk=req.POST['jk'],
             telp=req.POST['telp'],
-            email=req.POST['email'])
-        return redirect('/')
+            email=req.POST['email'],
+            pngjr=req.POST['pngjr'],
 
-    tasks = models.Pengajar.objects.all()
-    return render(req, 'edit.html', {
-        'data': tasks,
+        )
+        messages.info(req, f'Pengajar {pngjr.nama_pengajar} Berhasil Di Edit')
+        return redirect('/adminpondok/datapengajar')
+
+    data = models.Pengajar.objects.filter(pk=id).first()
+    return render(req, 'adminpondok/editpengajar.html', {
+        'data': data,
     })
 
 
@@ -190,7 +197,9 @@ def datakitab(req):
             kode_kitab=req.POST['kode_kitab'],
             nama_kitab=req.POST['nama_kitab'],
             kategori_kitab=req.POST['kategori_kitab'],
-            jenis_kitab=req.POST['jenis_kitab'],
+            jumlah_bab=req.POST['jumlah_bab'],
+            jumlah_fashol=req.POST['jumlah_fashol'],
+            jumlah_bait=req.POST['jumlah_bait'],
             nama_pengarang=req.POST['nama_pengarang'],
         )
         return redirect('/adminpondok/datakitab')
@@ -231,12 +240,14 @@ def pengumuman(req):
             judul=req.POST['judul'],
             pengumuman=req.POST['pengumuman'],
         )
-        messages.info(req, f'{pngm.judul} Pengumuman baru berhasil ditambahkan')
+        messages.info(
+            req, f'{pngm.judul} Pengumuman baru berhasil ditambahkan')
         return redirect('/adminpondok')
     pengumuman = models.Pengumuman.objects.all()
     return render(req, 'adminpondok/pengumuman.html', {
         'data': pengumuman,
     })
+
 
 def deletepngm(req, id):
     pngm = models.Pengumuman.objects.filter(pk=id).delete()

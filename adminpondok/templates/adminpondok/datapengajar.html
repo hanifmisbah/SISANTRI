@@ -47,7 +47,7 @@
                     <tbody>
 
                         <tr>
-                            <th scope="row">{{ forloop.counter }}</th>
+                            <th scope="row" class="text-center">{{ forloop.counter }}</th>
                             <td>{{d.NIP}}</td>
                             <td>{{d.nama_pengajar}}</td>
                             <td>{{d.tempat_lahir}}</td>
@@ -61,8 +61,8 @@
                             <td>
                                 <a class="btn btn-sm btn-success" href="/{{d.id}}/detail"><i
                                         class="fas fa-info-circle"></i></a>
-                                <a class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#update"
-                                    href="/adminpondok/dataapengajar/{{d.id}}/updatepengajar"><i
+                                <a class="btn btn-sm btn-warning"
+                                    href="/adminpondok/datapengajar/{{d.id}}/editpengajar"><i
                                         class="fas fa-pen"></i></a>
                                 <a class="btn btn-sm btn-danger"
                                     href="/adminpondok/datapengajar/{{d.id}}/deletepengajar"><i
@@ -135,7 +135,7 @@
                                 </label>
                             </div>
                             <div class="form-check ml-2">
-                                <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault2" checked
+                                <input class="form-check-input" type="radio" name="jk" id="flexRadioDefault2"
                                     value="Perempuan">
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Perempuan
