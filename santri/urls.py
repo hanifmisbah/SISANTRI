@@ -6,5 +6,9 @@ from . import views
 urlpatterns = [
     path('', views.index),
     path('quran/', views.quran),
-    # path('santri_quran/', views santri_quran)
+    path('bandongan/', views.bandongan),
+    path('matan/', views.matan),
+    path('nadzom/', views.nadzom),
+    path('sorogan/', views.sorogan),
+
 ]
