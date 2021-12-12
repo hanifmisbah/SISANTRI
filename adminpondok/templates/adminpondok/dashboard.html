@@ -150,7 +150,7 @@
           <a class="btn btn-success mb-2 col-2" href="/adminpondok/pengumuman" style="background-color: rgba(19, 133, 0, 1);">Input</a>
           {% if messages %}
           {% for message in messages %}
-              <div {% if message.tags %} class="alert alert-{{ message.tags }} col-9"{% endif %}>{{ message }}</div>
+              <div {% if message.tags %} class="alert alert-{{ message.tags }} col-9 absolute"{% endif %}>{{ message }}</div>
             {% endfor %}
           {% endif %}
         </div>

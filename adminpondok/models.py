@@ -1,16 +1,27 @@
 from django.db import models
 
 # Create your models here.
+class Kategori(models.Model):
+    kategori = [
+        ('Al-Quran', 'Al-Quran'),
+        ('Matan', 'Matan'),
+        ('Nadhom', 'Nadhom'),
+    ]
+    
+    ktgri = models.CharField(default='',primary_key=True, choices=kategori, unique=True, max_length=8)
 
 class Santri(models.Model):
     kelamin = [
         ('Laki-Laki', 'Laki-Laki'),
         ('Perempuan', 'Perempuan'),
     ]
+    Quran='qr'
+    Matan='mt'
+    Nadhom='nd'
     kategori = [
-        ('Al-Quran', 'Al-Quran'),
-        ('Matan', 'Matan'),
-        ('Nadhom', 'Nadhom'),
+        (Quran, 'Al-Quran'),
+        (Matan, 'Matan'),
+        (Nadhom, 'Nadhom'),
     ]
 
 
@@ -22,7 +33,8 @@ class Santri(models.Model):
     almt = models.TextField(default='', null=False, blank=False)
     telp = models.IntegerField(null=False, blank=False)
     email = models.CharField(default='', max_length=20, null=False, blank=False)
-    ktgri = models.CharField(default='', choices=kategori, unique=True, max_length=8)
+    # ktgri = models.ForeignKey(Kategori, on_delete=models.CASCADE)
+    ktgri = models.CharField(default='', choices=kategori, max_length=30)
 
     # def __str__(self):
     #     return self.ktgri

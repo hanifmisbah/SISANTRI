@@ -4,6 +4,8 @@ from django.contrib import messages
 from . import models, forms
 # from sisantri import adminpondok
 
+def coba(req):
+    return render(req, 'coba.html')
 # ============D A S H B O A R D=================
 
 
@@ -27,30 +29,53 @@ def profil(req):
 # ============S A N T R I=================
 
 def datasantri(req):
-    add_data = forms.SantriForm()
-
     if req.POST:
-        add_data = forms.SantriForm(req.POST)
+        sntr = models.Santri.objects.create(
+            nis=req.POST['nis'],
+            nama_santri=req.POST['nama_santri'],
+            tempat_lahir=req.POST['tempat_lahir'],
+            tanggal_lahir=req.POST['tanggal_lahir'],
+            jk=req.POST['jk'],
+            almt=req.POST['almt'],
+            telp=req.POST['telp'],
+            email=req.POST['email'],
+            ktgri=req.POST.getlist('ktgri'),
+        )
+        messages.info(req, f'Santri {sntr.nama_santri} Berhasil Di Tambah')
+        return redirect('/adminpondok/datasantri')
+        
+    # add_data = forms.SantriForm()
 
-        if add_data.is_valid():
-            add_data.save()
-            return redirect('/adminpondok/datasantri')
+    # if req.POST:
+    #     add_data = forms.SantriForm(req.POST)
+
+    #     if add_data.is_valid():
+    #         add_data.save()
+    #         return redirect('/adminpondok/datasantri')
     
     santri = models.Santri.objects.all()
+    # santri_det = models.Santri.objects.filter(pk=id).first()
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri,
-        'form': add_data,
+        # 'ddet': santri_det,
+        # 'form': add_data,
     })
 
-
+def detailsantri(req, id):
+    santri_det = models.Santri.objects.filter(pk=id).first()
+    return render(req, 'adminpondok/datasantri.html', {
+        'data': santri_det,
+    })
+    
 def deletesantri(req, id):
-    models.Santri.objects.filter(pk=id).delete()  # pk = primary key
+    sntr = models.Santri.objects.filter(pk=id).delete()  # pk = primary key
+    messages.info(req, f'Santri Berhasil Di Hapus')
     return redirect('/adminpondok/datasantri')
 
 
 def editsantri(req, id):
     if req.POST:
-        models.Santri.objects.filter(pk=id).update(
+        sntr = models.Santri.objects.filter(pk=id).update(
             nis=req.POST['nis'],
             nama_santri=req.POST['nama_santri'],
             tempat_lahir=req.POST['tempat_lahir'],
@@ -61,6 +86,7 @@ def editsantri(req, id):
             email=req.POST['email'],
             ktgri=req.POST['ktgri'],
         )
+        messages.info(req, f'Santri {sntr.nama_santri} Berhasil Di Edit')
         return redirect('/adminpondok/datasantri')
 
     tasks = models.Pengajar.objects.filter(pk=id).first()
