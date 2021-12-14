@@ -197,6 +197,7 @@ def datakitab(req):
             kode_kitab=req.POST['kode_kitab'],
             nama_kitab=req.POST['nama_kitab'],
             kategori_kitab=req.POST['kategori_kitab'],
+            jenis_kitab=req.POST['kategori_kitab'],
             jumlah_bab=req.POST['jumlah_bab'],
             jumlah_fashol=req.POST['jumlah_fashol'],
             jumlah_bait=req.POST['jumlah_bait'],
