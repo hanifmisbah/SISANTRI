@@ -200,20 +200,55 @@
                                                 <td class="text-center">{{forloop.counter}}</td>
                                                 <td>{{p.tgl}}</td>
                                                 <td class="text-center">{{p.judul}}</td>
-                                                <td>
-                                                    <a class="nav-link active" aria-current="page" href="#">Lihat</a>
+
+                                                <!-- Button trigger modal info pengumuman -->
+                                                <td class="text-center">                                            
+                                                    <button type="button" class="btn btn-link"  data-bs-toggle="modal" data-bs-target="#pengumuman">detail</button>
                                                 </td>
+
+
+                                                  
+                                            
+                            
                                             </tr>
                                         </tbody>
                                         {% endfor %}
                                     </table>
-                                    <!-- </div> -->
+                                    <!-- </div> -->                                                                                                                 
+                                    
+                                   <!-- Button trigger modal -->
+
+  
+  <!-- Modal info pengumuman-->
+                                    <div class="modal fade" id="pengumuman" tabindex="-1" role="dialog" aria-labelledby="pengumumanLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            yuhuuuuuuu
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                                                        
+
+                                    </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+</div>
+</div>
 
 
 
