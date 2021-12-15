@@ -1,38 +1,43 @@
 from django.db import models
 
 # Create your models here.
+
+
 class Kategori(models.Model):
     kategori = [
         ('Al-Quran', 'Al-Quran'),
         ('Matan', 'Matan'),
         ('Nadhom', 'Nadhom'),
     ]
-    
-    ktgri = models.CharField(default='',primary_key=True, choices=kategori, unique=True, max_length=8)
+
+    ktgri = models.CharField(default='', primary_key=True,
+                             choices=kategori, unique=True, max_length=8)
+
 
 class Santri(models.Model):
     kelamin = [
         ('Laki-Laki', 'Laki-Laki'),
         ('Perempuan', 'Perempuan'),
     ]
-    Quran='qr'
-    Matan='mt'
-    Nadhom='nd'
+    Quran = 'qr'
+    Matan = 'mt'
+    Nadhom = 'nd'
     kategori = [
         (Quran, 'Al-Quran'),
         (Matan, 'Matan'),
         (Nadhom, 'Nadhom'),
     ]
 
-
     nis = models.IntegerField(null=False)
     nama_santri = models.CharField(max_length=30, null=False, blank=False)
     tempat_lahir = models.CharField(max_length=20, null=False, blank=False)
     tanggal_lahir = models.DateField()
-    jk = models.CharField(max_length=9, choices=kelamin, default='', null=False, blank=False)
+    jk = models.CharField(max_length=9, choices=kelamin,
+                          default='', null=False, blank=False)
     almt = models.TextField(default='', null=False, blank=False)
     telp = models.IntegerField(null=False, blank=False)
-    email = models.CharField(default='', max_length=20, null=False, blank=False)
+    email = models.CharField(default='', max_length=20,
+                             null=False, blank=False)
     # ktgri = models.ForeignKey(Kategori, on_delete=models.CASCADE)
     ktgri = models.CharField(default='', choices=kategori, max_length=30)
 
@@ -72,15 +77,14 @@ class Kitab(models.Model):
         ('Menengah', 'Menengah'),
         ('Atas', 'Atas'),
     ]
-    jenis = [
-        ('Al-Quran', 'Al-Quran'),
-        ('Matan', 'Matan'),
-        ('Nadhom', 'Nadhom'),
-    ]
+
     kode_kitab = models.IntegerField(default=0)
     nama_kitab = models.CharField(max_length=30)
-    kategori_kitab = models.CharField(max_length=9, choices=kategori_kitab, default='')
-    jenis_kitab = models.CharField(max_length=9, choices=jenis, default='')
+    kategori_kitab = models.CharField(
+        max_length=9, choices=kategori_kitab, default='')
+    jumlah_bab = models.IntegerField(default=0)
+    jumlah_fashol = models.IntegerField(default=0)
+    jumlah_bait = models.IntegerField(default=0)
     nama_pengarang = models.CharField(max_length=30)
 
 
