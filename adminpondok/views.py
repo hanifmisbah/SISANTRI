@@ -43,21 +43,11 @@ def datasantri(req):
         )
         messages.info(req, f'Santri {sntr.nama_santri} Berhasil Di Tambah')
         return redirect('/adminpondok/datasantri')
-        
-    # add_data = forms.SantriForm()
-
-    # if req.POST:
-    #     add_data = forms.SantriForm(req.POST)
-
-    #     if add_data.is_valid():
-    #         add_data.save()
-    #         return redirect('/adminpondok/datasantri')
     
     santri = models.Santri.objects.all()
-    # santri_det = models.Santri.objects.filter(pk=id).first()
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri,
-        # 'ddet': santri_det,
+        # 'datakt': kategori,
         # 'form': add_data,
     })
 

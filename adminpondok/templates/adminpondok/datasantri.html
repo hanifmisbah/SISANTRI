@@ -60,9 +60,12 @@
                         <!-- <td>{{d.almt}}</td>
                         <td>+62{{d.telp}}</td>
                         <td>{{d.email}}</td> -->
-                        <td class="text-decoration-none">{{d.ktgri}}</td>
+                        <td>{{d.ktgri}}</td>
+                        <!-- {% for dt in d.ktgri %}
+                        <td>{{dt}}</td>
+                        {% endfor %} -->
                         <td>
-                            <a class="btn btn-sm btn-success" href="/{{d.id}}/detail" data-bs-toggle="modal" data-bs-target="#modaldetail"><i class="fas fa-info-circle"></i></a>
+                            <a class="btn btn-sm btn-success" href="{{d.id}}/detail" data-bs-toggle="modal" data-bs-target="#modaldetail"><i class="fas fa-info-circle"></i></a>
                             <a class="btn btn-sm btn-warning" href="/adminpondok/datasantri/{{d.id}}/update"><i class="fas fa-pen"></i></a>
                             <a class="btn btn-sm btn-danger" href="{{d.id}}/delete"><i class="fas fa-trash-alt"></i></a>
                         </td>
