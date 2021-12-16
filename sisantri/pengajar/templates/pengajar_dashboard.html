@@ -113,14 +113,16 @@
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200">
+                                        {%for i in data%}
                                         <tr>
                                             <th scope="row" class="text-center">{{ forloop.counter }}</th>
-                                            <td>{{d.nis}}</td>
-                                            <td>{{d.nama_santri}}</td>
+                                            <td>{{i.nis}}</td>
+                                            <td>{{i.nama_santri}}</td>
                                             <td>
                                                 <a class="nav-link active" aria-current="page" href="#">Lihat</a>
                                             </td>
                                         </tr>
+                                        {%endfor%}
                                     </tbody>
                                 </table>
                             </div>
