@@ -27,9 +27,9 @@
             border-radius: 20px
         }
 
-        .card2 {
+        /* .card2 {
             margin: 0px 40px
-        }
+        } */
 
         .logo {
             width: 200px;
@@ -156,9 +156,10 @@
 
     <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
         <div class="card card0 border-0">
+
             <div class="row d-flex">
                 <div class="col-lg-6">
-                    <div class="card1 pb-5">
+                    <div class="card1 pb-5" style="background-image: url(img/Untitled-1.jpg);">
                         <div class="row"> <img src="{% static 'img/Capture.jpg' %}" class="logo"> </div>
                         <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
                             <img src="{% static 'img/download.png' %}" class="image">
@@ -196,164 +197,7 @@
                             </div>
                         </div>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
 
-                                    <form action="" method="post">
-                                        {% csrf_token %}
-
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Form Pendaftaran </h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-
-                                        <nav style="background-color: #BDBDBD;">
-                                            <div class=" nav nav-tabs" id="nav-tab" role="tablist">
-                                                <button class="nav-link active text-dark" id="nav-home-tab"
-                                                    data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
-                                                    role="tab" aria-controls="nav-home" aria-selected="true">Pondok
-                                                    Pesantren</button>
-                                                <button class="nav-link text-dark" id="nav-profile-tab"
-                                                    data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
-                                                    role="tab" aria-controls="nav-profile"
-                                                    aria-selected="false">Pengguna</button>
-                                            </div>
-                                        </nav>
-                                        <div class="tab-content" id="nav-tabContent">
-                                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                                aria-labelledby="nav-home-tab">
-
-                                                <div class="modal-body">
-
-                                                    <div class="form-floating mb-3" style="width: 96%;">
-                                                        <input type="text" class="form-control" name="namapondok"
-                                                            id="floatingInput" placeholder="NomorIndukSantri">
-                                                        <label for="floatingInput">Nama Pondok pesantren </label>
-                                                    </div>
-                                                    <div class="form-floating mb-3 "
-                                                        style="display: inline-block ; width: 55%;">
-                                                        <input type="text" class="form-control" name="alamatpondok"
-                                                            id="floatingInput" placeholder="NoTelp">
-                                                        <label for="floatingInput"> Alamat </label>
-                                                    </div>
-                                                    <div class="form-floating mb-3 "
-                                                        style="display: inline-block ; width: 20%;">
-                                                        <input type="text" class="form-control" name="rt"
-                                                            id="floatingPassword" placeholder="NamaLengkap">
-                                                        <label for="floatingPassword">RT</label>
-                                                    </div>
-
-                                                    <div class="form-floating mb-3 "
-                                                        style="display: inline-block;width: 20%;">
-                                                        <input type="text" class="form-control" name="rw"
-                                                            id="floatingInput" placeholder="NoTelp">
-                                                        <label for="floatingInput"> RW </label>
-                                                    </div>
-                                                    <h></h>
-                                                    <div class="form-floating mb-3 "
-                                                        style="display: inline-block; width: 48%;">
-                                                        <input type="text" class="form-control" name="kabupaten"
-                                                            id="floatingInput" placeholder="TempatLahir">
-                                                        <label for="floatingInput">Kabupaten</label>
-                                                    </div>
-                                                    <div class="form-floating mb-3 "
-                                                        style="display: inline-block; width: 48%;">
-                                                        <input type="text" class="form-control" name="kecamatan"
-                                                            id="floatingInput" placeholder="TempatLahir">
-                                                        <label for="floatingInput">Kecamatan</label>
-                                                    </div>
-                                                    <div class="form-floating mb-3 "
-                                                        style="display: inline-block; width: 96%;">
-                                                        <input type="text" class="form-control" name="provinsi"
-                                                            id="floatingInput" placeholder="TempatLahir">
-                                                        <label for="floatingInput">Provinsi</label>
-                                                    </div>
-                                                    <div class="form-floating mb-3 "
-                                                        style="display: inline-block; width: 48%;">
-                                                        <input type="text" class="form-control" name="password"
-                                                            id="floatingInput" placeholder="TempatLahir">
-                                                        <label for="floatingInput">Password</label>
-                                                    </div>
-                                                    <div class="form-floating mb-3 "
-                                                        style="display: inline-block; width: 48%;">
-                                                        <input type="text" class="form-control" name="comfirmpassword"
-                                                            id="floatingInput" placeholder="TempatLahir">
-                                                        <label for="floatingInput">Comfirm Password</label>
-                                                    </div>
-
-                                                    <div class="button">
-                                                        <button type="submit" class="btn btn-success"
-                                                            style="background-color: #138500; width: 97%;">Daftar</button>
-                                                    </div>
-                                                </div>
-
-
-
-
-                                            </div>
-                                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                                aria-labelledby="nav-profile-tab">
-
-
-                                                <div class="modal-body">
-
-                                                    <div class="form-floating mb-3" style="width: 96%;">
-                                                        <input type="text" class="form-control" name="namapondok"
-                                                            id="floatingInput" placeholder="NomorIndukSantri">
-                                                        <label for="floatingInput">Nama Pondok pesantren </label>
-                                                    </div>
-                                                    <div class="form-floating mb-3 "
-                                                        style="display: inline-block ; width: 48%;">
-                                                        <input type="text" class="form-control" name="alamatpondok"
-                                                            id="floatingInput" placeholder="NoTelp">
-                                                        <label for="floatingInput"> Nama Depan </label>
-                                                    </div>
-                                                    <div class="form-floating mb-3 "
-                                                        style="display: inline-block ; width: 48%;">
-                                                        <input type="text" class="form-control" name="rt"
-                                                            id="floatingPassword" placeholder="NamaLengkap">
-                                                        <label for="floatingPassword">Nama Belakang</label>
-                                                    </div>
-
-                                                    <div class="form-floating mb-3 "
-                                                        style="display: inline-block;width: 96%;">
-                                                        <input type="text" class="form-control" name="rw"
-                                                            id="floatingInput" placeholder="NoTelp">
-                                                        <label for="floatingInput"> Email</label>
-                                                    </div>
-                                                    <h></h>
-                                                    <div class="form-floating mb-3 "
-                                                        style="display: inline-block; width: 48%;">
-                                                        <input type="text" class="form-control" name="password"
-                                                            id="floatingInput" placeholder="TempatLahir">
-                                                        <label for="floatingInput">Password</label>
-                                                    </div>
-                                                    <div class="form-floating mb-3 "
-                                                        style="display: inline-block; width: 48%;">
-                                                        <input type="text" class="form-control" name="comfirmpassword"
-                                                            id="floatingInput" placeholder="TempatLahir">
-                                                        <label for="floatingInput">Comfirm Password</label>
-                                                    </div>
-
-                                                    <div class="button">
-                                                        <button type="submit" class="btn btn-success"
-                                                            style="background-color: #138500; width: 97%;">Daftar</button>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
 
                 </div>
@@ -361,6 +205,142 @@
         </div>
         <!-- <div class=" py-4" style="background-color: #138500;"></div> -->
     </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <form action="" method="post">
+                    {% csrf_token %}
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Form Pendaftaran </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <nav style="background-color: #BDBDBD;">
+                        <div class=" nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active text-dark" id="nav-home-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                aria-selected="true">Pondok
+                                Pesantren</button>
+                            <button class="nav-link text-dark" id="nav-profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                                aria-selected="false">Pengguna</button>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab">
+
+                            <div class="modal-body">
+                                <!-- ================================== daftar pondok pesantren ====================== -->
+                                <div class="form-floating mb-3" style="width: 96%;">
+                                    <input type="text" class="form-control" name="namapondok" id="floatingInput"
+                                        placeholder="NomorIndukSantri">
+                                    <label for="floatingInput">Nama Pondok pesantren </label>
+                                </div>
+                                <div class="form-floating mb-3 " style="display: inline-block ; width: 55%;">
+                                    <input type="text" class="form-control" name="alamatpondok" id="floatingInput"
+                                        placeholder="NoTelp">
+                                    <label for="floatingInput"> Alamat </label>
+                                </div>
+                                <div class="form-floating mb-3 " style="display: inline-block ; width: 20%;">
+                                    <input type="text" class="form-control" name="rt" id="floatingPassword"
+                                        placeholder="NamaLengkap">
+                                    <label for="floatingPassword">RT</label>
+                                </div>
+
+                                <div class="form-floating mb-3 " style="display: inline-block;width: 20%;">
+                                    <input type="text" class="form-control" name="rw" id="floatingInput"
+                                        placeholder="NoTelp">
+                                    <label for="floatingInput"> RW </label>
+                                </div>
+                                <h></h>
+                                <div class="form-floating mb-3 " style="display: inline-block; width: 48%;">
+                                    <input type="text" class="form-control" name="kabupaten" id="floatingInput"
+                                        placeholder="TempatLahir">
+                                    <label for="floatingInput">Kabupaten</label>
+                                </div>
+                                <div class="form-floating mb-3 " style="display: inline-block; width: 48%;">
+                                    <input type="text" class="form-control" name="kecamatan" id="floatingInput"
+                                        placeholder="TempatLahir">
+                                    <label for="floatingInput">Kecamatan</label>
+                                </div>
+                                <div class="form-floating mb-3 " style="display: inline-block; width: 96%;">
+                                    <input type="text" class="form-control" name="provinsi" id="floatingInput"
+                                        placeholder="TempatLahir">
+                                    <label for="floatingInput">Provinsi</label>
+                                </div>
+                                <div class="form-floating mb-3 " style="display: inline-block; width: 48%;">
+                                    <input type="text" class="form-control" name="password" id="floatingInput"
+                                        placeholder="TempatLahir">
+                                    <label for="floatingInput">Password</label>
+                                </div>
+                                <div class="form-floating mb-3 " style="display: inline-block; width: 48%;">
+                                    <input type="text" class="form-control" name="comfirmpassword" id="floatingInput"
+                                        placeholder="TempatLahir">
+                                    <label for="floatingInput">Comfirm Password</label>
+                                </div>
+
+                                <div class="button">
+                                    <button type="submit" class="btn btn-success"
+                                        style="background-color: #138500; width: 97%;">Daftar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ========================== daftar Pengguna ========================================== -->
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                            <div class="modal-body">
+
+                                <div class="form-floating mb-3" style="width: 96%;">
+                                    <input type="text" class="form-control" name="namapondok" id="floatingInput"
+                                        placeholder="NomorIndukSantri">
+                                    <label for="floatingInput">Nama Pondok pesantren </label>
+                                </div>
+                                <div class="form-floating mb-3 " style="display: inline-block ; width: 48%;">
+                                    <input type="text" class="form-control" name="alamatpondok" id="floatingInput"
+                                        placeholder="NoTelp">
+                                    <label for="floatingInput"> Nama Depan </label>
+                                </div>
+                                <div class="form-floating mb-3 " style="display: inline-block ; width: 48%;">
+                                    <input type="text" class="form-control" name="rt" id="floatingPassword"
+                                        placeholder="NamaLengkap">
+                                    <label for="floatingPassword">Nama Belakang</label>
+                                </div>
+
+                                <div class="form-floating mb-3 " style="display: inline-block;width: 96%;">
+                                    <input type="text" class="form-control" name="rw" id="floatingInput"
+                                        placeholder="NoTelp">
+                                    <label for="floatingInput"> Email</label>
+                                </div>
+                                <h></h>
+                                <div class="form-floating mb-3 " style="display: inline-block; width: 48%;">
+                                    <input type="text" class="form-control" name="password" id="floatingInput"
+                                        placeholder="TempatLahir">
+                                    <label for="floatingInput">Password</label>
+                                </div>
+                                <div class="form-floating mb-3 " style="display: inline-block; width: 48%;">
+                                    <input type="text" class="form-control" name="comfirmpassword" id="floatingInput"
+                                        placeholder="TempatLahir">
+                                    <label for="floatingInput">Comfirm Password</label>
+                                </div>
+
+                                <div class="button">
+                                    <button type="submit" class="btn btn-success"
+                                        style="background-color: #138500; width: 97%;">Daftar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

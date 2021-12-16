@@ -5,10 +5,13 @@ from adminpondok import models
 # from . import models
 
 
-def index(req):
+def index(req, id):
     pngm = models.Pengumuman.objects.all()
+    pngmisi = models.Pengumuman.objects.filter(pk=id).first()
+
     return render(req, 'santri_dashboard.html', {
-        'pngm': pngm
+        'pngm': pngm,
+        'pngmisi': pngmisi,
     })
 
 
