@@ -22,9 +22,10 @@ urlpatterns = [
     path('quran/', views.alquran),
     path('quran/<id>/delete', views.deletequran),
     path('quran/<id>/detail', views.detailquran),
-    # =============== kitab ====================
-    path('datakitab/', views.datakitab),
-    path('datakitab/<id>/delete', views.deletekitab),
+    # =============== Nadzom ====================
+    path('datakitab/', views.nadzom),
+    path('nadzom/', views.nadzom),
+    path('nadzom/<id>/delete', views.nadzom),
     # path('datakitab/<id>/editkitab/', views.editkitab),
     # path('<id>/detail/', views.detail),
     #  ============ pengumuman ==============

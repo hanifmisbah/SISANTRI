@@ -185,29 +185,23 @@ def detailquran(req, id):
     })
 
 
-# ============D A T A  K I T A B=================
+# ============ N A D Z O M =================
 
-def datakitab(req):
-    # form = forms.Santri()
+def nadzom(req):
     if req.POST:
-        # form = forms.Santri(req.POST)
-        # if form.is_valid():
-        #    form.save()
-        models.Kitab.objects.create(
+        models.Nadzom.objects.create(
             kode_kitab=req.POST['kode_kitab'],
             nama_kitab=req.POST['nama_kitab'],
             kategori_kitab=req.POST['kategori_kitab'],
-            jenis_kitab=req.POST['kategori_kitab'],
             jumlah_bab=req.POST['jumlah_bab'],
             jumlah_fashol=req.POST['jumlah_fashol'],
             jumlah_bait=req.POST['jumlah_bait'],
             nama_pengarang=req.POST['nama_pengarang'],
         )
-        return redirect('/adminpondok/datakitab')
-    kitab = models.Kitab.objects.all()
+        return redirect('/adminpondok/nadzom')
+    kitab = models.Nadzom.objects.all()
     return render(req, 'adminpondok/datakitab.html', {
         'data': kitab,
-        # 'form' : form,
     })
 
 
