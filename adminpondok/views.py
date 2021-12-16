@@ -44,22 +44,10 @@ def datasantri(req):
         )
         messages.info(req, f'Santri {sntr.nama_santri} Berhasil Di Tambah')
         return redirect('/adminpondok/datasantri')
-
-    # add_data = forms.SantriForm()
-
-    # if req.POST:
-    #     add_data = forms.SantriForm(req.POST)
-
-    #     if add_data.is_valid():
-    #         add_data.save()
-    #         return redirect('/adminpondok/datasantri')
-
+    
     santri = models.Santri.objects.all()
-    # santri_det = models.Santri.objects.filter(pk=id).first()
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri,
-        # 'ddet': santri_det,
-        # 'form': add_data,
     })
 
 
@@ -101,11 +89,7 @@ def editsantri(req, id):
 # ============P E N G A J A R=================
 
 def datapengajar(req):
-    # form = forms.Santri()
     if req.POST:
-        # form = forms.Santri(req.POST)
-        # if form.is_valid():
-        #    form.save()
         models.Pengajar.objects.create(
             NIP=req.POST['NIP'],
             nama_pengajar=req.POST['nama_pengajar'],
@@ -115,7 +99,7 @@ def datapengajar(req):
             jk=req.POST['jk'],
             telp=req.POST['telp'],
             email=req.POST['email'],
-            pngjr=req.POST['pngjr'],
+            pngjr=req.POST.getlist('pngjr'),
 
         )
         return redirect('/adminpondok/datapengajar')
@@ -123,7 +107,6 @@ def datapengajar(req):
     pengajar = models.Pengajar.objects.all()
     return render(req, 'adminpondok/datapengajar.html', {
         'data': pengajar,
-        # 'form' : form,
     })
 
 
@@ -248,3 +231,9 @@ def deletepngm(req, id):
     pngm = models.Pengumuman.objects.filter(pk=id).delete()
     messages.info(req, f'Pengumuman berhasil dihapus')
     return redirect('/adminpondok')
+
+def detailpngm(req, id):
+    pngm = models.Pengumuman.objects.filter(pk=id).first()
+    return render(req, 'adminpondok/dashboard.html', {
+        'data': pngm,
+    })

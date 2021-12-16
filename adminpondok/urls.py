@@ -31,5 +31,6 @@ urlpatterns = [
     #  ============ pengumuman ==============
     path('pengumuman/', views.pengumuman),
     path('pengumuman/<id>/delete', views.deletepngm),
+    path('pengumuman/<id>/detail', views.detailpngm),
 
 ]

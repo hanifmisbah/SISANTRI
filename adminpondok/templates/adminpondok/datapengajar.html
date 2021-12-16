@@ -31,12 +31,8 @@
                             <th class="font-semibold text-sm uppercase px-4 py-2 text-center">No</th>
                             <th class="font-semibold text-sm uppercase px-4 py-2 text-center">NIP</th>
                             <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Nama Lengkap</th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Tempat Lahir</th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Tanggal Lahir</th>
+                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Tempat, Tanggal Lahir</th>
                             <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Jenis Kelamin</th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Alamat</th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Telp</th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Email</th>
                             <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Pengajar</th>
                             <th class="font-semibold text-sm uppercase px-4 py-2 text-center">action</th>
 
@@ -50,13 +46,9 @@
                             <th scope="row" class="text-center">{{ forloop.counter }}</th>
                             <td>{{d.NIP}}</td>
                             <td>{{d.nama_pengajar}}</td>
-                            <td>{{d.tempat_lahir}}</td>
-                            <td>{{d.tanggal_lahir}}</td>
+                            <td>{{d.tempat_lahir}}, {{d.tanggal_lahir}}</td>
                             <td>{{d.jk}}</td>
-                            <td>{{d.almt}}</td>
-                            <td>{{d.telp}}</td>
-                            <td>{{d.email}}</td>
-                            <td>{{d.pngjr}}</td>
+                            <td>{% for dt in d.pngjr %} {{dt}} {% endfor %}</td>
 
                             <td>
                                 <a class="btn btn-sm btn-success" href="/{{d.id}}/detail"><i
@@ -144,24 +136,19 @@
                         </div>
                     </div>
 
-                    <div class="row-4" style="display: inline-block;">
-                        <Label>Pengajar</Label>
-                        <div class="form-check">
-                            <input class="form-check-input" name="pngjr" type="checkbox" value="Al-Quran" id="Al-Quran">
-                            <label class="form-check-label" for="Al-Quran">
-                                Al-Quran
+                    <div class="col-sm-6">
+                        <div>
+                            <input type="checkbox" name="pngjr" id="Al-Qur'an" value="Al-Qur'an">
+                            <label class="form-check-label" for="Al-Qur'an">
+                                Al-Qur'an
                             </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" name="pngjr" type="checkbox" value="Nadzom" id="Nadzom">
-                            <label class="form-check-label" for="Nadzom">
-                                Nadzom
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" name="pngjr" type="checkbox" value="Matan" id="Matan">
+                            <input type="checkbox" name="pngjr" id="Matan" value="Matan">
                             <label class="form-check-label" for="Matan">
                                 Matan
+                            </label>
+                            <input type="checkbox" name="pngjr" id="Nadhom" value="Nadhom">
+                            <label class="form-check-label" for="Nadhom">
+                                Nadhom
                             </label>
                         </div>
                     </div>

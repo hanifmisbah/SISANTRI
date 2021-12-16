@@ -41,9 +41,8 @@ class Santri(models.Model):
     # ktgri = models.ForeignKey(Kategori, on_delete=models.CASCADE)
     ktgri = models.CharField(default='', choices=kategori, max_length=30)
 
-    # def __str__(self):
-    #     return self.ktgri
-
+    def Kategori(self):
+        return self.ktgri
 
 class Pengajar(models.Model):
     kelamin = [

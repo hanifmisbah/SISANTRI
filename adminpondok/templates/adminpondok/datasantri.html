@@ -42,9 +42,6 @@
                         <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Nama Lengkap</th>
                         <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Tempat, Tanggal Lahir</th>
                         <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Jenis Kelamin</th>
-                        <!-- <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Alamat</th> -->
-                        <!-- <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Telp</th> -->
-                        <!-- <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Email</th> -->
                         <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Kategori</th>
                         <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Action</th>
                     </tr>
@@ -57,12 +54,9 @@
                         <td>{{d.nama_santri}}</td>
                         <td>{{d.tempat_lahir}}, {{d.tanggal_lahir}}</td>
                         <td>{{d.jk}}</td>
-                        <!-- <td>{{d.almt}}</td>
-                        <td>+62{{d.telp}}</td>
-                        <td>{{d.email}}</td> -->
-                        <td class="text-decoration-none">{{d.ktgri}}</td>
+                        <td>{% for dt in d.ktgri %} {{dt}} {% endfor %}</td>
                         <td>
-                            <a class="btn btn-sm btn-success" href="/{{d.id}}/detail" data-bs-toggle="modal" data-bs-target="#modaldetail"><i class="fas fa-info-circle"></i></a>
+                            <a class="btn btn-sm btn-success" href="{{d.id}}/detail" data-bs-toggle="modal" data-bs-target="#modaldetail"><i class="fas fa-info-circle"></i></a>
                             <a class="btn btn-sm btn-warning" href="/adminpondok/datasantri/{{d.id}}/update"><i class="fas fa-pen"></i></a>
                             <a class="btn btn-sm btn-danger" href="{{d.id}}/delete"><i class="fas fa-trash-alt"></i></a>
                         </td>
