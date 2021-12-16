@@ -6,11 +6,19 @@ from adminpondok import models
 
 def index(req):
     pngm = models.Pengumuman.objects.all()
+    # pngm_d = models.Pengumuman.objects.filter(pk=id).first()
     return render(req, 'ortu_dashboard.html', {
-        'pngm': pngm
+        'pngm': pngm,
+        # 'pngm_d': pngm_d,
     })
 
-
+def detailpngm(req, id):
+    pngm_d = models.Pengumuman.objects.filter(pk=id).first()
+    return render(req, 'ortu_dashboard.html', {
+        'pngm_d': pngm_d,
+        # 'pngm': pngm,
+    })
+    
 def quran(req):
     return render(req, 'quran.html')
 

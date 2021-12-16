@@ -48,8 +48,6 @@ def datasantri(req):
     santri = models.Santri.objects.all()
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri,
-        # 'datakt': kategori,
-        # 'form': add_data,
     })
 
 
@@ -91,11 +89,7 @@ def editsantri(req, id):
 # ============P E N G A J A R=================
 
 def datapengajar(req):
-    # form = forms.Santri()
     if req.POST:
-        # form = forms.Santri(req.POST)
-        # if form.is_valid():
-        #    form.save()
         models.Pengajar.objects.create(
             NIP=req.POST['NIP'],
             nama_pengajar=req.POST['nama_pengajar'],
@@ -105,7 +99,7 @@ def datapengajar(req):
             jk=req.POST['jk'],
             telp=req.POST['telp'],
             email=req.POST['email'],
-            pngjr=req.POST['pngjr'],
+            pngjr=req.POST.getlist('pngjr'),
 
         )
         return redirect('/adminpondok/datapengajar')
@@ -113,7 +107,6 @@ def datapengajar(req):
     pengajar = models.Pengajar.objects.all()
     return render(req, 'adminpondok/datapengajar.html', {
         'data': pengajar,
-        # 'form' : form,
     })
 
 
@@ -244,3 +237,9 @@ def deletepngm(req, id):
     pngm = models.Pengumuman.objects.filter(pk=id).delete()
     messages.info(req, f'Pengumuman berhasil dihapus')
     return redirect('/adminpondok')
+
+def detailpngm(req, id):
+    pngm = models.Pengumuman.objects.filter(pk=id).first()
+    return render(req, 'adminpondok/dashboard.html', {
+        'data': pngm,
+    })

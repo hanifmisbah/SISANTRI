@@ -128,8 +128,10 @@
                                             <td class="text-center">{{p.judul}}</td>
                                             <td class="text-center">
                                                 <button type="button" class="btn btn-link" data-bs-toggle="modal"
-                                                    data-bs-target="#pengumuman">
-                                                    lihat pengumuman
+                                                data-bs-target="#pengumuman">
+                                                    <a href="{{p.id}}/detail">
+                                                        lihat pengumuman
+                                                    </a>
                                                 </button>
                                             </td>
                                         </tr>
@@ -191,7 +193,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                {{p.pengumuman}}
+                {{pngm.last.pengumuman}}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
