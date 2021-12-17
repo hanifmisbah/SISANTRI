@@ -8,7 +8,14 @@ import pengajar
 
 
 def index(req):
-    return render(req, 'pengajar_dashboard.html')
+    return render(req, 'pengajar/pengajar_dashboard.html')
+
+
+def pengumuman(req):
+    pngm = models.Pengumuman.objects.all()
+    return render(req, 'pengajar/pengumuman.html', {
+        'data': pngm,
+    })
 
 
 def input_quran(req, id):
