@@ -20,8 +20,9 @@
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
-                role="tab" aria-controls="profile" aria-selected="false">Profil</button>
+                role="tab" aria-controls="profile" aria-selected="false">Pengumuman</button>
         </li>
+       
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
@@ -132,45 +133,85 @@
 
                 </div>
             </div>
-            <div class="card text-black mb-5" style="width: 20rem; display: inline-block;  background-color: #138500;">
-                <div class="card-header text-white">Sorogan</div>
-                <div class="card-body" style="background-color: #C4EEC8; height: 17rem;">
-                    <input class="form-control mb-3" type="text" placeholder="Tanggal"
-                        aria-label="default input example">
-                    <input class="form-control mb-3" type="text" placeholder="Bab" aria-label="default input example">
-                    <input class="form-control mb-5" type="text" placeholder="Halaman"
-                        aria-label="default input example">
-                    <button type="submit" class="btn btn-success"
-                        style="background-color: #138500;width: 18rem ;">Simpan</button>
-                </div>
-            </div>
-            <div class="card text-black mb-5" style="width: 20rem; display: inline-block ; background-color: #138500;">
-                <div class="card-header text-white">Bandongan</div>
-                <div class="card-body" style="background-color: #C4EEC8; height: 17rem;">
-                    <input class="form-control mb-3" type="text" placeholder="Tanggal"
-                        aria-label="default input example">
-                    <input class="form-control mb-3" type="text" placeholder="Bab" aria-label="default input example">
-                    <input class="form-control mb-5" type="text" placeholder="Halaman"
-                        aria-label="default input example">
-                    <button type="submit" class="btn btn-success"
-                        style="background-color: #138500;width: 18rem ;">Simpan</button>
-                </div>
-            </div>
-
-
-
-
-
+         
         </div>
 
-        <!-- tab Profil -->
+        <!-- tab pengumuman -->
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <h2> </h2>
-            <h3>Profil pengajar</h3>
 
-        </div>
+            <div class="col-md-6">
+                <div class="container-fluid">
+                    <div class="card mb-3" style="width: 1325px;">
+                        <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Pengumuman
+                            Pondok Pesantren</div>
+                        <div class="card-body">
+                            <div class="container-fluid">
+                                <div class="min-h-screen bg-white py-2">
+                                    <!-- <div class=" row d-flex"> -->
+                                    <table class=' bg-white divide-y divide-gray-300 justify-content-center'
+                                        style="border: green;">
+                                        <thead class="" style="background-color: #FFFFFF; color: black;">
+                                            <tr>
+                                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No
+                                                </th>
+                                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
+                                                    Tanggal </th>
+                                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
+                                                    Pengumuman </th>
+                                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
+                                                    Selengkapnya
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        {% for p in datapngm %}
+                                        <tbody class="divide-y divide-gray-200">
+                                            <tr>
+                                                <!-- <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                                <td>{{d.tanggal}}</td>
+                                <td>{{d.pengumuman}}</td> -->
+                                                <td class="text-center">{{forloop.counter}}</td>
+                                                <td>{{p.tgl}}</td>
+                                                <td class="text-center">{{p.judul}}</td>
 
+                                                <!-- Button trigger modal info pengumuman -->
+                                                <td class="text-center">                                            
+                                                    <button type="button"   class="btn btn-link"  data-bs-toggle="modal" data-bs-target="#pengumuman">detail</button>
+                                                
+                                                </td>
 
+                                                
+
+                                                 <!-- Modal info pengumuman-->
+                                        <div class="modal fade" id="pengumuman" tabindex="-1" role="dialog" aria-labelledby="pengumumanLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Detail Pengumuman</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            apa yah ?
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                        
+                                            </tr>
+                                        </tbody>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
 
     </div>
 

@@ -6,10 +6,16 @@ from adminpondok import models as pond_models
 
 
 def index(req):
-    data_santri = pond_models.Santri.objects.all()
+    data_santri = pond_models.Santri.objects.order_by('-id')
+    data_pngm = pond_models.Pengumuman.objects.all()
     print(data_santri)
-    konteks = { 'data' : data_santri } 
-    return render(req, 'pengajar_dashboard.html' , konteks)
+    print(data_pngm)
+    # konteks = { 'data' : data_santri } 
+    # pngm = { 'datapngm' : data_pngm } 
+    return render(req, 'pengajar/pengajar_dashboard.html' , {
+        'data' : data_santri,
+        'datapngm' : data_pngm,
+    })
 
-# def pengajar(req) :
-#     return render(req, 'pengajar_dashboard.html')
+def pengajar(req) :
+    return render(req, 'pengajar/pengajar_dashboard.html')
