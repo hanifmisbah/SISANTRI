@@ -44,7 +44,7 @@ def datasantri(req):
         )
         messages.info(req, f'Santri {sntr.nama_santri} Berhasil Di Tambah')
         return redirect('/adminpondok/datasantri')
-    
+
     santri = models.Santri.objects.all()
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri,
@@ -80,7 +80,7 @@ def editsantri(req, id):
         messages.info(req, f'Santri {sntr.nama_santri} Berhasil Di Edit')
         return redirect('/adminpondok/datasantri')
 
-    tasks = models.Pengajar.objects.filter(pk=id).first()
+    tasks = models.Santri.objects.filter(pk=id).first()
     return render(req, 'adminpondok/editsantri.html', {
         'data': tasks,
     })
@@ -180,7 +180,10 @@ def nadzom(req):
             jumlah_fashol=req.POST['jumlah_fashol'],
             jumlah_bait=req.POST['jumlah_bait'],
             nama_pengarang=req.POST['nama_pengarang'],
+
         )
+    elif req.POST:
+        models
         return redirect('/adminpondok/nadzom')
     kitab = models.Nadzom.objects.all()
     return render(req, 'adminpondok/datakitab.html', {
@@ -231,6 +234,7 @@ def deletepngm(req, id):
     pngm = models.Pengumuman.objects.filter(pk=id).delete()
     messages.info(req, f'Pengumuman berhasil dihapus')
     return redirect('/adminpondok')
+
 
 def detailpngm(req, id):
     pngm = models.Pengumuman.objects.filter(pk=id).first()
