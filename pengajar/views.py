@@ -7,10 +7,12 @@ import pengajar
 from pengajar.models import Sorogan
 
 # Create your views here.
-
-
 def index(req):
-    return render(req, 'pengajar/pengajar_dashboard.html')
+    santri = models.Santri.objects.order_by('-id')
+    return render(req, 'pengajar/pengajar_dashboard.html', {
+        'data': santri,
+    })
+
 
 
 def pengumuman(req):

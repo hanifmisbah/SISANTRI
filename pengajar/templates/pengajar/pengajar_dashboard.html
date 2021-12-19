@@ -235,6 +235,7 @@
                                                 </th>
                                             </tr>
                                         </thead>
+                                        {% for d in data %}
                                         <tbody class="divide-y divide-gray-200">
                                             <tr>
                                                 <th scope="row" class="text-center">{{ forloop.counter }}</th>
@@ -245,6 +246,7 @@
                                                 </td>
                                             </tr>
                                         </tbody>
+                                        {% endfor %}
                                     </table>
                                 </div>
                             </div>

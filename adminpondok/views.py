@@ -80,7 +80,7 @@ def editsantri(req, id):
         messages.info(req, f'Santri {sntr.nama_santri} Berhasil Di Edit')
         return redirect('/adminpondok/datasantri')
 
-    tasks = models.Pengajar.objects.filter(pk=id).first()
+    tasks = models.Santri.objects.filter(pk=id).first()
     return render(req, 'adminpondok/editsantri.html', {
         'data': tasks,
     })
