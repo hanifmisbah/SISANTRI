@@ -24,7 +24,7 @@
 
 <body>
 
-    <h3>Pencapaian Nadzom Santri</h3>
+    <h3>Pencapaian Sorogan Santri</h3>
     <!-- Button trigger modal -->
     <nav class="navbar navbar-light bg-white">
         <div class="container-fluid">
@@ -47,10 +47,9 @@
                                 <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
                                 <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Kitab </th>
                                 <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Bab </th>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Bait </th>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Kelancaran </th>
+                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Halaman </th>
+                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Paragraf </th>
                                 <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Pengajar </th>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Keterangan </th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
@@ -58,11 +57,9 @@
                                 <th scope="row" class="text-center">{{ data.tanggal }}</th>
                                 <td>{{d.kitab}}</td>
                                 <td>{{d.bab}}</td>
-                                <td>{{d.bait}}</td>
-                                <td>{{d.kelancaran}}</td>
+                                <td>{{d.halaman}}</td>
+                                <td>{{d.paragraf}}</td>
                                 <td>{{d.pengajar}}</td>
-                                <td>{{d.keterangan}}</td>
-
                             </tr>
                         </tbody>
                     </table>
@@ -101,23 +98,19 @@
                             <label for="floatingInput"> Bab </label>
                         </div>
                         <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
-                            <input type="text" class="form-control" name="Bait" id=" floatingPassword"
+                            <input type="text" class="form-control" name="halaman" id=" floatingPassword"
                                 placeholder="NamaLengkap">
-                            <label for="floatingPassword"> Bait </label>
+                            <label for="floatingPassword"> Halaman </label>
                         </div>
 
                         <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
-                            <input type="text" class="form-control" name="kelancaran" id="floatingInput"
+                            <input type="text" class="form-control" name="paragraf" id="floatingInput"
                                 placeholder="NoTelp">
-                            <label for="floatingInput"> Kelancaran </label>
+                            <label for="floatingInput"> Paragraf </label>
                         </div>
                         <h></h>
 
-                        <div class="form-floating mb-3">
-                            <textarea class="form-control" name="almt" placeholder="Leave a comment here"
-                                id="keterangan" style="height: 100px"></textarea>
-                            <label for="keterangan"> Keterangan</label>
-                        </div>
+
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan<
                                     </button>

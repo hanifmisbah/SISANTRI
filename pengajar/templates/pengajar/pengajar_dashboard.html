@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -153,7 +154,32 @@
 </head>
 
 <body>
-
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar scroll</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pengumuman/">Pengumuman</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Input</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav> -->
 
     <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
@@ -228,7 +254,7 @@
             </main>
 
         </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <!-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="col-md-6">
                 <div class="container-fluid">
                     <div class="card mb-2" style="width: 1325px;">
@@ -280,7 +306,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
             <div id="wrapper">
@@ -290,23 +316,23 @@
                     <ul class="sidebar-nav">
                         <li class="sidebar-brand">
                             <a href="#">
-                                Start Bootstrap
+                                Nama Santri
                             </a>
                         </li>
                         <li>
-                            <a href="input_quran.html">Al Quran</a>
+                            <a href="/pengajar/input_quran">Al Quran</a>
                         </li>
                         <li>
-                            <a href="#">Matan</a>
+                            <a href="/pengajar/input_matan">Matan</a>
                         </li>
                         <li>
-                            <a href="#">Nadzom</a>
+                            <a href="/pengajar/input_nadzom">Nadzom</a>
                         </li>
                         <li>
-                            <a href="#">Sorogan</a>
+                            <a href="/pengajar/input_sorogan">Sorogan</a>
                         </li>
                         <li>
-                            <a href="#">Bandongan</a>
+                            <a href="/pengajar/input_bandongan">Bandongan</a>
                         </li>
                     </ul>
                 </div>
@@ -317,21 +343,16 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h1>Simple Sidebar</h1>
-                                <p>This template has a responsive menu toggling system. The menu will appear collapsed
-                                    on smaller screens, and will appear non-collapsed on larger screens. When toggled
-                                    using the button below, the menu will appear/disappear. On small screens, the page
-                                    content will be pushed off canvas.</p>
-                                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                                {% block content %}
+                                {% endblock %}
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- /#page-content-wrapper -->
+
 
             </div>
-            <!-- /#wrapper -->
+
 
         </div>
 

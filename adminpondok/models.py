@@ -44,6 +44,7 @@ class Santri(models.Model):
     def Kategori(self):
         return self.ktgri
 
+
 class Pengajar(models.Model):
     kelamin = [
         ('Laki-Laki', 'Laki-Laki'),
@@ -87,21 +88,22 @@ class Nadzom(models.Model):
     jumlah_bait = models.IntegerField(default=0, blank=True, null=True)
     nama_pengarang = models.CharField(max_length=30, null=True)
 
-# class Matan(models.Model):
-#     kategori_kitab = [
-#         ('Dasar', 'Dasar'),
-#         ('Menengah', 'Menengah'),
-#         ('Atas', 'Atas'),
-#     ]
 
-#     kode_kitab = models.IntegerField(default=0, unique=True ,null=True)
-#     nama_kitab = models.CharField(max_length=30, unique=True,null=True)
-#     kategori_kitab = models.CharField(
-#         max_length=9, choices=kategori_kitab, default='',null=True)
-#     jumlah_bab = models.IntegerField(default=0,null=True)
-#     jumlah_fashol = models.IntegerField(default=0,null=True)
-#     jumlah_bait = models.IntegerField(default=0,null=True)
-#     nama_pengarang = models.CharField(max_length=30,null=True)
+class Matan(models.Model):
+    kategori_kitab = [
+        ('Dasar', 'Dasar'),
+        ('Menengah', 'Menengah'),
+        ('Atas', 'Atas'),
+    ]
+
+    kode_kitab = models.IntegerField(default=0, unique=True, null=True)
+    nama_kitab = models.CharField(max_length=30, unique=True, null=True)
+    kategori_kitab = models.CharField(
+        max_length=9, choices=kategori_kitab, default='', null=True)
+    jumlah_bab = models.IntegerField(default=0, null=True)
+    jumlah_fashol = models.IntegerField(default=0, null=True)
+    jumlah_bait = models.IntegerField(default=0, null=True)
+    nama_pengarang = models.CharField(max_length=30, null=True)
 
 
 # class Matan(models.Model):
