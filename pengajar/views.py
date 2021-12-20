@@ -8,7 +8,7 @@ from pengajar.models import Sorogan
 
 # Create your views here.
 def index(req):
-    santri = models.Santri.objects.order_by('-id')
+    santri = admin_models.Santri.objects.order_by('-id')
     return render(req, 'pengajar/pengajar_dashboard.html', {
         'data': santri,
     })
