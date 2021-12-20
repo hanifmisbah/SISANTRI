@@ -190,10 +190,6 @@
             <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
                 role="tab" aria-controls="profile" aria-selected="false">Pengumuman</button>
         </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
-                role="tab" aria-controls="contact" aria-selected="false">Input</button>
-        </li>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
@@ -242,7 +238,8 @@
                                                 <td>{{d.nis}}</td>
                                                 <td>{{d.nama_santri}}</td>
                                                 <td>
-                                                    <a class="nav-link active" aria-current="page" href="#">Lihat</a>
+                                                    <a class="nav-link active" aria-current="page"
+                                                        href="/pengajar/input">Lihat</a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -309,54 +306,7 @@
                 </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
-            <div id="wrapper">
-
-                <!-- Sidebar -->
-                <div id="sidebar-wrapper">
-                    <ul class="sidebar-nav">
-                        <li class="sidebar-brand">
-                            <a href="#">
-                                Nama Santri
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/pengajar/input_quran">Al Quran</a>
-                        </li>
-                        <li>
-                            <a href="/pengajar/input_matan">Matan</a>
-                        </li>
-                        <li>
-                            <a href="/pengajar/input_nadzom">Nadzom</a>
-                        </li>
-                        <li>
-                            <a href="/pengajar/input_sorogan">Sorogan</a>
-                        </li>
-                        <li>
-                            <a href="/pengajar/input_bandongan">Bandongan</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /#sidebar-wrapper -->
-
-                <!-- Page Content -->
-                <div id="page-content-wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                {% block content %}
-                                {% endblock %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-        </div>
 
     </div>
 

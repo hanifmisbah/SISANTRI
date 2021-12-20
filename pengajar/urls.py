@@ -12,4 +12,5 @@ urlpatterns = [
     path('input_nadzom/', views.input_nadzom),
     path('pengumuman', views.pengumuman),
     path('pngm/', views.pengumuman),
+    path('input', views.input),
 ]
