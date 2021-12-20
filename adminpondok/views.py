@@ -104,7 +104,7 @@ def datapengajar(req):
         )
         return redirect('/adminpondok/datapengajar')
 
-    pengajar = models.Pengajar.objects.all()
+    pengajar = models.Pengajar.objects.order_by('-id')
     return render(req, 'adminpondok/datapengajar.html', {
         'data': pengajar,
     })
