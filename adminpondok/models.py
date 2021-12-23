@@ -1,7 +1,14 @@
 from django.db import models
 
 # Create your models here.
-
+class Kategori(models.Model):
+    kategori_kitab = [
+        ('Dasar', 'Dasar'),
+        ('Menengah', 'Menengah'),
+        ('Atas', 'Atas'),
+    ]
+    ktgri = models.CharField(default='', choices=kategori_kitab, max_length=20)
+    
 
 class Santri(models.Model):
     kelamin = [
@@ -27,6 +34,7 @@ class Santri(models.Model):
     telp = models.IntegerField(null=False, blank=False)
     email = models.CharField(default='', max_length=20,
                              null=False, blank=False)
+    # ktgri = models.CharField(default='', choices=kategori, max_length=30)
     ktgri = models.CharField(default='', choices=kategori, max_length=30)
 
     def Kategori(self):
