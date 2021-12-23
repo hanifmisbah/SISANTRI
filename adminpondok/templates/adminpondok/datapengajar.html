@@ -21,51 +21,49 @@
     </div>
 </nav>
 
-<div class="card-body">
+<div class="card-body table-responsive">
     <div class="min-h-screen bg-white py-2">
         <div class="container-fluid">
-            <div class=" row d-flex">
-                <table class="table table-bordered " style="border-color: transparent;">
-                    <thead class="" style="background-color: #138500; color: #FFFFFF;">
-                        <tr>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">No</th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">NIP</th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Nama Lengkap</th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Tempat, Tanggal Lahir</th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Jenis Kelamin</th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Pengajar</th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">action</th>
+            <!-- <div class=" row d-flex"> -->
+            <table class="table">
+                <thead class="" style="background-color: #138500; color: #FFFFFF;">
+                    <tr>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center">No</th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center">NIP</th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Nama Lengkap</th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Tempat, Tanggal Lahir</th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Jenis Kelamin</th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Pengajar</th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center">action</th>
 
 
-                        </tr>
-                    </thead>
-                    {% for d in data %}
-                    <tbody>
+                    </tr>
+                </thead>
+                {% for d in data %}
+                <tbody class="divide-y divide-gray-500" style="border-color: #138500;">
 
-                        <tr>
-                            <th scope="row" class="text-center">{{ forloop.counter }}</th>
-                            <td>{{d.NIP}}</td>
-                            <td>{{d.nama_pengajar}}</td>
-                            <td>{{d.tempat_lahir}}, {{d.tanggal_lahir}}</td>
-                            <td>{{d.jk}}</td>
-                            <td>{% for dt in d.pngjr %} {{dt}} {% endfor %}</td>
+                    <tr>
+                        <th scope=" row" class="text-center">{{ forloop.counter }}</th>
+                        <td>{{d.NIP}}</td>
+                        <td>{{d.nama_pengajar}}</td>
+                        <td>{{d.tempat_lahir}}, {{d.tanggal_lahir}}</td>
+                        <td>{{d.jk}}</td>
+                        <td>{% for dt in d.pngjr %} {{dt}} {% endfor %}</td>
 
-                            <td>
-                                <a class="btn btn-sm btn-success" href="/{{d.id}}/detail"><i
-                                        class="fas fa-info-circle"></i></a>
-                                <a class="btn btn-sm btn-warning"
-                                    href="/adminpondok/datapengajar/{{d.id}}/editpengajar"><i
-                                        class="fas fa-pen"></i></a>
-                                <a class="btn btn-sm btn-danger"
-                                    href="/adminpondok/datapengajar/{{d.id}}/deletepengajar"><i
-                                        class="fas fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
+                        <td>
+                            <a class="btn btn-sm btn-success" href="/{{d.id}}/detail"><i
+                                    class="fas fa-info-circle"></i></a>
+                            <a class="btn btn-sm btn-warning" href="/adminpondok/datapengajar/{{d.id}}/editpengajar"><i
+                                    class="fas fa-pen"></i></a>
+                            <a class="btn btn-sm btn-danger" href="/adminpondok/datapengajar/{{d.id}}/deletepengajar"><i
+                                    class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
 
-                    </tbody>
-                    {% endfor %}
-                </table>
-            </div>
+                </tbody>
+                {% endfor %}
+            </table>
+            <!-- </div> -->
         </div>
     </div>
 </div>
