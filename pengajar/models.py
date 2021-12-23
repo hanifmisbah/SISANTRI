@@ -53,5 +53,5 @@ class Nadzom (models.Model):
 
 class Santri (models.Model):
     santri = models.ForeignKey(
-        adminmodels.Santri, on_delete=models.CASCADE, related_name='termasuk', unique=True)
+        adminmodels.Santri, on_delete=models.CASCADE, related_name='termasuk')
     nama_santri = models.CharField(max_length=30, null=False, blank=False)
