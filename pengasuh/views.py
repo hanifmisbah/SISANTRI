@@ -8,3 +8,6 @@ def index(req):
     return render(req, 'pengasuh_dashboard.html', {
         'pngm': pngm
     })
+
+def sidebar(req):
+    return render(req, 'sidebar.html')
