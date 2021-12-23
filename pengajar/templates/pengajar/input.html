@@ -2,52 +2,74 @@
 {% block content %}
 {% include "pengajar/sidebar.html" %}
 <h1>HALO</h1>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
-        <div id="wrapper">
+    <div id="wrapper">
 
-            <!-- Sidebar -->
-            <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a href="#">
-                            Nama Santri
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/pengajar/input_quran">Al Quran</a>
-                    </li>
-                    <li>
-                        <a href="/pengajar/input_matan">Matan</a>
-                    </li>
-                    <li>
-                        <a href="/pengajar/input_nadzom">Nadzom</a>
-                    </li>
-                    <li>
-                        <a href="/pengajar/input_sorogan">Sorogan</a>
-                    </li>
-                    <li>
-                        <a href="/pengajar/input_bandongan">Bandongan</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /#sidebar-wrapper -->
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Nama Santri
+                    </a>
+                </li>
+                <li>
+                    <a href="/pengajar/input_quran">Al Quran</a>
+                </li>
+                <li>
+                    <a href="/pengajar/input_matan">Matan</a>
+                </li>
+                <li>
+                    <a href="/pengajar/input_nadzom">Nadzom</a>
+                </li>
+                <li>
+                    <a href="/pengajar/input_sorogan">Sorogan</a>
+                </li>
+                <li>
+                    <a href="/pengajar/input_bandongan">Bandongan</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
 
-            <!-- Page Content -->
-            <div id="page-content-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                        </div>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
                     </div>
                 </div>
             </div>
-
-
         </div>
 
+        body {
+        font-family: "Lato", sans-serif;
+        }
+        </style>
 
+        <<<<<<< HEAD <body>
+            <div class="btnsdbr"> <span class="fas fa-bars"></span> </div>
+            <nav class="sidebar">
+                <div class="text"> Nama Santri </div>
+                <ul class="main_side">
+                    <li class="active"><a href="/pengajar/input_quran">Al-Quran</a></li>
+                    <li><a href="/pengajar/input_matan">Matan</a></li>
+                    <li><a href="/pengajar/input_nadzom">Nadzom</a></li>
+                    <li><a href="/pengajar/input_sorogan">Sorogan</a></li>
+                    <li><a href="/pengajar/input_bandongan">Bandongan</a></li>
+                </ul>
+            </nav>
+            <div class="content" id="content" onclick="c">
+                {%block content%}
+                {%endblock%}
+            </div>
+            =======
     </div>
+
+    >>>>>>> 9405731929915f06b6d81c9e9c102d995e42ef79
+
+</div>
 {% endblock %}
 <!-- 
 </body>
@@ -55,5 +77,30 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/f45fe3726b.js" crossorigin="anonymous"></script>
+<<<<<<< HEAD
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $('.btnsdbr').click(function () {
+        $(this).toggleClass("click");
+        $('.sidebar').toggleClass("show");
+        $('.content').toggleClass("show");
+    });
+
+
+    $('.sidebar ul li a').click(function () {
+        var id = $(this).attr('id');
+        $('nav ul li ul.item-show-' + id).toggleClass("show");
+        $('nav ul li #' + id + ' span').toggleClass("rotate");
+
+    });
+
+    $('nav ul li').click(function () {
+        $(this).addClass("active").siblings().removeClass("active");
+    });
+</script>
+
+</html>
+=======
 
 </html> -->
+>>>>>>> 9405731929915f06b6d81c9e9c102d995e42ef79

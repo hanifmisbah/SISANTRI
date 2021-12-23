@@ -9,5 +9,6 @@ def index(req):
         'pngm': pngm
     })
 
+
 def sidebar(req):
     return render(req, 'sidebar.html')
