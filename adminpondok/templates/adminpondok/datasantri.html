@@ -32,9 +32,9 @@
     {% endif %}
 
     <div class="min-h-screen bg-white py-2">
-        <div class=" row d-flex">
-            <table class=' bg-white divide-y divide-gray-300 justify-content-center' style="border: green;">
-                <thead class="" style="background-color: #138500; color: #FFFFFF;">
+        <div class="row d-flex table-responsive" style="height: 374px;">
+            <table class='table bg-white divide-y divide-gray-300 justify-content-center' style="overflow-y: scroll; border: green;">
+                <thead class="table" style="background-color: #138500; color: #FFFFFF;">
                     <!-- <tr class="text-white text-left" style="background-color: #138500; color: #FFFFFF ;"> -->
                     <tr>
                         <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No </th>
@@ -54,7 +54,7 @@
                         <td>{{d.nama_santri}}</td>
                         <td>{{d.tempat_lahir}}, {{d.tanggal_lahir}}</td>
                         <td>{{d.jk}}</td>
-                        <td>{% for dt in d.ktgri %} {{dt}} {% endfor %}</td>
+                        <td>{% if not forloop.last %}{{d.ktgri}}{% endif %}</td>
                         <td>
                             <a class="btn btn-sm btn-success" href="{{d.id}}/detail" data-bs-toggle="modal"
                                 data-bs-target="#modaldetail"><i class="fas fa-info-circle"></i></a>
@@ -277,5 +277,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    function kategori() {
+        console.log("KATEGORI", ktgri)
+    }
+</script>
 
 {% endblock %}
