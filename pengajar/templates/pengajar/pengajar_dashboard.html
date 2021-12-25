@@ -1,51 +1,163 @@
-{% extends "pengajar/coba.html" %}
+{% extends 'base.html' %}
 {% block content %}
 
-            <h3>Dashboard</h3>
-             <main class="container-fluid mt-4">
-                <div class="col-md-6">
-                    <div class="card table-responsive" style="width: 900px; height: 400px;">
-                        <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Pencapaian
-                            santri</div>
-                            <div class="card-body">
-                                <div class="min-h-screen bg-white py-2">
-                                    <div class="row d-flex">
-                                        <table
-                                        class='table table-hover overflow-auto bg-white divide-y divide-gray-300'
-                                        style="border: green;">
-                                        <thead class="" style="background-color: #138500; color: #FFFFFF;">
-                                            <tr>
-                                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No
-                                                </th>
-                                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Nis
-                                                </th>
-                                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Nama
-                                                    Santri </th>
-                                                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
-                                                        Action
-                                                    </th>
-                                                </tr>
-                                        </thead>
-                                        {% for d in data %}
-                                        <tbody class="divide-y divide-gray-200">
-                                            <tr>
-                                                <th scope="row" class="text-center">{{ forloop.counter }}</th>
-                                                <td>{{d.nis}}</td>
-                                                <td>{{d.nama_santri}}</td>
-                                                <td>
-                                                    <a class="nav-link active" aria-current="page"
-                                                        href="/pengajar/input">Lihat</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        {% endfor %}
-                                    </table>
-                                </div>
+<!-- tab dashboard -->
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <h3>Dashboard</h3>
+        <main class="container-fluid mt-4">
+            <div class="col-md-6">
+                <div class="card table-responsive" style="width: 900px; height: 400px;">
+                    <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Pencapaian
+                        santri</div>
+                    <div class="card-body">
+                        <div class="min-h-screen bg-white py-2">
+                            <div class="row d-flex">
+                                <table class='table table-hover overflow-auto bg-white divide-y divide-gray-300'
+                                    style="border: green;">
+                                    <thead class="" style="background-color: #138500; color: #FFFFFF;">
+                                        <tr>
+                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No
+                                            </th>
+                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Nis
+                                            </th>
+                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Nama
+                                                Santri </th>
+                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    {% for d in data %}
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr>
+                                            <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                                            <td>{{d.nis}}</td>
+                                            <td>{{d.nama_santri}}</td>
+                                            <td>
+                                                <a class="nav-link active" aria-current="page"
+                                                    href="/pengajar/input">Lihat</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    {% endfor %}
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
-            
-        </div>   
-{% endblock %}
+            </div>
+        </main>
+    </div>
+
+    <!-- tab pengumuman -->
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <h2> Pengumuman </h2>
+        <div class="col-md-6">
+            <div class="container-fluid">
+                <div class="card mb-3" style="width: 1325px;">
+                    <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Pengumuman
+                        Pondok Pesantren</div>
+                    <div class="card-body">
+                        <div class="container-fluid">
+                            <div class="min-h-screen bg-white py-2">
+                                <!-- <div class=" row d-flex"> -->
+                                <table class=' bg-white divide-y divide-gray-300 justify-content-center'
+                                    style="border: green;">
+                                    <thead class="" style="background-color: #FFFFFF; color: black;">
+                                        <tr>
+                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No
+                                            </th>
+                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
+                                                Tanggal </th>
+                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
+                                                Pengumuman </th>
+                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
+                                                Selengkapnya
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    {% for p in pngm %}
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="text-center">{{forloop.counter}}</td>
+                                            <td>{{p.tgl}}</td>
+                                            <td class="text-center">{{p.judul}}</td>
+                                            <td class="text-center">
+                                                <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                                                    data-bs-target="#pengumuman">
+                                                    <a href="{{p.id}}/detail">
+                                                        lihat pengumuman
+                                                    </a>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================================= Modal pengaturan akun ========================================= -->
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Pengaturan Akun</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Username</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="username">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="alamat email">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="password lama">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Ganti Password</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="password baru">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal lihat pengumuman -->
+<div class="modal fade" id="pengumuman" tabindex="-1" aria-labelledby="pengumumanLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pengumumanLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{pngm.last.pengumuman}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

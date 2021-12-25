@@ -97,9 +97,9 @@ def input_nadzom(req):
         models.Nadzom.objects.create(
             kitab=req.POST['kitab'],
             bab=req.POST['bab'],
-            halaman=req.POST['halaman'],
-            paragraf=req.POST['paragraf'],
+            bait=req.POST['bait'],
             pengajar=req.POST['pengajar'],
+            keterangan=req.POST['keterangan'],
         )
         return redirect('/pengajar/input_nadzom')
 

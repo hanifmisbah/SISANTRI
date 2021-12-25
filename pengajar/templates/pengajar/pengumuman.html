@@ -1,53 +1,53 @@
-{% extends "pengajar/coba.html" %}
+{% extends "pengajar/pengajar_dashboard.html" %}
 {% block content %}
 
 <!-- <div class="tab-pane fade " id="pengumuman" role="tabpanel" aria-labelledby="pengumuman-tab">
     <h2> </h2> -->
 
 
-    <h3>Pengumuman Pondok Pesantren</h3>
+<h3>Pengumuman Pondok Pesantren</h3>
 
-    <div class="card-body mt-4">
-        <div class="container-fluid">
-            <div class="min-h-screen bg-white py-2">
-                <div class="row d-flex table-responsive">
-                    <table rules="rows" class='table table-hover bg-white divide-y divide-gray-300 justify-content-center'
-                        style="border: green; border:1px;">
-                        <thead class="" style="background-color: #138500; color: #FFFFFF;">
-                            <tr>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No </th>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Pengumuman
-                                </th>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Selengkapnya
-                                </th>
-                            </tr>
-                        </thead>
-                        {%for p in pngm%}
-                        <tbody class="divide-y divide-gray-200">
-                            <tr>
-                                <th scope="row" class="text-center">{{ forloop.counter }}</th>
-                                <td class="text-center">{{p.tgl}}</td>
-                                <td class="text-center">{{p.judul}}</td>
+<div class="card-body mt-4">
+    <div class="container-fluid">
+        <div class="min-h-screen bg-white py-2">
+            <div class="row d-flex table-responsive">
+                <table rules="rows" class='table table-hover bg-white divide-y divide-gray-300 justify-content-center'
+                    style="border: green; border:1px;">
+                    <thead class="" style="background-color: #138500; color: #FFFFFF;">
+                        <tr>
+                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No </th>
+                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
+                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Pengumuman
+                            </th>
+                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Selengkapnya
+                            </th>
+                        </tr>
+                    </thead>
+                    {%for p in pngm%}
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                            <td class="text-center">{{p.tgl}}</td>
+                            <td class="text-center">{{p.judul}}</td>
 
 
-                                <td class="text-center">
-                                    <button type="button" class="btn btn-link" data-bs-toggle="modal"
-                                        data-bs-target="#pengumuman">
-                                        lihat pengumuman
-                                    </button>
-                                </td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                                    data-bs-target="#pengumuman">
+                                    lihat pengumuman
+                                </button>
+                            </td>
 
-                            </tr>
-                            <!-- <hr> -->
-                        </tbody>
-                        {%endfor%}
-                    </table>
-                </div>
+                        </tr>
+                        <!-- <hr> -->
+                    </tbody>
+                    {%endfor%}
+                </table>
             </div>
         </div>
-
     </div>
+
+</div>
 <!-- </div> -->
 
 
