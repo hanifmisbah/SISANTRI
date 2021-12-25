@@ -3,6 +3,25 @@
 <html lang="en">
 
 <style>
+    ::-webkit-scrollbar {
+    width: 12px;
+    height: 100px;
+    }
+
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(19,133,0,5); 
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #86ec74;
+        -webkit-box-shadow: inset 0 0 6px rgba(19,133,0,5); 
+    }
+    
+    thead { position: sticky; top: 0; }
+    thead th { position: sticky; top: 0; }
+    
     .nav-link {
         color: #138500;
     }
@@ -18,7 +37,7 @@
     }
 
     table tbody {
-        overflow: auto;
+        overflow: scroll;
         border-color: #138500;
     }
 

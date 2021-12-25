@@ -31,6 +31,7 @@
     {% endfor %}
     {% endif %}
 
+<<<<<<< HEAD
     <div class="card-body table-responsive">
         <div class="min-h-screen bg-white py-2">
             <div class="container-fluid">
@@ -68,6 +69,43 @@
                     </tbody>
                 </table>
             </div>
+=======
+    <div class="min-h-screen bg-white py-2">
+        <div class="row d-flex table-responsive" style="height: 374px;">
+            <table class='table bg-white divide-y divide-gray-300 justify-content-center' style="overflow-y: scroll; border: green;">
+                <thead class="table" style="background-color: #138500; color: #FFFFFF;">
+                    <!-- <tr class="text-white text-left" style="background-color: #138500; color: #FFFFFF ;"> -->
+                    <tr>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> NIS </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Nama Lengkap</th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Tempat, Tanggal Lahir</th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Jenis Kelamin</th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Kategori</th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Action</th>
+                    </tr>
+                </thead>
+                {% for d in data %}
+                <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                        <td>{{d.nis}}</td>
+                        <td>{{d.nama_santri}}</td>
+                        <td>{{d.tempat_lahir}}, {{d.tanggal_lahir}}</td>
+                        <td>{{d.jk}}</td>
+                        <td>{% if not forloop.last %}{{d.ktgri}}{% endif %}</td>
+                        <td>
+                            <a class="btn btn-sm btn-success" href="{{d.id}}/detail" data-bs-toggle="modal"
+                                data-bs-target="#modaldetail"><i class="fas fa-info-circle"></i></a>
+                            <a class="btn btn-sm btn-warning" href="/adminpondok/datasantri/{{d.id}}/update"><i
+                                    class="fas fa-pen"></i></a>
+                            <a class="btn btn-sm btn-danger" href="{{d.id}}/delete"><i class="fas fa-trash-alt"></i></a>
+                        </td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+>>>>>>> 65563f6bce178078f47bbb96b4597afc6823126e
         </div>
     </div>
 
@@ -279,5 +317,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    function kategori() {
+        console.log("KATEGORI", ktgri)
+    }
+</script>
 
 {% endblock %}
