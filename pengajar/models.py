@@ -8,6 +8,7 @@ from adminpondok import models as adminmodels
 
 
 class Alquran(models.Model):
+    tgl = models.DateField(auto_now=True, blank=False, null=False)
     surah = models.CharField(default='', max_length=12)
     ayat = models.IntegerField(default=0)
     juz = models.IntegerField(default=0)

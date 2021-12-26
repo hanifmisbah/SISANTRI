@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+
 class Kategori(models.Model):
     kategori_kitab = [
         ('Dasar', 'Dasar'),
@@ -8,7 +10,7 @@ class Kategori(models.Model):
         ('Atas', 'Atas'),
     ]
     ktgri = models.CharField(default='', choices=kategori_kitab, max_length=20)
-    
+
 
 class Santri(models.Model):
     kelamin = [
@@ -100,6 +102,3 @@ class Matan(models.Model):
     jumlah_fashol = models.IntegerField(default=0, null=True)
     jumlah_bait = models.IntegerField(default=0, null=True)
     nama_pengarang = models.CharField(max_length=30, null=True)
-
-
-# class Matan(models.Model):

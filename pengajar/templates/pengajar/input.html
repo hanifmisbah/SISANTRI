@@ -81,6 +81,13 @@
             left: 0px
         }
 
+        .content.show {
+            right: 400px;
+            /* transition: right 0.4s ease; */
+            left: 300px;
+            right: 100px;
+        }
+
         .sidebar .text {
             color: white;
             font-size: 19px;
@@ -168,10 +175,10 @@
             color: #ffff !important
         }
 
-        nav ul ul li a:hover {
+        /* nav ul ul li a:hover {
             color: #FC5404 !important;
             background: #1e1e1e !important
-        }
+        } */
 
         nav ul li a span {
             position: absolute;
@@ -188,12 +195,13 @@
 
         .content {
             position: absolute;
-            top: 30%;
-            left: 40%;
-            transform: translate(-50%, -50%);
+            top: 10%;
+            left: 10%;
+            right: 5%;
+            /* transform: translate(-20%, -50%); */
             color: #202020;
-            /* z-index: -1; */
-            text-align: center
+            z-index: -1;
+            /* text-align: center */
         }
     </style>
 </head>
@@ -228,6 +236,7 @@
     $('.btnsdbr').click(function () {
         $(this).toggleClass("click");
         $('.sidebar').toggleClass("show");
+        $('.content').toggleClass("show");
     });
 
 
