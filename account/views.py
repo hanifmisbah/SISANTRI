@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import SignUpForm, LoginForm
 # Create your views here.
 
@@ -13,7 +13,7 @@ def regis(req):
         if form.is_valid():
             user = form.save()
             msg = 'User Created'
-            return redirect('login.html')
+            return redirect('/')
         else:
             msg = 'form is not valid'
     else:
@@ -23,17 +23,29 @@ def regis(req):
         'msg':msg,
     })
 
-def login(req):
+def login_user(req):
     form = LoginForm(req.POST or None)
     msg = None
     if req.POST:
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
+            user = authenticate(req, username=username, password=password)
+            if user is not None and user.is_admin:
                 login(req, user)
-                return redirect('account')
+                return redirect('/adminpondok')
+            elif user is not None and user.is_pengajar:
+                login(req, user)
+                return redirect('/pengajar')
+            elif user is not None and user.is_pengasuh:
+                login(req, user)
+                return redirect('/pengasuh')
+            elif user is not None and user.is_walisantri:
+                login(req, user)
+                return redirect('/ortu')
+            elif user is not None and user.is_santri:
+                login(req, user)
+                return redirect('/santri')
             else:
                 msg = 'invalid'
         else:
@@ -42,3 +54,7 @@ def login(req):
         'form':form,
         'msg':msg,
     })
+
+def logout_user(req):
+    logout(req)
+    return redirect('/')
