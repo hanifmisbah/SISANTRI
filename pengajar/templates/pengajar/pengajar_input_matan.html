@@ -1,136 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-<style>
-    /* ========style corner tabel=========== */
-    table tr:first-child th:first-child {
-        border-top-left-radius: 8px;
-    }
+{% extends "pengajar/input.html" %}
+{% block content %}
 
-    /* top-right border-radius */
-    table tr:first-child th:last-child {
-        border-top-right-radius: 8px;
-    }
-</style>
+<h3>Pencapaian Matan Santri</h3>
+<!-- Button trigger modal -->
+<nav class="navbar navbar-light bg-white">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                style="background-color: #138500;">
+                Input
+            </button>
+        </a>
+    </div>
+</nav>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <title>Document</title>
-</head>
+<!-- Button trigger modal -->
+<!-- <nav class="navbar navbar-light bg-white"> -->
+<div class="container-fluid">
+    <div class=" row d-flex">
+        <table class="bg-white divide-y divide-gray-300' style=" border: green;">
+            <thead class="" style="background-color: #138500; color: #FFFFFF;">
+                <tr>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Kitab </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Bab </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Halaman </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Pengajar </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Keterangan </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Action </th>
+                </tr>
+            </thead>
+            {%for d in data%}
+            <tbody class="divide-y divide-gray-500" style="border-color: #138500;">
+                <tr>
+                    <th scope="row" class="text-center">{{ data.tanggal }}</th>
+                    <td>{{d.kitab}}</td>
+                    <td>{{d.bab}}</td>
+                    <td>{{d.halaman}}</td>
+                    <td>{{d.pengajar}}</td>
+                    <td>{{d.keterangan}}</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" href="/pengajar/pengajar_input_matan/{{d.id}}/editmatan"><i
+                                class="fas fa-pen"></i></a>
+                        <a class="btn btn-sm btn-danger" href="/pengajar/pengajar_input_matan/{{d.id}}/deletematan"><i
+                                class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+            {%endfor%}
+        </table>
+    </div>
+</div>
+</div>
+</div>
 
-<body>
+<!-- Modal Input Progres Bandongan-->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
 
-    <h3>Pencapaian Matan Santri</h3>
-    <!-- Button trigger modal -->
-    <nav class="navbar navbar-light bg-white">
-        <div class="container-fluid">
-            <a class="navbar-brand">
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                    style="background-color: #138500;">
-                    Input
-                </button>
-            </a>
-        </div>
-    </nav>
+            <form action="" method="post">
+                {% csrf_token %}
 
-    <div class="card-body">
-        <div class="min-h-screen bg-white py-2">
-            <div class="container-fluid">
-                <div class=" row d-flex">
-                    <table class="bg-white divide-y divide-gray-300' style=" border: green;">
-                        <thead class="" style="background-color: #138500; color: #FFFFFF;">
-                            <tr>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Kitab </th>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Bab </th>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Halaman </th>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Paragraf </th>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Pengajar </th>
-                                <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Keterangan </th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            <tr>
-                                <th scope="row" class="text-center">{{ data.tanggal }}</th>
-                                <td>{{d.kitab}}</td>
-                                <td>{{d.bab}}</td>
-                                <td>{{d.halaman}}</td>
-                                <td>{{d.paragraf}}</td>
-                                <td>{{d.pengajar}}</td>
-                                <td>{{d.keterangan}}</td>
-
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="modal-header">
+                    <h5 class="modal-title">input Matan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
+                        <input disabled type="text" id="disabledTextInput" class="form-control" name="tgl"
+                            value="{{data.tgl}}">
+                        <label for="floatingPassword"> Tanggal </label>
+                    </div>
+
+                    <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
+                        <input type="text" class="form-control" name="kitab" id="floatingInput"
+                            placeholder="NomorIndukSantri">
+                        <label for="floatingInput"> Nama Kitab </label>
+                    </div>
+                    <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+                        <input type="text" class="form-control" name="bab" id="floatingInput" placeholder="NoTelp">
+                        <label for="floatingInput"> Bab </label>
+                    </div>
+                    <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
+                        <input type="text" class="form-control" name="halaman" id=" floatingPassword"
+                            placeholder="NamaLengkap">
+                        <label for="floatingPassword"> Halaman </label>
+                    </div>
+
+                    <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+                        <input type="text" class="form-control" name="pengajar" id="floatingInput" placeholder="NoTelp">
+                        <label for="floatingInput"> Pengajar </label>
+                    </div>
+                    <h></h>
+
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" name="keterangan" placeholder="Leave a comment here"
+                            id="keterangan" style="height: 100px"></textarea>
+                        <label for="keterangan"> Keterangan</label>
+                    </div>
+                    <h></h>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
-    <!-- Modal Input Progres Matan-->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
 
-                <form action="" method="post">
-                    {% csrf_token %}
 
-                    <div class="modal-header">
-                        <h5 class="modal-title">input Matan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
-                            <input disabled type="text" id="disabledTextInput" class="form-control" name="tgl"
-                                value="{{data.tgl}}">
-                            <label for="floatingPassword"> Tanggal </label>
-                        </div>
-
-                        <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
-                            <input type="text" class="form-control" name="kitab" id="floatingInput"
-                                placeholder="NomorIndukSantri">
-                            <label for="floatingInput"> Nama Kitab </label>
-                        </div>
-                        <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
-                            <input type="text" class="form-control" name="bab" id="floatingInput" placeholder="NoTelp">
-                            <label for="floatingInput"> Bab </label>
-                        </div>
-                        <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
-                            <input type="text" class="form-control" name="halaman" id=" floatingPassword"
-                                placeholder="NamaLengkap">
-                            <label for="floatingPassword"> Halaman </label>
-                        </div>
-
-                        <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
-                            <input type="text" class="form-control" name="kelancaran" id="floatingInput"
-                                placeholder="NoTelp">
-                            <label for="floatingInput"> Paragraf </label>
-                        </div>
-                        <h></h>
-
-                        <div class="form-floating mb-3">
-                            <textarea class="form-control" name="almt" placeholder="Leave a comment here"
-                                id="keterangan" style="height: 100px"></textarea>
-                            <label for="keterangan"> Keterangan</label>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/f45fe3726b.js" crossorigin="anonymous"></script>
-
-</html>
+{%endblock%}

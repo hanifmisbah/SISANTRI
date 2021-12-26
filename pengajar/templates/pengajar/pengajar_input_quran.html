@@ -1,7 +1,7 @@
-{% extends "pengajar/pengajar_dashboard.html" %}
+{% extends "pengajar/input.html" %}
 {% block content %}
-<h3>Pencapaian Quran Santri</h3>
 
+<h3>Pencapaian Quran Santri</h3>
 <!-- Button trigger modal -->
 <nav class="navbar navbar-light bg-white">
     <div class="container-fluid">
@@ -13,44 +13,55 @@
         </a>
     </div>
 </nav>
-<div class="card-body">
+
+<!-- Button trigger modal -->
+<div class="card-body table-responsive">
     <div class="min-h-screen bg-white py-2">
         <div class="container-fluid">
-            <div class=" row d-flex">
-                <!-- <div class="table" style="width: 100%;"> -->
-                <table class="bg-white divide-y divide-gray-500 ">
-                    <thead class="" style="background-color: #138500; color: #FFFFFF;">
-                        <tr>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Juz </th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Surah </th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Halaman </th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Ayat </th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Pengajar
-                            </th>
-                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Keterangan
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr>
-                            <th scope="row" class="text-center">{{ data.tanggal }}</th>
-                            <td>{{d.juz}}</td>
-                            <td>{{d.surah}}</td>
-                            <td>{{d.halaman}}</td>
-                            <td>{{d.ayat}}</td>
-                            <td>{{d.pengajar}}</td>
-                            <td>{{d.keterangan}}</td>
+            <table class="table">
+                <thead class="" style="background-color: #138500; color: #FFFFFF;">
+                    <tr>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Juz </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Surah </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Halaman </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Ayat </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Pengajar
+                        </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Keterangan
+                        </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Action </th>
+                    </tr>
+                </thead>
+                {%for d in data%}
+                <tbody class="divide-y divide-gray-500" style="border-color: #138500;">
+                    <tr>
+                        <th scope="row" class="text-center">{{ d.tanggal }}</th>
+                        <td>{{d.juz}}</td>
+                        <td>{{d.surah}}</td>
+                        <td>{{d.halaman}}</td>
+                        <td>{{d.ayat}}</td>
+                        <td>{{d.pengajar}}</td>
+                        <td>{{d.keterangan}}</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning"
+                                href="/pengajar/pengajar_input_quran/{{d.id}}/editquran"><i class="fas fa-pen"></i></a>
+                            <a class="btn btn-sm btn-danger"
+                                href="/pengajar/pengajar_input_quran/{{d.id}}/deletequran"><i
+                                    class="fas fa-trash-alt"></i></a>
+                        </td>
 
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                    </tr>
+                </tbody>
+                {%endfor%}
+            </table>
         </div>
     </div>
 </div>
+</div>
+</div>
 
-<!-- Modal Input Progres Quran-->
+<!-- Modal Input Progres Bandongan-->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -60,7 +71,7 @@
                 {% csrf_token %}
 
                 <div class="modal-header">
-                    <h5 class="modal-title">input Quran</h5>
+                    <h5 class="modal-title">Input Al-Quran </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -100,6 +111,8 @@
                             id="keterangan" style="height: 100px"></textarea>
                         <label for="keterangan"> Keterangan</label>
                     </div>
+                    <h></h>
+
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan
                         </button>
@@ -111,4 +124,5 @@
 </div>
 
 
-{% endblock %}
+
+{%endblock%}

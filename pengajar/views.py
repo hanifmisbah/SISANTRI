@@ -22,6 +22,8 @@ def pengumuman(req):
         'data': pngm,
     })
 
+# =============== Q U R A N =====================
+
 
 def input_quran(req):
     if req.POST:
@@ -41,6 +43,13 @@ def input_quran(req):
     })
 
 
+def deletequran(req, id):
+    models.Alquran.objects.filter(pk=id).delete()
+    return redirect('/pengajar/input_quran')
+
+# ================== M A T A N ====================
+
+
 def input_matan(req):
     if req.POST:
         models.Matan.objects.create(
@@ -56,6 +65,13 @@ def input_matan(req):
     return render(req, 'pengajar/pengajar_input_matan.html', {
         'data': matan,
     })
+
+
+def deletematan(req, id):
+    models.Matan.objects.filter(pk=id).delete()
+    return redirect('/pengajar/input_matan')
+
+# =================== S O R O G A N ====================
 
 
 def input_sorogan(req):
@@ -75,6 +91,13 @@ def input_sorogan(req):
     })
 
 
+def deletesorogan(req, id):
+    models.Sorogan.objects.filter(pk=id).delete()
+    return redirect('/pengajar/input_sorogan')
+
+# ============== B A N D O N G A N ==============
+
+
 def input_bandongan(req):
     if req.POST:
         models.Bandongan.objects.create(
@@ -92,14 +115,19 @@ def input_bandongan(req):
     })
 
 
+def deletebandongan(req, id):
+    models.Bandongan.objects.filter(pk=id).delete()
+    return redirect('/pengajar/input_bandongan')
+
+
 def input_nadzom(req):
     if req.POST:
         models.Nadzom.objects.create(
             kitab=req.POST['kitab'],
             bab=req.POST['bab'],
-            halaman=req.POST['halaman'],
-            paragraf=req.POST['paragraf'],
+            bait=req.POST['bait'],
             pengajar=req.POST['pengajar'],
+            keterangan=req.POST['keterangan'],
         )
         return redirect('/pengajar/input_nadzom')
 
@@ -107,6 +135,11 @@ def input_nadzom(req):
     return render(req, 'pengajar/pengajar_input_nadzom.html', {
         'data': ndzm,
     })
+
+
+def deletenadzom(req, id):
+    models.Nadzom.objects.filter(pk=id).delete()
+    return redirect('/pengajar/input_nadzom')
 
 
 def input(req):
