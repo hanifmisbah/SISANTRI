@@ -10,5 +10,8 @@ def index(req):
     })
 
 
-def sidebar(req):
-    return render(req, 'sidebar.html')
+def hasil(req):
+    return render(req, 'hasil.html')
+
+
+# butuh deff untuk memanggil nama santri satu persatu
