@@ -6,34 +6,42 @@ from adminpondok import models
 
 def index(req):
     pngm = models.Pengumuman.objects.all()
+    santri = models.Santri.objects.all()
     # pngm_d = models.Pengumuman.objects.filter(pk=id).first()
-    return render(req, 'ortu_dashboard.html', {
+    return render(req, 'ortu/ortu_dashboard.html', {
         'pngm': pngm,
+        'santri': santri
         # 'pngm_d': pngm_d,
     })
 
+
 def detailpngm(req, id):
     pngm_d = models.Pengumuman.objects.filter(pk=id).first()
-    return render(req, 'ortu_dashboard.html', {
+    return render(req, 'ortu/ortu_dashboard.html', {
         'pngm_d': pngm_d,
         # 'pngm': pngm,
     })
-    
-def quran(req):
-    return render(req, 'quran.html')
 
 
-def bandongan(req):
-    return render(req, 'bandongan.html')
+def hasil_quran(req):
+    return render(req, 'ortu/hasil_quran.html')
 
 
-def matan(req):
-    return render(req, 'matan.html')
+def hasil_bandongan(req):
+    return render(req, 'ortu/hasil_bandongan.html')
 
 
-def nadzom(req):
-    return render(req, 'nadzom.html')
+def hasil_matan(req):
+    return render(req, 'ortu/hasil_matan.html')
 
 
-def sorogan(req):
-    return render(req, 'sorogan.html')
+def hasil_nadzom(req):
+    return render(req, 'ortu/hasil_nadzom.html')
+
+
+def hasil_sorogan(req):
+    return render(req, 'ortu/hasil_sorogan.html')
+
+
+def hasil(req):
+    return render(req, 'ortu/hasil.html')

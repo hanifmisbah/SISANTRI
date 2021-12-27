@@ -6,9 +6,10 @@ from . import views
 urlpatterns = [
     path('', views.index),
     path('<id>/detail', views.index),
-    path('quran/', views.quran),
-    path('bandongan/', views.bandongan),
-    path('matan/', views.matan),
-    path('nadzom/', views.nadzom),
-    path('sorogan/', views.sorogan),
+    path('hasil_quran/', views.hasil_quran),
+    path('hasil_bandongan/', views.hasil_bandongan),
+    path('hasil_matan/', views.hasil_matan),
+    path('hasil_nadzom/', views.hasil_nadzom),
+    path('hasil_sorogan/', views.hasil_sorogan),
+    path('hasil/', views.hasil)
 ]

@@ -1,4 +1,4 @@
-{%extends 'base/base.html' %}
+{% extends 'base/base.html' %}
 {%block content%}
 
 
@@ -48,17 +48,17 @@
                                     <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Action</th>
                                 </tr>
                             </thead>
-                            {% for d in data %}
+                            {% for s in santri %}
                             <tbody class="divide-y divide-gray-200">
                                 <tr>
                                     <th scope="row" class="text-center">{{ forloop.counter }}</th>
-                                    <td>{{d.nis}}</td>
-                                    <td>{{d.nama_santri}}</td>
-                                    <td>{{d.tempat_lahir}}, {{d.tanggal_lahir}}</td>
-                                    <td>{{d.jk}}</td>
-                                    <td>{% if not forloop.last %}{{d.ktgri}}{% endif %}</td>
+                                    <td>{{s.nis}}</td>
+                                    <td>{{s.nama_santri}}</td>
+                                    <td>{{s.tempat_lahir}}, {{s.tanggal_lahir}}</td>
+                                    <td>{{s.jk}}</td>
+                                    <td>{% if not forloop.last %}{{s.ktgri}}{% endif %}</td>
                                     <td>
-                                        <a class="nav-link active" aria-current="page" href="hasil.html">Lihat</a>
+                                        <a class="nav-link active" aria-current="page" href="/pengasuh/hasil">Lihat</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -106,7 +106,6 @@
                                     </td>
 
                                 </tr>
-                                <!-- <hr> -->
                             </tbody>
                             {%endfor%}
                         </table>
