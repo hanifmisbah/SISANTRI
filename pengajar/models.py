@@ -18,6 +18,7 @@ class Alquran(models.Model):
 
 
 class Sorogan(models.Model):
+    tgl = models.DateField(auto_now=True, blank=False, null=False)
     kitab = models.CharField(default='', max_length=30)
     bab = models.IntegerField(default=0)
     halaman = models.IntegerField(default=0)
@@ -26,6 +27,7 @@ class Sorogan(models.Model):
 
 
 class Matan(models.Model):
+    tgl = models.DateField(auto_now=True, blank=False, null=False)
     kitab = models.CharField(default=0, max_length=30)
     bab = models.IntegerField(default=0)
     halaman = models.IntegerField(default=0)
@@ -45,6 +47,7 @@ class Bandongan (models.Model):
 
 
 class Nadzom (models.Model):
+    tgl = models.DateField(auto_now=True, blank=False, null=True)
     kitab = models.CharField(default=0, max_length=30)
     bab = models.IntegerField(default=0)
     bait = models.IntegerField(default=0)
