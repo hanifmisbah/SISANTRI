@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!-- ortudashboard -->
+<!-- ortu dashboard -->
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
         <!-- saget -->
@@ -16,6 +16,7 @@
                 </form>
             </div>
         </nav>
+        <!-- batas navbar -->
 
         <div class="col-md-6">
             <div class="container-fluid">
@@ -70,16 +71,6 @@
                                 <a href="bandongan/" class="btn stretched-link "></a>
                             </div>
                         </div>
-                        <!-- <div class="card text-black mb-3"
-                            style="width: 20rem; display: inline-block ; background-color: #138500;">
-                            <div class="card-header text-white">Nadzom</div>
-                            <div class="card-body" style="background-color: #C4EEC8; height: 5rem;">
-                                <h6 class="card-title">Secondary card title</h6>
-                                <p class="card-text">ini nadzom snaksa.</p>
-                                <a href="#" class="btn stretched-link "></a>
-                            </div>
-                        </div> -->
-
                     </div>
                 </div>
             </div>
@@ -117,9 +108,6 @@
                                     {% for p in pngm %}
                                     <tbody class="divide-y divide-gray-200">
                                         <tr>
-                                            <!-- <th scope="row" class="text-center">{{ forloop.counter }}</th>
-                                <td>{{d.tanggal}}</td>
-                                <td>{{d.pengumuman}}</td> -->
                                             <td class="text-center">{{forloop.counter}}</td>
                                             <td>{{p.tgl}}</td>
                                             <td class="text-center">{{p.judul}}</td>

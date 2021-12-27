@@ -40,36 +40,29 @@
                                 <tr>
                                     <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No </th>
                                     <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> NIS </th>
-                                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Nama Santri
-                                    </th>
-                                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">No. Telp Wali
-                                    </th>
-                                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Asal</th>
+                                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Nama Lengkap</th>
+                                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Tempat, Tanggal
+                                        Lahir</th>
+                                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Jenis Kelamin</th>
                                     <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Kategori</th>
-                                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Keterangan
-                                    </th>
+                                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center">Action</th>
                                 </tr>
                             </thead>
+                            {% for d in data %}
                             <tbody class="divide-y divide-gray-200">
                                 <tr>
-                                    <!-- <th scope="row" class="text-center">{{ forloop.counter }}</th>
-                                <th scope="row" class="text-center">{{ forloop.counter }}</th>
-                                <td>{{d.nis}}</td>
-                                <td>{{d.nama_santri}}</td>
-                                <td>{{d.no_wali}}</td>
-                                <td>{{d.tempat_lahir}}</td>
-                                <td>{{d.ktgri}}</td> -->
-                                    <td class="text-center">1</td>
-                                    <td>1029</td>
-                                    <td>Muhammad Ali</td>
-                                    <td>089736251921</td>
-                                    <td>Kediri</td>
-                                    <td>Tahfidz</td>
+                                    <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                                    <td>{{d.nis}}</td>
+                                    <td>{{d.nama_santri}}</td>
+                                    <td>{{d.tempat_lahir}}, {{d.tanggal_lahir}}</td>
+                                    <td>{{d.jk}}</td>
+                                    <td>{% if not forloop.last %}{{d.ktgri}}{% endif %}</td>
                                     <td>
-                                        <a class="nav-link active" aria-current="page" href="sidebar.html">Lihat</a>
+                                        <a class="nav-link active" aria-current="page" href="hasil.html">Lihat</a>
                                     </td>
                                 </tr>
                             </tbody>
+                            {%endfor%}
                         </table>
                     </div>
                 </div>

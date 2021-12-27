@@ -1,0 +1,116 @@
+{% extends "pengajar/input.html" %}
+{% block content %}
+
+<h3>Pencapaian Sorogan Santri</h3>
+<!-- Button trigger modal -->
+<nav class="navbar navbar-light bg-white">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                style="background-color: #138500;">
+                Input
+            </button>
+        </a>
+    </div>
+</nav>
+
+<!-- Button trigger modal -->
+<!-- <nav class="navbar navbar-light bg-white"> -->
+<div class="container-fluid">
+    <div class=" row d-flex">
+        <table class="bg-white divide-y divide-gray-300' style=" border: green;">
+            <thead class="" style="background-color: #138500; color: #FFFFFF;">
+                <tr>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Kitab </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Bab </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Halaman </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Paragraf </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Pengajar </th>
+                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Action </th>
+                </tr>
+            </thead>
+            {%for d in data%}
+            <tbody class="divide-y divide-gray-500" style="border-color: #138500;">
+                <tr>
+                    <th scope="row" class="text-center">{{ data.tanggal }}</th>
+                    <td>{{d.kitab}}</td>
+                    <td>{{d.bab}}</td>
+                    <td>{{d.halaman}}</td>
+                    <td>{{d.paragraf}}</td>
+                    <td>{{d.pengajar}}</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning"
+                            href="/pengajar/pengajar_input_sorogan/{{d.id}}/editsorogan"><i class="fas fa-pen"></i></a>
+                        <a class="btn btn-sm btn-danger"
+                            href="/pengajar/pengajar_input_sorogan/{{d.id}}/deletesorogan"><i
+                                class="fas fa-trash-alt"></i></a>
+                    </td>
+
+                </tr>
+            </tbody>
+            {%endfor%}
+        </table>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- Modal Input Progres Bandongan-->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <form action="" method="post">
+                {% csrf_token %}
+
+                <div class="modal-header">
+                    <h5 class="modal-title">input Sorogan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
+                        <input disabled type="text" id="disabledTextInput" class="form-control" name="tgl"
+                            value="{{data.tgl}}">
+                        <label for="floatingPassword"> Tanggal </label>
+                    </div>
+
+                    <div class="form-floating mb-3" style="display: inline-block; width: 50%;">
+                        <input type="text" class="form-control" name="kitab" id="floatingInput"
+                            placeholder="NomorIndukSantri">
+                        <label for="floatingInput"> Nama Kitab </label>
+                    </div>
+                    <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+                        <input type="text" class="form-control" name="bab" id="floatingInput" placeholder="NoTelp">
+                        <label for="floatingInput"> Bab </label>
+                    </div>
+                    <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
+                        <input type="text" class="form-control" name="halaman" id=" floatingPassword"
+                            placeholder="NamaLengkap">
+                        <label for="floatingPassword"> Halaman </label>
+                    </div>
+
+                    <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+                        <input type="text" class="form-control" name="paragraf" id="floatingInput" placeholder="NoTelp">
+                        <label for="floatingInput"> Paragraf </label>
+                    </div>
+                    <div class="form-floating mb-3 " style="display: inline-block;width: 50%;">
+                        <input type="text" class="form-control" name="pengajar" id="floatingInput" placeholder="NoTelp">
+                        <label for="floatingInput"> Pengajar </label>
+                    </div>
+                    <h></h>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" style="background-color: #138500;">Simpan
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock%}
