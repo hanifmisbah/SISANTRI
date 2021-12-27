@@ -1,7 +1,6 @@
 from django.forms import ModelForm, widgets
 from . import models
-
-# class SantriForm(ModelForm):
+# ss SantriForm(ModelForm):
 #     class Meta:
 #         model=models.Santri
 #         fields=['nis', 'nama_santri', 'tempat_lahir', 'tanggal_lahir', 'telp', 'email', 'jk', 'ktgri', 'almt']
@@ -34,3 +33,4 @@ from . import models
 #     class Meta:
 #         model=models.Pengajar
 #         field=['jk']
+# cla
