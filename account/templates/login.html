@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+<!-- {% load crispy_forms_tags %} -->
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        {{form.username}}
+        <label for="password">Password</label>
+        {{form.password}}
+        <button type="submit" class="btn btn-blue text-center">Login</button>
+    </form>
+    <p>Belum punya akun? <a href="/register">Daftar</a></p>
+    {% if msg %}
+        {{msg}}
+    {% endif %}
+{% endblock %}

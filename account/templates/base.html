@@ -117,10 +117,15 @@
             color: #fff;
             border-radius: 2px
         }
-
+        
         .btn-blue:hover {
             background-color: #000;
+            color: #fff;
             cursor: pointer
+        }
+
+        #tombol:hover {
+            background-color: #0a4200;
         }
 
         .bg-blue {
@@ -167,44 +172,46 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="card2 card border-0 px-4 py-5">
-                        <div class="row px-3"> <label class="mb-1">
-                                <h6 class="mb-0 text-sm">Email Pondok</h6>
-                            </label> <input class="mb-4" type="text" name="email" placeholder="Enter Email">
+                    <form action="" method="POST">
+                        <div class="card2 card border-0 px-4 py-5">
+                            {% block content %}
+                            {% endblock %}
+                        </div>
+                        <!-- {% csrf_token %}
+                        {{form}}
+                            <div class="row px-3"> <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Username</h6>
+                            </label> <input class="mb-4" type="text" name="username" placeholder="Username">
                         </div>
                         <div class="row px-3"> <label class="mb-1">
-                                <h6 class="mb-0 text-sm">Password</h6>
-                            </label> <input type="password" name="password" placeholder="Enter password">
+                            <h6 class="mb-0 text-sm">Password</h6>
+                        </label> <input type="password" name="password1" placeholder="Enter password">
                         </div>
                         <div class="row px-3 mb-4">
                             <div class="custom-control custom-checkbox custom-control-inline">
                                 <input id="chk1" type="checkbox" name="chk" class="custom-control-input">
-                                <label for="chk1" class="custom-control-label text-sm">ingat Saya</label>
+                                    <label for="chk1" class="custom-control-label text-sm">ingat Saya</label>
                             </div>
-                            <a href="#" class="ml-auto mb-0 text-sm">Lupa Password?</a>
-                        </div>
+                                <a href="#" class="ml-auto mb-0 text-sm">Lupa Password?</a>
+                            </div> -->
 
-                        <div class="row justify-content-between">
-                            <div class="col-4">
-                                <button type="submit" class="btn btn-blue text-center">Login</button>
-                            </div>
-                            <div class="col-4">
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-blue text-center" data-bs-toggle="modal"
+                            <!-- <div class="row justify-content-between">
+                                <div class="col-4">
+                                    <button type="submit" class="btn btn-blue text-center">Login</button>
+                                </div>
+                                <div class="col-4">
+                                    <a href="register/"><button>Daftar</button></a>
+                                    Button trigger modal
+                                    <button type="button" id="tombol" class="btn btn-blue text-center" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop" style="background-color: #138500;">
                                     Daftar
                                 </button>
-                            </div>
-                        </div>
-
-
-                    </div>
-
+                            </div> 
+                        </div>-->
+                    </form>  
                 </div>
             </div>
         </div>
-        <!-- <div class=" py-4" style="background-color: #138500;"></div> -->
-    </div>
     </div>
 
     <!-- Modal -->

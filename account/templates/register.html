@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form_regis | crispy}}
+        <button type="submit" class="btn btn-blue text-center">Daftar</button>
+    </form>
+    <p>Belum punya akun? <a href="/">Masuk</a></p>
+{% endblock %}
