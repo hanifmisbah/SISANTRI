@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from bootstrap_datepicker_plus import DatePickerInput
+# from bootstrap_datepicker_plus import DatePickerInput
 from django.contrib import messages
 
 from . import models, forms
@@ -82,9 +82,7 @@ def deletesantri(req, id):
 
 
 def editsantri(req, id):
-    widgets = {
-    'tanggal_lahir': DatePickerInput(),
-    }
+    # 'tanggal_lahir': DatePickerInput,
     if req.POST:
         sntr = models.Santri.objects.filter(pk=id).update(
             nis=req.POST['nis'],

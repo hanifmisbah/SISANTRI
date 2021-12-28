@@ -3,8 +3,11 @@ from django.shortcuts import render
 # Create your views here.
 from adminpondok import models
 from pengajar import models as pengajar_models
+# from pengajar.views import pengumuman
 # from . import models
 
+# def peng(req):
+#     pengumuman
 
 def index(req):
     pngm = models.Pengumuman.objects.all()
