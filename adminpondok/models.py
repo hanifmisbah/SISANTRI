@@ -33,7 +33,7 @@ class Santri(models.Model):
     jk = models.CharField(max_length=9, choices=kelamin,
                           default='', null=False, blank=False)
     almt = models.TextField(default='', null=False, blank=False)
-    telp = models.IntegerField(null=False, blank=False)
+    telp = models.CharField(max_length=15, null=False, blank=False)
     email = models.CharField(default='', max_length=20,
                              null=False, blank=False)
     # ktgri = models.CharField(default='', choices=kategori, max_length=30)
@@ -54,9 +54,9 @@ class Pengajar(models.Model):
     tanggal_lahir = models.DateField()
     jk = models.CharField(max_length=9, choices=kelamin, default='')
     almt = models.TextField(default='')
-    telp = models.IntegerField(default=0)
+    telp = models.CharField(max_length=15, null=False, blank=False)
     email = models.CharField(default='', max_length=20)
-    pngjr = models.CharField(max_length=10, default='')
+    pngjr = models.CharField(max_length=50, default='')
 
 
 class Alquran(models.Model):

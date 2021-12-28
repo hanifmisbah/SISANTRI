@@ -23,6 +23,10 @@ def pengasuh_quran(req):
     return render(req, 'pengasuh/pengasuh_quran.html')
 
 
+def pengasuh_bandongan(req):
+    return render(req, 'pengasuh/pengasuh_bandongan.html')
+
+
 def pengasuh_matan(req):
     return render(req, 'pengasuh/pengasuh_matan.html')
 
@@ -33,10 +37,6 @@ def pengasuh_nadzom(req):
 
 def pengasuh_sorogan(req):
     return render(req, 'pengasuh/pengasuh_sorogan.html')
-
-
-def pengasuh_bandongan(req):
-    return render(req, 'pengasuh/pengasuh_bandongan.html')
 
 
 # butuh deff untuk memanggil nama santri satu persatu

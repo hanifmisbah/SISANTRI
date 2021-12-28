@@ -35,14 +35,14 @@
                 {%for d in data%}
                 <tbody class="divide-y divide-gray-500" style="border-color: #138500;">
                     <tr>
-                        <th scope="row" class="text-center">{{ d.tanggal }}</th>
+                        <th scope="row" class="text-center">{{ d.tgl }}</th>
                         <td>{{d.kitab}}</td>
                         <td>{{d.bab}}</td>
                         <td>{{d.bait}}</td>
                         <td>{{d.kelancaran}}</td>
                         <td>{{d.pengajar}}</td>
-                        <td>{{d.keteragan}}</td>
-                        <td>
+                        <td>{{d.keterangan}}</td>
+                        <td scope="row" class="text-center">
                             <a class="btn btn-sm btn-danger"
                                 href="/pengajar/pengajar_input_nadzom/{{d.id}}/deletenadzom"><i
                                     class="fas fa-trash-alt"></i></a>
@@ -93,9 +93,12 @@
                     </div>
 
                     <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
-                        <input type="text" class="form-control" name="kelancaran" id="floatingInput"
-                            placeholder="NoTelp">
-                        <label for="floatingInput"> Kelancaran </label>
+
+                        <select name="kelancaran" id="kelancaran">
+                            <option value="lancar">Lancar</option>
+                            <option value="tidak lancar">Tidak Lancar</option>
+                        </select>
+
                     </div>
                     <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
                         <input type="text" class="form-control" name="pengajar" id="floatingInput" placeholder="NoTelp">

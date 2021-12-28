@@ -36,14 +36,14 @@
                 {%for d in data%}
                 <tbody class="divide-y divide-gray-500" style="border-color: #138500;">
                     <tr>
-                        <th scope="row" class="text-center">{{ d.tanggal }}</th>
+                        <th scope="row" class="text-center">{{ d.tgl }}</th>
                         <td>{{d.juz}}</td>
                         <td>{{d.surah}}</td>
                         <td>{{d.halaman}}</td>
                         <td>{{d.ayat}}</td>
                         <td>{{d.pengajar}}</td>
                         <td>{{d.keterangan}}</td>
-                        <td>
+                        <td scope="row" class="text-center">
                             <a class="btn btn-sm btn-danger"
                                 href="/pengajar/pengajar_input_quran/{{d.id}}/deletequran"><i
                                     class="fas fa-trash-alt"></i></a>

@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from adminpondok import models
-from pengajar import models
+from pengajar import models as pengajar_models
 # from . import models
 
 

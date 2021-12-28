@@ -1,7 +1,6 @@
 from django.shortcuts import render
-
-# Create your views here.
 from adminpondok import models
+from pengajar import models as models_pengajar
 
 
 def index(req):
@@ -24,6 +23,7 @@ def detailpngm(req, id):
 
 
 def hasil_quran(req):
+    # quran = models.Pengajar.objects.all()
     return render(req, 'ortu/hasil_quran.html')
 
 
