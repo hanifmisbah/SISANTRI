@@ -62,8 +62,8 @@
                                     class="fas fa-pen"></i></a>
                             <a class="btn btn-sm btn-danger" href="{{d.id}}/delete"><i class="fas fa-trash-alt"></i></a>
                         </td>
-                        {% endfor %}
                     </tr>
+                {% endfor %}
                 </tbody>
             </table>
         </div>
@@ -122,19 +122,21 @@
                             <!-- {{ form.jk }} -->
                             <div class="col-sm-6" style="margin-left: 2rem;">
                                 <div class=" mb-10 form-check">
-                                    <input class="form-check-input" type="radio" name="jk" value="Laki-laki"
+                                    {% for j in data.ktgri %}
+                                    <input class="form-check-input" type="radio" name="jk" value="{{jk}}"
                                         id="flexRadioDefault1">
-                                    <label class="form-check-label" for="flexRadioDefault1">
+                                    {% endfor %}
+                                    <!-- <label class="form-check-label" for="flexRadioDefault1">
                                         Laki-Laki
-                                    </label>
+                                    </label> -->
                                 </div>
-                                <div class=" mb-10 form-check">
-                                    <input class="form-check-input" type="radio" name="jk" value="Perempuan"
+                                <!-- <div class=" mb-10 form-check">
+                                    <input class="form-check-input" type="radio" name="jk" value="{{jk}}"
                                         id="flexRadioDefault2">
                                     <label class="form-check-label" for="flexRadioDefault2">
                                         Perempuan
                                     </label>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-sm-6">
                                 <div>
@@ -166,8 +168,6 @@
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>
 
 

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
 
+    'bootstrap_datepicker_plus',
     'crispy_forms',
     'adminpondok',
     'santri',
@@ -143,3 +144,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'account.User'
+
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
