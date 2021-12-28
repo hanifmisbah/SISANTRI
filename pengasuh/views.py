@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from adminpondok import models
+from adminpondok import models as adminmodels
 from pengajar import models
 
 
@@ -7,8 +7,8 @@ from pengajar import models
 
 
 def index(req):
-    pngm = models.Pengumuman.objects.all()
-    santri = models.Santri.objects.all()
+    pngm = adminmodels.Pengumuman.objects.all()
+    santri = adminmodels.Santri.objects.all()
     return render(req, 'pengasuh/pengasuh_dashboard.html', {
         'pngm': pngm,
         'santri': santri
