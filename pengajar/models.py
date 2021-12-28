@@ -1,8 +1,6 @@
 from django.db import models
-import adminpondok
-
-import pengajar
 from adminpondok import models as adminmodels
+
 
 # Create your models here.
 
@@ -15,6 +13,8 @@ class Alquran(models.Model):
     halaman = models.IntegerField(default=0)
     pengajar = models.CharField(default='', max_length=30)
     keterangan = models.CharField(default=0, max_length=120)
+    santri = models.ForeignKey(
+        adminmodels.Santri, on_delete=models.CASCADE, null=True)
 
 
 class Sorogan(models.Model):
@@ -24,6 +24,8 @@ class Sorogan(models.Model):
     halaman = models.IntegerField(default=0)
     paragraf = models.CharField(default='', max_length=20)
     pengajar = models.CharField(default=0, max_length=30)
+    santri = models.ForeignKey(
+        adminmodels.Santri, on_delete=models.CASCADE, null=True)
 
 
 class Matan(models.Model):
@@ -34,6 +36,8 @@ class Matan(models.Model):
     paragraf = models.IntegerField(default=0)
     pengajar = models.CharField(default=0, max_length=30)
     keterangan = models.CharField(default=0, max_length=30)
+    santri = models.ForeignKey(
+        adminmodels.Santri, on_delete=models.CASCADE, null=True)
 
 
 class Bandongan (models.Model):
@@ -44,6 +48,8 @@ class Bandongan (models.Model):
     paragraf = models.IntegerField(default=0)
     pengajar = models.CharField(default=0, max_length=30)
     keterangan = models.CharField(default=0, max_length=30)
+    santri = models.ForeignKey(
+        adminmodels.Santri, on_delete=models.CASCADE, null=True)
 
 
 class Nadzom (models.Model):
@@ -51,12 +57,15 @@ class Nadzom (models.Model):
     kitab = models.CharField(default=0, max_length=30)
     bab = models.IntegerField(default=0)
     bait = models.IntegerField(default=0)
-    kelancaran = models.CharField(default=0, max_length=30)
+    kelancaran = models.CharField(default='', max_length=30)
     pengajar = models.CharField(default=0, max_length=30)
     keterangan = models.CharField(default=0, max_length=30)
-
-
-class Santri (models.Model):
     santri = models.ForeignKey(
-        adminmodels.Santri, on_delete=models.CASCADE, related_name='termasuk')
-    nama_santri = models.CharField(max_length=30, null=False, blank=False)
+        adminmodels.Santri, on_delete=models.CASCADE, null=True)
+
+
+# class Santri (models.Model):
+#     santri = models.ForeignKey(
+#         adminmodels.Santri, on_delete=models.CASCADE, related_name='termasuk')
+#     nama_santri = models.CharField(max_length=30, null=False, blank=False)
+    # input_quran = models.ForeignKey(Alquran, on_delete=models.CASCADE)

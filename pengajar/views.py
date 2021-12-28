@@ -1,25 +1,25 @@
 from typing import AsyncIterator
 from django.shortcuts import redirect, render
-
 from adminpondok import models as admin_models
 from . import models
-import pengajar
-from pengajar.models import Sorogan
+
 
 # Create your views here.
 
 
 def index(req):
     santri = admin_models.Santri.objects.order_by('-id')
+    pngm = admin_models.Pengumuman.objects.all()
     return render(req, 'pengajar/pengajar_dashboard.html', {
         'data': santri,
+        'pngm': pngm,
     })
 
 
 def pengumuman(req):
     pngm = admin_models.Pengumuman.objects.all()
-    return render(req, 'pengajar/pengumuman.html', {
-        'data': pngm,
+    return render(req, 'pengajar/pengajar_dashboard.html', {
+        'pngm': pngm,
     })
 
 # =============== Q U R A N =====================
@@ -126,6 +126,7 @@ def input_nadzom(req):
             kitab=req.POST['kitab'],
             bab=req.POST['bab'],
             bait=req.POST['bait'],
+            kelancaran=req.POST['kelancaran'],
             pengajar=req.POST['pengajar'],
             keterangan=req.POST['keterangan'],
         )

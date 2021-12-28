@@ -1,7 +1,7 @@
 from django.shortcuts import render
-
-# Create your views here.
 from adminpondok import models
+from pengajar import models as models_pengajar
+from santri.views import bandongan, matan, nadzom
 
 
 def index(req):
@@ -24,23 +24,38 @@ def detailpngm(req, id):
 
 
 def hasil_quran(req):
-    return render(req, 'ortu/hasil_quran.html')
+    quran = models_pengajar.Alquran.objects.all()
+    return render(req, 'ortu/hasil_quran.html', {
+        'data': quran,
+    })
 
 
 def hasil_bandongan(req):
-    return render(req, 'ortu/hasil_bandongan.html')
+    bandongan = models_pengajar.Bandongan.objects.all()
+    return render(req, 'ortu/hasil_bandongan.html', {
+        'data': bandongan,
+    })
 
 
 def hasil_matan(req):
-    return render(req, 'ortu/hasil_matan.html')
+    matan = models_pengajar.Matan.objects.all()
+    return render(req, 'ortu/hasil_matan.html', {
+        'data': matan,
+    })
 
 
 def hasil_nadzom(req):
-    return render(req, 'ortu/hasil_nadzom.html')
+    nadzom = models_pengajar.Nadzom.objects.all()
+    return render(req, 'ortu/hasil_nadzom.html', {
+        'data': nadzom,
+    })
 
 
 def hasil_sorogan(req):
-    return render(req, 'ortu/hasil_sorogan.html')
+    sorogan = models_pengajar.Sorogan.objects.all()
+    return render(req, 'ortu/hasil_sorogan.html', {
+        'data': sorogan,
+    })
 
 
 def hasil(req):

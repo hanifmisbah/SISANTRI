@@ -64,7 +64,7 @@ ROOT_URLCONF = 'sisantri.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [], #[os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],  # [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sisantri',
         'USER': 'postgres',
-        'PASSWORD': 'hanifmisbah',
+        'PASSWORD': 'bismillah',
         'HOST': 'localhost',
     }
 }

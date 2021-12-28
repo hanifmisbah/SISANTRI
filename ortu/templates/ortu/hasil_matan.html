@@ -21,18 +21,20 @@
                             <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Keterangan </th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-200">
+                    {%for m in data%}
+                    <tbody class="divide-y divide-gray-500" style="border-color: #138500;">
                         <tr>
-                            <th scope="row" class="text-center">{{ data.tanggal }}</th>
-                            <td>{{d.kitab}}</td>
-                            <td>{{d.bab}}</td>
-                            <td>{{d.halaman}}</td>
-                            <td>{{d.paragraf}}</td>
-                            <td>{{d.pengajar}}</td>
-                            <td>{{d.keterangan}}</td>
+                            <th scope="row" class="text-center">{{ m.tgl }}</th>
+                            <td>{{m.kitab}}</td>
+                            <td>{{m.bab}}</td>
+                            <td>{{m.halaman}}</td>
+                            <td>{{m.paragraf}}</td>
+                            <td>{{m.pengajar}}</td>
+                            <td>{{m.keterangan}}</td>
 
                         </tr>
                     </tbody>
+                    {%endfor%}
                 </table>
             </div>
         </div>
