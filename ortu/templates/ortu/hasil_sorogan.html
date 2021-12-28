@@ -20,17 +20,18 @@
 
                         </tr>
                     </thead>
+                    {%for s in data%}
                     <tbody class="divide-y divide-gray-200">
                         <tr>
-                            <th scope="row" class="text-center">{{ data.tanggal }}</th>
-                            <td>{{d.kitab}}</td>
-                            <td>{{d.bab}}</td>
-                            <td>{{d.halaman}}</td>
-                            <td>{{d.paragraf}}</td>
-                            <td>{{d.pengajar}}</td>
-
+                            <th scope="row" class="text-center">{{ s.tgl }}</th>
+                            <td>{{s.kitab}}</td>
+                            <td>{{s.bab}}</td>
+                            <td>{{s.halaman}}</td>
+                            <td>{{s.paragraf}}</td>
+                            <td>{{s.pengajar}}</td>
                         </tr>
                     </tbody>
+                    {%endfor%}
                 </table>
             </div>
         </div>

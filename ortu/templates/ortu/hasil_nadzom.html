@@ -19,17 +19,19 @@
                             <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Keterangan </th>
                         </tr>
                     </thead>
+                    {%for n in data%}
                     <tbody class="divide-y divide-gray-200">
                         <tr>
-                            <th scope="row" class="text-center">{{ data.tanggal }}</th>
-                            <td>{{d.kitab}}</td>
-                            <td>{{d.bab}}</td>
-                            <td>{{d.bait}}</td>
-                            <td>{{d.kelancaran}}</td>
-                            <td>{{d.keterangan}}</td>
+                            <th scope="row" class="text-center">{{ n.tgl }}</th>
+                            <td>{{n.kitab}}</td>
+                            <td>{{n.bab}}</td>
+                            <td>{{n.bait}}</td>
+                            <td>{{n.kelancaran}}</td>
+                            <td>{{n.keterangan}}</td>
 
                         </tr>
                     </tbody>
+                    {%endfor%}
                 </table>
             </div>
         </div>

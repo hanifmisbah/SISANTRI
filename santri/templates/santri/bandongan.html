@@ -20,17 +20,19 @@
                             <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Pengajar </th>
                         </tr>
                     </thead>
+                    {%for b in data%}
                     <tbody class="divide-y divide-gray-200">
                         <tr>
-                            <th scope="row" class="text-center">{{ data.tanggal }}</th>
-                            <td>{{d.kitab}}</td>
-                            <td>{{d.bab}}</td>
-                            <td>{{d.halaman}}</td>
-                            <td>{{d.paragraf}}</td>
-                            <td>{{d.pengajar}}</td>
+                            <th scope="row" class="text-center">{{ b.tgl }}</th>
+                            <td>{{b.kitab}}</td>
+                            <td>{{b.bab}}</td>
+                            <td>{{b.halaman}}</td>
+                            <td>{{b.paragraf}}</td>
+                            <td>{{b.pengajar}}</td>
 
                         </tr>
                     </tbody>
+                    {%endfor%}
                 </table>
             </div>
         </div>
