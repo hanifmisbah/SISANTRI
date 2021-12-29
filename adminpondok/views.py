@@ -19,12 +19,16 @@ def index(req):
 
     jml_santri = santri.count()
     jml_pengajar = pengajar.count()
+    jml_santri_putra = santri.filter(jk='Laki-Laki').count()
+    jml_santri_putri = santri.filter(jk='Perempuan').count()
     return render(req, 'adminpondok/dashboard.html', {
         'santri': santri,
         'pengajar': pengajar,
         'quran': quran,
         'pengum': pengum,
         'jml_santri': jml_santri,
+        'jml_santri_putri': jml_santri_putri,
+        'jml_santri_putra': jml_santri_putra,
         'jml_pengajar': jml_pengajar,
     })
 
