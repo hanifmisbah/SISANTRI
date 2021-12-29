@@ -16,11 +16,16 @@ def index(req):
     pengajar = models.Pengajar.objects.all()
     quran = models.Alquran.objects.all()
     pengum = models.Pengumuman.objects.all()
+
+    jml_santri = santri.count()
+    jml_pengajar = pengajar.count()
     return render(req, 'adminpondok/dashboard.html', {
         'santri': santri,
         'pengajar': pengajar,
         'quran': quran,
         'pengum': pengum,
+        'jml_santri': jml_santri,
+        'jml_pengajar': jml_pengajar,
     })
 
 
@@ -56,13 +61,13 @@ def datasantri(req):
             email=req.POST['email'],
             ktgri=req.POST.getlist('ktgri'),
         )
-        print(', '.join(sntr.ktgri))
-        varb += sntr.ktgri
+        # print(', '.join(sntr.ktgri))
+        # varb += sntr.ktgri
         messages.info(req, f'Santri {sntr.nama_santri} Berhasil Di Tambah')
         return redirect('/adminpondok/datasantri')
 
     santri = models.Santri.objects.order_by('-id')
-    print(varb)
+    # print(varb)
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri,
     })

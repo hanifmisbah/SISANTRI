@@ -16,17 +16,17 @@
                 import
             </button>
         </a>
-        <form class="d-flex">
+        <!-- <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-success" style="background-color:#138500 ;" type="submit">Search</button>
-        </form>
+        </form> -->
     </div>
 </nav>
 
 <div class="card-body table-responsive">
     <div class="min-h-screen bg-white py-2">
         <div class="container-fluid">
-            <table class="table">
+            <table id="cari" class="table">
                 <thead class="" style="background-color: #138500; color: #FFFFFF;">
                     <tr>
                         <th class="font-semibold text-sm uppercase px-4 py-2 text-center">No</th>
@@ -167,5 +167,11 @@
 
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+    $('#tbl').DataTable();
+} );
+</script>
 
 {% endblock %}

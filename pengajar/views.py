@@ -3,9 +3,7 @@ from django.shortcuts import redirect, render
 from adminpondok import models as admin_models
 from . import models
 
-
 # Create your views here.
-
 
 def index(req):
     santri = admin_models.Santri.objects.order_by('-id')
@@ -21,6 +19,11 @@ def pengumuman(req):
     return render(req, 'pengajar/pengajar_dashboard.html', {
         'pngm': pngm,
     })
+
+# def input(req):
+
+#     if req.POST:
+
 
 # =============== Q U R A N =====================
 
