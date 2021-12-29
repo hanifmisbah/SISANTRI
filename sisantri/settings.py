@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
-
+    
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
     'crispy_forms',
     'adminpondok',
     'santri',
@@ -88,7 +90,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sisantri',
         'USER': 'postgres',
-        'PASSWORD': 'bismillah',
+        'PASSWORD': 'hanifmisbah',
         'HOST': 'localhost',
     }
 }
@@ -143,3 +145,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'account.User'
+
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}

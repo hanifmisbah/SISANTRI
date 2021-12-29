@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+# from bootstrap_datepicker_plus import DatePickerInput
 from django.contrib import messages
 
 from . import models, forms
@@ -61,7 +62,6 @@ def datasantri(req):
         return redirect('/adminpondok/datasantri')
 
     santri = models.Santri.objects.order_by('-id')
-    # kategori = santri.ktgri
     print(varb)
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri,
@@ -82,6 +82,7 @@ def deletesantri(req, id):
 
 
 def editsantri(req, id):
+    # 'tanggal_lahir': DatePickerInput,
     if req.POST:
         sntr = models.Santri.objects.filter(pk=id).update(
             nis=req.POST['nis'],
