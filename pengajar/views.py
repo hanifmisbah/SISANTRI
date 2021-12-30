@@ -1,6 +1,7 @@
 from typing import AsyncIterator
 from django.shortcuts import redirect, render
 from adminpondok import models as admin_models
+from adminpondok.views import alquran
 from . import models
 
 # Create your views here.
@@ -20,10 +21,46 @@ def pengumuman(req):
         'pngm': pngm,
     })
 
-# def input(req):
-
-#     if req.POST:
-
+def input_inha(req):
+    if req.POST:
+        models.Santri.objects.create()
+        if req.POST and models.Alquran:
+            models.Alquran.objects.create(
+            surah=req.POST['surah'],
+            juz=req.POST['juz'],
+            halaman=req.POST['halaman'],
+            ayat=req.POST['ayat'],
+            pengajar=req.POST['pengajar'],
+            keterangan=req.POST['keterangan'],
+            )
+            return redirect('/input_quran')
+        elif req.POST and models.Matan:
+            models.Matan.objects.create(
+            kitab=req.POST['kitab'],
+            bab=req.POST['bab'],
+            halaman=req.POST['halaman'],
+            pengajar=req.POST['pengajar'],
+            keterangan=req.POST['keterangan'],
+            )
+            return redirect('/input_matan')
+        elif req.POST and models.Nadzom:
+            models.Nadzom.objects.create(
+            kitab=req.POST['kitab'],
+            bab=req.POST['bab'],
+            bait=req.POST['bait'],
+            kelancaran=req.POST['kelancaran'],
+            pengajar=req.POST['pengajar'],
+            keterangan=req.POST['keterangan'],
+            )
+            return redirect('/input_nadhom')
+    quran = models.Alquran.objects.all()
+    matan = models.Matan.objects.all()
+    nadzom = models.Nadzom.objects.all()
+    return render(req, 'pengajar/input.html', {
+        'quran': quran,
+        'matan': matan,
+        'nadzom': nadzom,
+    })
 
 # =============== Q U R A N =====================
 

@@ -24,5 +24,4 @@ urlpatterns = [
     path('pengumuman/', views.pengumuman),
     path('pngm/', views.pengumuman),
     path('input', views.input),
-
 ]

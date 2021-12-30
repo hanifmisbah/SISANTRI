@@ -64,8 +64,7 @@ class Nadzom (models.Model):
         adminmodels.Santri, on_delete=models.CASCADE, null=True)
 
 
-# class Santri (models.Model):
-#     santri = models.ForeignKey(
-#         adminmodels.Santri, on_delete=models.CASCADE, related_name='termasuk')
-#     nama_santri = models.CharField(max_length=30, null=False, blank=False)
+class Santri (models.Model):
+    santri = models.ForeignKey(adminmodels.Santri, on_delete=models.CASCADE, related_name='termasuk')
+    # nama_santri = models.CharField(max_length=30, null=False, blank=False)
     # input_quran = models.ForeignKey(Alquran, on_delete=models.CASCADE)
