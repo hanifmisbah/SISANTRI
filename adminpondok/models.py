@@ -48,6 +48,15 @@ class Pengajar(models.Model):
         ('Laki-Laki', 'Laki-Laki'),
         ('Perempuan', 'Perempuan'),
     ]
+    Quran = 'qr'
+    Matan = 'mt'
+    Nadhom = 'nd'
+    kategori = [
+        (Quran, 'Al-Quran'),
+        (Matan, 'Matan'),
+        (Nadhom, 'Nadhom'),
+    ]
+
     NIP = models.IntegerField(unique=True)
     nama_pengajar = models.CharField(max_length=30)
     tempat_lahir = models.CharField(max_length=20)
@@ -56,7 +65,8 @@ class Pengajar(models.Model):
     almt = models.TextField(default='')
     telp = models.CharField(max_length=15, null=False, blank=False)
     email = models.CharField(default='', max_length=20)
-    pngjr = models.CharField(max_length=50, default='')
+    # pngjr = models.CharField(max_length=50, default='')
+    pngjr = models.CharField(default='', choices=kategori, max_length=30)
 
 
 class Alquran(models.Model):

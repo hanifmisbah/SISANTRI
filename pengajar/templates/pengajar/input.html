@@ -78,7 +78,8 @@
         }
         
         .sidebar.show {
-            left: 0px
+            left: 0px;
+            /* transition: right 0.9s ease; */
         }
         
         .content {
@@ -93,11 +94,11 @@
         }
 
         .content.show {
-            /* transition: right 0.4s ease; */
             left: 350px;
             right: 100px;
+            /* transition: right 1s ease; */
         }
-
+        
         .sidebar .text {
             color: white;
             font-size: 19px;
@@ -148,11 +149,11 @@
         }
 
         .feat-show {
-            transition: all 0.5s
+            transition: all 0.9s
         }
 
         nav ul li.active ul {
-            transition: all 0.5s
+            transition: all 0.9s
         }
 
         nav ul ul {
@@ -162,7 +163,7 @@
 
         nav ul.show {
             display: block;
-            transition: all 0.5s
+            transition: all 0.9s
         }
 
         nav ul ul li {
