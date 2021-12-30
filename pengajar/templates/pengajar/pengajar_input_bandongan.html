@@ -19,21 +19,12 @@
     </div>
 </nav>
 
-<nav class="navbar navbar-light bg-white">
-    <div class="container-fluid">
-        <a class="navbar-brand">
-            <h2>Data Santri</h2>
-        </a>
-
-    </div>
-</nav>
-
 <!-- Button trigger modal -->
 <!-- <nav class="navbar navbar-light bg-white"> -->
 <div class="card-body table-responsive">
     <div class="min-h-screen bg-white py-2">
         <div class="container-fluid">
-            <table class="table">
+            <table class="table" id="myTable">
                 <thead class="" style="background-color: #138500; color: #FFFFFF;">
                     <tr>
                         <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
@@ -120,6 +111,27 @@
         </form>
     </div>
 </div>
-</div>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
 
 {%endblock%}

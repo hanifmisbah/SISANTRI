@@ -11,6 +11,11 @@
                 Input
             </button>
         </a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" id="myInput"
+                onkeyup="myFunction()" title="Type in a name">
+            <button class="btn btn-success" style="background-color:#138500 ;" type="submit">Search</button>
+        </form>
     </div>
 </nav>
 
@@ -19,7 +24,7 @@
 <div class="card-body table-responsive">
     <div class="min-h-screen bg-white py-2">
         <div class="container-fluid">
-            <table class="table">
+            <table class="table" id="myTable">
                 <thead class="" style="background-color: #138500; color: #FFFFFF;">
                     <tr>
                         <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
@@ -110,6 +115,25 @@
     </div>
 </div>
 
-
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 
 {%endblock%}
