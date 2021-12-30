@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
-    
-    'bootstrap4',
-    'bootstrap_datepicker_plus',
+
+    # 'bootstrap4',
+    # 'bootstrap_datepicker_plus',
     'crispy_forms',
     'adminpondok',
     'santri',
@@ -90,7 +90,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sisantri',
         'USER': 'postgres',
-        'PASSWORD': 'hanifmisbah',
+        'PASSWORD': 'bismillah',
         'HOST': 'localhost',
     }
 }

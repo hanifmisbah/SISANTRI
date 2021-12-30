@@ -9,21 +9,19 @@
                 <a class="navbar-brand">
                     <h2>Data Santri</h2>
                 </a>
-
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" id="myInput"
+                        onkeyup="myFunction()" title="Type in a name">
                     <button class="btn btn-success" style="background-color:#138500 ;" type="submit">Search</button>
                 </form>
             </div>
-
         </nav>
 
         <div class="card-body">
             <div class="container-fluid">
                 <div class="min-h-screen bg-white py-2">
                     <div class=" row d-flex">
-                        <table class="display bg-white divide-y divide-gray-300 justify-content-center" id=""
-                            style="border: green;" rules="rows">
+                        <table class="table" id="myTable">
                             <thead class="" style="background-color: #138500; color: #FFFFFF;">
                                 <!-- <tr class="text-white text-left" style="background-color: #138500; color: #FFFFFF ;"> -->
                                 <tr>
@@ -166,5 +164,26 @@
         </div>
     </div>
 </div>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 
 {%endblock%}
