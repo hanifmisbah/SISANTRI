@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from adminpondok import models as adminmodels
-from pengajar import models
+from pengajar import models as models_pengajar
+from santri.views import matan, nadzom
 
 
 # Create your views here.
@@ -20,23 +21,38 @@ def hasil(req):
 
 
 def pengasuh_quran(req):
-    return render(req, 'pengasuh/pengasuh_quran.html')
+    quran = models_pengajar.Alquran.objects.all()
+    return render(req, 'pengasuh/pengasuh_quran.html', {
+        'data': quran,
+    })
 
 
 def pengasuh_bandongan(req):
-    return render(req, 'pengasuh/pengasuh_bandongan.html')
+    bandongan = models_pengajar.Bandongan.objects.all()
+    return render(req, 'pengasuh/pengasuh_bandongan.html', {
+        'data': bandongan,
+    })
 
 
 def pengasuh_matan(req):
-    return render(req, 'pengasuh/pengasuh_matan.html')
+    matan = models_pengajar.Matan.objects.all()
+    return render(req, 'pengasuh/pengasuh_matan.html', {
+        'data': matan,
+    })
 
 
 def pengasuh_nadzom(req):
-    return render(req, 'pengasuh/pengasuh_nadzom.html')
+    nadzom = models_pengajar.Nadzom.objects.all()
+    return render(req, 'pengasuh/pengasuh_nadzom.html', {
+        'data': nadzom,
+    })
 
 
 def pengasuh_sorogan(req):
-    return render(req, 'pengasuh/pengasuh_sorogan.html')
+    sorogan = models_pengajar.Sorogan.objects.all()
+    return render(req, 'pengasuh/pengasuh_sorogan.html', {
+        'data': sorogan,
+    })
 
 
 # butuh deff untuk memanggil nama santri satu persatu

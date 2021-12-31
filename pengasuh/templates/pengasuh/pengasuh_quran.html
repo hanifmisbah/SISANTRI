@@ -23,17 +23,17 @@
                         <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Action </th>
                     </tr>
                 </thead>
-                {%for d in data%}
+                {%for q in data%}
                 <tbody class="divide-y divide-gray-500" style="border-color: #138500;">
                     <tr>
-                        <th scope="row" class="text-center">{{ d.tanggal }}</th>
-                        <td>{{d.juz}}</td>
-                        <td>{{d.surah}}</td>
-                        <td>{{d.halaman}}</td>
-                        <td>{{d.ayat}}</td>
-                        <td>{{d.pengajar}}</td>
-                        <td>{{d.keterangan}}</td>
-                        <td>
+                        <th scope="row" class="text-center">{{ q.tgl }}</th>
+                        <td>{{q.juz}}</td>
+                        <td>{{q.surah}}</td>
+                        <td>{{q.halaman}}</td>
+                        <td>{{q.ayat}}</td>
+                        <td>{{q.pengajar}}</td>
+                        <td>{{q.keterangan}}</td>
+                        <td scope="row" class="text-center">
                             <a class="btn btn-sm btn-danger"
                                 href="/pengajar/pengajar_input_quran/{{d.id}}/deletequran"><i
                                     class="fas fa-trash-alt"></i></a>
