@@ -1,7 +1,9 @@
 from typing import AsyncIterator
+from django.db.models import query
 from django.shortcuts import redirect, render
 from adminpondok import models as admin_models
 from adminpondok.views import alquran
+from sisantri.settings import cursor, DB
 from . import models
 
 # Create your views here.
@@ -21,46 +23,27 @@ def pengumuman(req):
         'pngm': pngm,
     })
 
+# def choose_santri(req):
+#     if req
+
 def input_inha(req):
     if req.POST:
-        models.Santri.objects.create()
-        if req.POST and models.Alquran:
-            models.Alquran.objects.create(
-            surah=req.POST['surah'],
-            juz=req.POST['juz'],
-            halaman=req.POST['halaman'],
-            ayat=req.POST['ayat'],
-            pengajar=req.POST['pengajar'],
-            keterangan=req.POST['keterangan'],
-            )
-            return redirect('/input_quran')
-        elif req.POST and models.Matan:
-            models.Matan.objects.create(
-            kitab=req.POST['kitab'],
-            bab=req.POST['bab'],
-            halaman=req.POST['halaman'],
-            pengajar=req.POST['pengajar'],
-            keterangan=req.POST['keterangan'],
-            )
-            return redirect('/input_matan')
-        elif req.POST and models.Nadzom:
-            models.Nadzom.objects.create(
-            kitab=req.POST['kitab'],
-            bab=req.POST['bab'],
-            bait=req.POST['bait'],
-            kelancaran=req.POST['kelancaran'],
-            pengajar=req.POST['pengajar'],
-            keterangan=req.POST['keterangan'],
-            )
-            return redirect('/input_nadhom')
-    quran = models.Alquran.objects.all()
-    matan = models.Matan.objects.all()
-    nadzom = models.Nadzom.objects.all()
-    return render(req, 'pengajar/input.html', {
-        'quran': quran,
-        'matan': matan,
-        'nadzom': nadzom,
-    })
+        tgl=req.POST['tgl']
+        surah=req.POST['surah']
+        ayat=req.POST['ayat']
+        juz=req.POST['juz']
+        halaman=req.POST['halaman']
+        pengajar=req.POST['pengajar']
+        keterangan=req.POST['keterangan']
+
+        query = "INSERT INTO Alquran (tgl, surah, ayat, juz, halaman, pengajar, keterangan) VALUES ('{0}', '{1}','{2}','{3}','{4}','{5}','{6}' )"
+        variabel = (tgl, surah, ayat, juz, halaman, pengajar, keterangan)
+        cursor.execute(query.format(variabel))
+        DB.commit()
+        data_quran = cursor.fetchall()
+
+    return render(req, 'pengajar/pengajar_input_quran.html', {'quran': data_quran})
+
 
 # =============== Q U R A N =====================
 

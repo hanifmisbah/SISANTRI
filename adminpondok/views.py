@@ -38,21 +38,8 @@ def profil(req):
 
 
 # ============S A N T R I=================
-def listToString(s): 
-    
-    # initialize an empty string
-    str1 = "" 
-    
-    # traverse in the string  
-    for ele in s: 
-        str1 += ele  
-    
-    # return string  
-    return str1 
-
 
 def datasantri(req):
-    varb = []
     if req.POST:
         sntr = models.Santri.objects.create(
             nis=req.POST['nis'],
@@ -65,16 +52,14 @@ def datasantri(req):
             email=req.POST['email'],
             ktgri=req.POST.getlist('ktgri'),
         )
-        # print(', '.join(sntr.ktgri))
-        # varb += sntr.ktgri
         messages.info(req, f'Santri {sntr.nama_santri} Berhasil Di Tambah')
         return redirect('/adminpondok/datasantri')
 
     santri = models.Santri.objects.order_by('-id')
-    # print(varb)
     return render(req, 'adminpondok/datasantri.html', {
         'data': santri,
     })
+
 
 
 def detailsantri(req, id):
@@ -135,6 +120,7 @@ def datapengajar(req):
     return render(req, 'adminpondok/datapengajar.html', {
         'data': pengajar,
     })
+
 
 
 def editpengajar(req, id):

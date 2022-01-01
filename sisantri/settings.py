@@ -85,6 +85,7 @@ WSGI_APPLICATION = 'sisantri.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# untuk migrasi database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -94,6 +95,15 @@ DATABASES = {
         'HOST': 'localhost',
     }
 }
+
+# untuk query
+import psycopg2
+DB = psycopg2.connect(
+    host="localhost",
+    database="sisantri",
+    user="postgres",
+    password="hanifmisbah")
+cursor = DB.cursor()
 
 
 # Password validation
