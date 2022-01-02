@@ -1,169 +1,143 @@
-{% extends 'pengajar/base.html' %}
+{% extends "pengajar/base.html" %}
 {% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
 
-<!-- tab dashboard -->
-<div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-        <center>
-            <h3>Dashboard</h3>
-        </center>
-        <main class="container-fluid mt-4">
-            <div class="col-md-6">
-                <div class="card table-responsive" style="width: 900px; height: 400px;">
-                    <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Pencapaian
-                        santri</div>
-                    <div class="card-body">
-                        <div class="min-h-screen bg-white py-2">
-                            <div class="row d-flex">
-                                <table class='table table-hover overflow-auto bg-white divide-y divide-gray-300'
-                                    style="border: green;">
-                                    <thead class="" style="background-color: #138500; color: #FFFFFF;">
-                                        <tr>
-                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No
-                                            </th>
-                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Nis
-                                            </th>
-                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Nama
-                                                Santri </th>
-                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
-                                                Action
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    {% for d in data %}
-                                    <tbody class="divide-y divide-gray-200">
-                                        <tr>
-                                            <th scope="row" class="text-center">{{ forloop.counter }}</th>
-                                            <td>{{d.nis}}</td>
-                                            <td>{{d.nama_santri}}</td>
-                                            <td>
-                                                <a class="nav-link active" aria-current="page"
-                                                    href="/pengajar/input">Lihat</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    {% endfor %}
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <a class="navbar-brand" href="#">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                style="background-color: #138500;">
+                Input Bandongan
+            </button>
+        </a>
     </div>
+</nav>
+<h2>{{tgl}}</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-3" style="max-width: 700px;">
+            <div class="card-body" style="height: 500px;">
+                <div class="min-h-screen bg-white py-2">
+                    <div class="container-fluid">
+                        <div class=" row d-flex table-responsive">
+                            <table class="bg-white divide-y divide-gray-300' style=" border: green;">
+                                <thead class="" style="background-color: #138500; color: #FFFFFF;">
+                                    <tr>
+                                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No </th>
+                                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Nama Sub
+                                            Kelas </th>
+                                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Anggota
+                                        </th>
+                                    </tr>
+                                </thead>
 
-    <!-- tab pengumuman -->
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <center>
-            <h2> Pengumuman </h2>
-        </center>
-
-        <div class="col-md-6">
-            <div class="container-fluid">
-                <div class="card mb-3" style="width: 1325px;">
-                    <div class="card-header text-light " style="background-color: rgba(19, 133, 0, 1);">Pengumuman
-                        Pondok Pesantren</div>
-                    <div class="card-body">
-                        <div class="container-fluid">
-                            <div class="min-h-screen bg-white py-2">
-                                <!-- <div class=" row d-flex"> -->
-                                <table class=' bg-white divide-y divide-gray-300 justify-content-center'
-                                    style="border: green;">
-                                    <thead class="" style="background-color: #FFFFFF; color: black;">
-                                        <tr>
-                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No
-                                            </th>
-                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
-                                                Tanggal </th>
-                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
-                                                Pengumuman </th>
-                                            <th class="font-semibold text-sm uppercase px-4 py-2 text-center">
-                                                Selengkapnya
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    {% for p in pngm %}
-                                    <tbody class="divide-y divide-gray-200">
-                                        <tr>
-                                            <td class="text-center">{{forloop.counter}}</td>
-                                            <td>{{p.tgl}}</td>
-                                            <td class="text-center">{{p.judul}}</td>
-                                            <td class="text-center">
-                                                <button type="button" class="btn btn-link" data-bs-toggle="modal"
-                                                    data-bs-target="#pengumuman">
-                                                    <a href="{{p.id}}/detail">
-                                                        lihat pengumuman
-                                                    </a>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    {% endfor %}
-                                </table>
-                            </div>
+                                <tbody class="divide-y divide-gray-200">
+                                    <tr>
+                                        <!-- <th scope="row" class="text-center">{{ forloop.counter }}</th> -->
+                                        <th scope="row" class="text-center">1</th>
+                                        <td scope="row" class="text-center">Safinah</td>
+                                        <td scope="row" class="text-center">lihat</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<a href="/logout"><button>Logout</button></a>
 
-<!-- ================================= Modal pengaturan akun ========================================= -->
-<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> Pengaturan Akun</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Username</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="username">
+    <div class="col-md-6">
+        <div class="card mb-3" style="max-width: 700px;">
+            <div class="card-body" style="height: 500px;">
+                <div class="min-h-screen bg-white py-2">
+                    <div class="container-fluid">
+                        <div class=" row d-flex table-responsive">
+                            <table class="bg-white divide-y divide-gray-300' style=" border: green;">
+                                <thead class="" style="background-color: #138500; color: #FFFFFF;">
+                                    <tr>
+                                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> No </th>
+                                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
+                                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Nama Kitab
+                                        </th>
+                                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Halaman </th>
+                                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Pemateri
+                                        </th>
+                                    </tr>
+                                </thead>
+                                {%for b in data%}
+                                <tbody class="divide-y divide-gray-200">
+                                    <tr>
+                                        <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                                        <td scope="row" class="text-center">{{b.tgl}}</td>
+                                        <td scope="row" class="text-center">{{b.kitab}}</td>
+                                        <td scope="row" class="text-center">{{b.halaman}}</td>
+                                        <td scope="row" class="text-center">{{b.paragraf}}</td>
+                                        <td scope="row" class="text-center"> {{b.pemateri}}</td>
+                                    </tr>
+                                </tbody>
+                                {%endfor%}
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="alamat email">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Password</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="password lama">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Ganti Password</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="password baru">
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Modal lihat pengumuman -->
-<div class="modal fade" id="pengumuman" tabindex="-1" aria-labelledby="pengumumanLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="pengumumanLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                {{pngm.last.pengumuman}}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="" method="post">
+                    {% csrf_token %}
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Input Bandongan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Nama Kitab</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Ta'lim Mutallim</option>
+                                <option>Adab</option>
+                                <option>Takrib</option>
+                                <option>Uqudullijain</option>
+                                <option>Arbain Nawawi</option>
+                            </select>
+                        </div>
+                        <div class="form-floating mb-3 " style="display: inline-block ; width: 50%;">
+                            <input type="text" class="form-control" name="halaman" id=" floatingPassword"
+                                placeholder="NamaLengkap">
+                            <label for="floatingPassword"> Halaman </label>
+                        </div>
+                        <div class="form-floating mb-3 " style="display: inline-block;width: 40%;">
+                            <input type="text" class="form-control" name="paragraf" id="floatingInput"
+                                placeholder="NoTelp">
+                            <label for="floatingInput"> Paragraf </label>
+                        </div>
+                        <div class="form-floating mb-3 " style="display: inline-block;width: 50%;">
+                            <input type="text" class="form-control" name="pengajar" id="floatingInput"
+                                placeholder="NoTelp">
+                            <label for="floatingInput"> Pemateri </label>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" style="background-color: #138500;" class="btn btn-primary">Input</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
 
-{%endblock%}
+    {%endblock%}

@@ -142,7 +142,6 @@ def input_bandongan(req):
     if req.POST:
         models.Bandongan.objects.create(
             kitab=req.POST['kitab'],
-            bab=req.POST['bab'],
             halaman=req.POST['halaman'],
             paragraf=req.POST['paragraf'],
             pengajar=req.POST['pengajar'],
