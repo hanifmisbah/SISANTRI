@@ -4,38 +4,40 @@
 <h3>Pencapaian Matan Santri</h3>
 
 <!-- <nav class="navbar navbar-light bg-white"> -->
-<div class="container-fluid">
-    <div class=" row d-flex">
-        <table class="bg-white divide-y divide-gray-300' style=" border: green;">
-            <thead class="" style="background-color: #138500; color: #FFFFFF;">
-                <tr>
-                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
-                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Kitab </th>
-                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Bab </th>
-                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Halaman </th>
-                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Pengajar </th>
-                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Keterangan </th>
-                    <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Action </th>
-                </tr>
-            </thead>
-            {%for d in data%}
-            <tbody class="divide-y divide-gray-500" style="border-color: #138500;">
-                <tr>
-                    <th scope="row" class="text-center">{{ data.tanggal }}</th>
-                    <td>{{d.kitab}}</td>
-                    <td>{{d.bab}}</td>
-                    <td>{{d.halaman}}</td>
-                    <td>{{d.pengajar}}</td>
-                    <td>{{d.keterangan}}</td>
-                    <td>
-                        <a class="btn btn-sm btn-danger" href="/pengajar/pengajar_input_matan/{{d.id}}/deletematan"><i
-                                class="fas fa-trash-alt"></i></a>
-                    </td>
-                </tr>
-            </tbody>
-            {%endfor%}
-        </table>
+<div class="card-body table-responsive">
+    <div class="min-h-screen bg-white py-2">
+        <div class="container-fluid">
+            <table class="table">
+                <thead class="" style="background-color: #138500; color: #FFFFFF;">
+                    <tr>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Kitab </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Bab </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Halaman </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Pengajar </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Keterangan </th>
+                        <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Action </th>
+                    </tr>
+                </thead>
+                {%for m in data%}
+                <tbody class="divide-y divide-gray-500" style="border-color: #138500;">
+                    <tr>
+                        <th scope="row" class="text-center">{{ m.tgl }}</th>
+                        <td>{{m.kitab}}</td>
+                        <td>{{m.bab}}</td>
+                        <td>{{m.halaman}}</td>
+                        <td>{{m.pengajar}}</td>
+                        <td>{{m.keterangan}}</td>
+                        <td scope="row" class="text-center">
+                            <a class="btn btn-sm btn-danger"
+                                href="/pengajar/pengajar_input_matan/{{d.id}}/deletematan"><i
+                                    class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+                {%endfor%}
+            </table>
+        </div>
     </div>
-</div>
 
-{%endblock%}
+    {%endblock%}

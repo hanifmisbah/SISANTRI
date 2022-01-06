@@ -20,17 +20,17 @@
                         <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Action </th>
                     </tr>
                 </thead>
-                {%for d in data%}
+                {%for n in data%}
                 <tbody class="divide-y divide-gray-500" style="border-color: #138500;">
                     <tr>
-                        <th scope="row" class="text-center">{{ d.tanggal }}</th>
-                        <td>{{d.kitab}}</td>
-                        <td>{{d.bab}}</td>
-                        <td>{{d.bait}}</td>
-                        <td>{{d.kelancaran}}</td>
-                        <td>{{d.pengajar}}</td>
-                        <td>{{d.keterangan}}</td>
-                        <td>
+                        <th scope="row" class="text-center">{{ n.tgl }}</th>
+                        <td>{{n.kitab}}</td>
+                        <td>{{n.bab}}</td>
+                        <td>{{n.bait}}</td>
+                        <td>{{n.kelancaran}}</td>
+                        <td>{{n.pengajar}}</td>
+                        <td>{{n.keterangan}}</td>
+                        <td scope="row" class="text-center">
                             <a class="btn btn-sm btn-danger"
                                 href="/pengajar/pengajar_input_nadzom/{{d.id}}/deletenadzom"><i
                                     class="fas fa-trash-alt"></i></a>

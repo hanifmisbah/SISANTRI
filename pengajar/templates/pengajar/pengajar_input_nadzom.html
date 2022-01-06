@@ -1,5 +1,14 @@
-{% extends "pengajar/input.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
 
 <h3>Pencapaian Nadzom Santri</h3>
 <!-- Button trigger modal -->
@@ -11,6 +20,11 @@
                 Input
             </button>
         </a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" id="myInput"
+                onkeyup="myFunction()" title="Type in a name">
+            <button class="btn btn-success" style="background-color:#138500 ;" type="submit">Search</button>
+        </form>
     </div>
 </nav>
 
@@ -19,7 +33,7 @@
 <div class="card-body table-responsive">
     <div class="min-h-screen bg-white py-2">
         <div class="container-fluid">
-            <table class="table">
+            <table class="table" id="myTable">
                 <thead class="" style="background-color: #138500; color: #FFFFFF;">
                     <tr>
                         <th class="font-semibold text-sm uppercase px-4 py-2 text-center"> Tanggal </th>
@@ -54,8 +68,7 @@
         </div>
     </div>
 </div>
-</div>
-</div>
+
 
 <!-- Modal Input Progres Bandongan-->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1"
@@ -126,8 +139,34 @@
 </div>
 
 
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 
-{%endblock%}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f45fe3726b.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
 
 
 

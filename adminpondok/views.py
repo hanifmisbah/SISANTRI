@@ -50,7 +50,7 @@ def datasantri(req):
             almt=req.POST['almt'],
             telp=req.POST['telp'],
             email=req.POST['email'],
-            ktgri=req.POST.getlist('ktgri'),
+            kategori=req.POST.getlist('kategori'),
         )
         messages.info(req, f'Santri {sntr.nama_santri} Berhasil Di Tambah')
         return redirect('/adminpondok/datasantri')
