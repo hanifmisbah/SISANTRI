@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 
 from . import views
@@ -13,8 +12,9 @@ urlpatterns = [
     path('datapengajar/<id>/editpengajar', views.editpengajar),
     path('datapengajar/<id>/update', views.editpengajar),
     # ============= santri ====================
-    path('datasantri<id>/editsantri', views.editsantri),
     path('datasantri/', views.datasantri),
+    path('datasantri/kategori', views.kategori),
+    path('datasantri/level', views.level),
     path('datasantri/<id>/delete', views.deletesantri),
     path('datasantri/<id>/update', views.editsantri),
     path('datasantri/<id>/detail', views.detailsantri),
@@ -23,7 +23,7 @@ urlpatterns = [
     path('quran/<id>/delete', views.deletequran),
     path('quran/<id>/detail', views.detailquran),
     # =============== Nadzom ====================
-    path('datakitab/', views.nadzom),
+    path('datakitab/', views.kitab),
     path('nadzom/', views.nadzom),
     path('nadzom/<id>/delete', views.nadzom),
     # path('datakitab/<id>/editkitab/', views.editkitab),

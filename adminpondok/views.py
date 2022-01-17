@@ -13,29 +13,73 @@ def coba(req):
 
 def index(req):
     santri = models.Santri.objects.all()
-    pengajar = models.Pengajar.objects.all()
-    quran = models.Alquran.objects.all()
+    # pengajar = models.Pengajar.objects.all()
+    # quran = models.Alquran.objects.all()
     pengum = models.Pengumuman.objects.all()
 
     jml_santri = santri.count()
-    jml_pengajar = pengajar.count()
+    # jml_pengajar = pengajar.count()
     jml_santri_putra = santri.filter(jk='Laki-Laki').count()
     jml_santri_putri = santri.filter(jk='Perempuan').count()
     return render(req, 'adminpondok/dashboard.html', {
         'santri': santri,
-        'pengajar': pengajar,
-        'quran': quran,
+        # 'pengajar': pengajar,
+        # 'quran': quran,
         'pengum': pengum,
         'jml_santri': jml_santri,
         'jml_santri_putri': jml_santri_putri,
         'jml_santri_putra': jml_santri_putra,
-        'jml_pengajar': jml_pengajar,
+        # 'jml_pengajar': jml_pengajar,
     })
 
 
 def profil(req):
     return render(req, 'adminpondok/profil.html')
 
+
+
+
+def level(req):
+    if req.POST:
+        models.Level.objects.create(
+            level=req.POST['level']
+        )
+        return redirect('/adminpondok/datasantri')
+
+    level = models.Level.objects.all()
+    return render(req, 'adminpondok/level.html', {
+        'level':level,
+    })
+
+def kategori(req):
+    if req.POST:
+        models.Kategori.objects.create(
+            kategori=req.POST['kategori']
+        )
+        return redirect('/adminpondok/datasantri')
+    
+    kategori = models.Kategori.objects.all()
+    return render(req, 'adminpondok/kategori.html', {
+        'kategori':kategori,
+    })
+
+def kitab(req):
+    if req.POST:
+        models.Kitab.objects.create(
+            nama_kitab=req.POST['nama_kitab'],
+            kategori=req.POST['kategori'],
+            level=req.POST['level'],
+            jumlah_bab=req.POST['jumlah_bab'],
+            jumlah_bait=req.POST['jumlah_bait'],
+            jumlah_halaman=req.POST['jumlah_halaman'],
+            nama_pengarang=req.POST['nama_pengarang'],
+        )
+        return redirect('/adminpondok/datakitab')
+
+    kitab = models.Kitab.objects.all()
+    return render(req, 'adminpondok/kitab.html', {
+        'kitab':kitab,
+    })
 
 # ============S A N T R I=================
 

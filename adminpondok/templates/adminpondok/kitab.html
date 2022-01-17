@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="nama_kitab">Nama Kitab</label>
+                <input id="nama_kitab" type="text" name="nama_kitab">
+            </div>
+            <div>
+                <label for="kategori">Kategori</label>
+                <input id="kategori" type="dropdown" name="kategori">
+            </div>
+            <div>
+                <label for="level">Level</label>
+                <input id="level" type="dropdown" name="level">
+            </div>
+            <div>
+                <label for="jumlah_bab">Bab</label>
+                <input id="jumlah_bab" type="text" name="jumlah_bab">
+            </div>
+            <div>
+                <label for="jumlah_bait">Bait</label>
+                <input id="jumlah_bait" type="text" name="jumlah_bait">
+            </div>
+            <div>
+                <label for="jumlah_halaman">Halaman</label>
+                <input id="jumlah_halaman" type="text" name="jumlah_halaman">
+            </div>
+            <div>
+                <label for="nama_pengarang">Pengarang</label>
+                <input id="nama_pengarang" type="text" name="nama_pengarang">
+            </div>
+            <button type="submit">Simpan</button>
+        </form>
+    </div>
+</body>
+</html>
