@@ -63,7 +63,8 @@ def kategori(req):
         'kategori':kategori,
     })
 
-def kitab(req):
+
+def datakitab(req):
     if req.POST:
         models.Kitab.objects.create(
             nama_kitab=req.POST['nama_kitab'],
